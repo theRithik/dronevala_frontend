@@ -1,0 +1,137 @@
+
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+
+body::-webkit-scrollbar-track
+{
+    display: none;
+    background-color: var(--custom-white);
+}
+
+body::-webkit-scrollbar
+{
+  width: 5px;
+
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #e0dbdb;
+}
+
+:root{
+    --heading-size:18px;
+    --color1:rgb(34, 153, 151);
+    --color2blue:#0b1a46;
+}
+
+.centerText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading1{
+    color: var(--color1);
+    font-weight: 700;
+    text-align: center;
+    font-size: 25px;
+}
+
+.heading2{
+    color:  var(--color2blue);
+    font-weight: 700;
+    text-align: center;
+    font-size: 23px;
+}
+
+.ptext{
+    text-align: center;
+    font-size: 13px;
+    width: 70%;
+    margin-top: 20px;
+    color: grey;
+    font-weight: 500;
+}
+
+.card{
+    border-radius: 30px;
+    margin: 1%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    img{
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        width: 100%;
+        height: 292px;
+    }
+    h6{
+        font-weight: 600;
+        font-size: 16px;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+
+.button{
+    border:none;
+    background:var(--color1);
+    color: aliceblue;
+    padding: 10px 25px 10px 25px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.button:hover{
+    background: #0b1a46;
+}
+
+
+
+.card2{
+    border-radius: 20px;
+    margin: 2%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 14rem;
+    border:1px solid #e2e2e2;
+    img{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 100%;
+        height: 150px;
+    }
+    h6{
+        font-weight: 600;
+        font-size: 12px;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+@media screen and (max-width:650px) {
+    .heading1{
+        font-size: 20px;
+    }
+    .heading2{
+        font-size: 20px;
+    }
+    .ptext{
+        width: 90%;
+    }
+}
