@@ -52,3 +52,25 @@
     }
   
 }
+
+.note{
+    font-size: 10px;
+    padding: 7px 20px;
+    color: rgb(16, 16, 16);
+    background: rgb(89, 228, 225);
+    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    span{
+        margin-left: auto;
+        margin-right: 40px;
+    }
+}
+
+@media screen and (max-width:650px){
+
+    #navbarhead{
+        backdrop-filter: blur(3px);
+        background: #0000006b !important;
+    }
+}

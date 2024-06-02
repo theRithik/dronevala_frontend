@@ -1,0 +1,250 @@
+.acadmain1{
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    h1{
+        color:  var(--color1);
+    font-weight: 700;
+    font-size: 40px;
+    }
+}
+
+.acdbanner{
+    width: 100%;
+    height: 300px;
+}
+
+.filtertab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color2blue);
+    padding: 5px;
+    gap: 20px;
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+
+.acddiv{
+    /* padding-left: 10%;
+    padding-right: 10%; */
+    padding-top: 5%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+
+.button2{
+    border:none;
+    background:var(--color1);
+    color: aliceblue;
+    padding: 10px 25px 10px 25px;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    i{
+        padding-left: 5px;
+        
+    }
+}
+
+.button2.mve:hover{
+    background: #0b1a46;
+    i{
+        transform: translateX(5px);
+       
+    }
+}
+
+
+
+
+.placeholder{
+    border-radius: 5px;
+}
+
+
+@media screen and (max-width:650px){
+    .acdbanner{
+        height: 30%;
+    }
+    
+    .acadmain1{
+        h1{
+            font-size: 25px;
+        }
+        p{
+            font-size: 12px !important;
+        }
+    }
+}
+
+.color1text{
+font-size: 20px;
+color: var(--color1);
+font-weight: 600;
+}
+
+.color2text{
+    font-size: 30px;
+    color: var(--color2blue);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.acdetail1div{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    p{
+        font-size: 12px;
+        color: grey;
+        font-weight: 500;
+        span{
+            color: var(--color1);
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+    h5{
+        font-size: 16px;
+        font-weight: 600;
+
+    }
+    h6{
+        font-size: 12px;
+        color: grey;
+        line-height: 1.8;
+        font-weight: 500;
+    }
+}
+
+.acddiv1{
+    padding: 30px 10% 10px 0;
+}
+
+.normalText{
+    font-size: 13px;
+    font-weight: 500;
+    color: grey;
+    line-height: 200%;
+    text-align: justify;
+}
+
+.sectiondiv{
+    margin-bottom: 30px;
+}
+
+.checktext{
+    padding: 2px ;
+    i{
+        padding: 3px 5px;
+    background: var(--color1);
+    border-radius: 30px;
+    color: aliceblue;
+    font-size: 10px;
+    }
+    span{
+        color: grey;
+    font-weight: 500;
+    font-size: 13px;
+    padding-left: 10px;
+    }
+}
+
+.coursefor{  
+    font-size: 13px;
+    padding: 15px;
+    background: var(--color2blue);
+    border-radius: 10px;
+    color: rgb(226, 228, 228);
+    width: fit-content;
+    line-height: 200%;
+    margin-top: 20px;
+}
+
+.highlightCol{
+    color: #4e4e4f;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.trainericon{
+    font-size: 108px;
+    padding: 7px 30px;
+    background: rgb(127, 229, 227);
+    color: rgb(190, 239, 237);
+    border-radius: 10px;
+}
+.reviewCard{
+
+.reviewCard2{
+    display: flex;
+    gap: 20px;
+    position: relative;
+    flex-wrap: wrap;
+    h1{
+        font-size:20px;
+        width: fit-content;
+        padding: 15px 20px;
+        background: var(--color1);
+        border-radius: 50%;
+    }
+    .revdiv2{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+       
+        h6{
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        p{
+            font-size: 10px;
+            color: grey;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+    }
+    .revrating{
+        display: flex;
+        gap: 10px;
+        margin-left: auto;
+        align-items: center;
+        h2{
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+}
+
+
+.card5.detailCd{
+    position: sticky;
+    top: 10px;
+    width: 19rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width:768px) {
+    .acddiv1{
+        padding: 10%;
+    }
+
+    .academyDetailPage{
+        overflow-x: hidden;
+    }
+}

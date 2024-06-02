@@ -54,6 +54,8 @@ body::-webkit-scrollbar-thumb
     font-size: 23px;
 }
 
+
+
 .ptext{
     text-align: center;
     font-size: 13px;
@@ -99,6 +101,19 @@ body::-webkit-scrollbar-thumb
     background: #0b1a46;
 }
 
+.button3{
+    border:none;
+    background:var(--color2blue);
+    color: aliceblue;
+    padding: 10px 25px 10px 25px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.button3:hover{
+    background:var(--color1);
+}
+
 
 
 .card2{
@@ -134,4 +149,174 @@ body::-webkit-scrollbar-thumb
     .ptext{
         width: 90%;
     }
+}
+
+
+/* Academy main page style */
+
+.pstyle{
+    font-size: 13px;
+    color: rgb(215, 215, 215);
+    font-weight: 500;
+    text-align: center;
+}
+
+.littletext{
+    font-size: 11px;
+    text-align: center;
+    font-weight: 500;
+    color: grey;
+}
+
+/* .form-control:active,.form-control:focus{
+    box-shadow: none;
+    } */
+
+.inputStyle{
+    width: 200px;
+    border-radius: 15px;
+    border-color: #0b1a46;
+    font-size: 14px;
+}
+
+.buttonstyle{
+    background-color: var(--color1);
+    border-color: var(--color1);
+}
+
+.buttonstyle:hover{
+    background-color: var(--color2blue) !important;
+    border-color: var(--color2blue) !important;
+}
+
+.button:active,.button:focus{
+    background-color: var(--color2blue);
+    border-color: var(--color2blue);
+}
+
+.card5{
+    width: 16rem;
+    border-radius: 20px;
+.card5img{
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+    .card-body{
+        border: 1px solid rgb(218, 217, 217);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        h3{
+            font-size: 14px;
+            background: #e0dbdb;
+            padding: 10px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--color2blue);
+        }
+        div{
+            padding: 10px;
+            h6{
+                font-size: 12px;
+                color: grey;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                span{
+                padding-right: 4px;
+                }
+            }
+            h5{
+                font-size: 13px;
+                padding: 5px;
+                /* display: flex; */
+                /* align-items: center; */
+                i{
+                    color: var(--color1);
+                    font-size: 20px;
+                }
+            }
+            p{
+                font-size: 9px;
+                font-weight: 500;
+                padding-left: 14px;
+                margin-bottom: 0;
+                span{
+                    font-size: 14px;
+                    color: var(--color1);
+                    font-weight: 600;
+                    padding-left: 5px;
+                }
+            }
+            button{
+                font-size: 12px;
+                margin-bottom: 20px;
+                display: flex;
+                i{
+                    padding-left: 5px;
+                }
+            }
+            
+            h4{
+                font-size: 13px;
+                color: grey;
+                margin-bottom: 15px;
+                span{
+                    color: var(--color2blue);
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+.button.beff:hover{
+    .bi-arrow-right{
+        transform: translateX(5px);
+    }
+}
+
+.button{
+    font-size: 14px;
+}
+
+button:disabled,button:disabled:hover{
+    background-color: rgb(225, 224, 224);
+    color: #0b1a46;
+    opacity: .3;
+}
+
+.inputbox{
+    border:1px solid rgba(199, 198, 198, 0.815);
+    padding: 7px 40px 7px 35px;
+    border-radius: 20px;
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.inputbox:focus{
+   outline: none;
+   
+}
+
+.inputbox::selection{
+    border-color: #de7914;
+}
+
+.loginCard{
+   background:#fff;
+   border-radius:20px;
+   padding:20px;
+   position:relative;
+   box-shadow: 0 0 10px rgb(214, 213, 213);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

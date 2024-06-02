@@ -1,16 +1,32 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import { Link, Outlet } from "react-router-dom";
 import './header.css'
 import Footer from "./footer";
 const Header =()=>{
+
+  const [note,setNote]=useState(true)
+
+  useEffect(()=>{
+const tk = localStorage.getItem('token')
+if(tk){
+  setNote(false)
+}
+else{
+  setNote(true)
+}
+  },[])
+
     return(
         <>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbarhead">
+        {note &&
+        <div className="note"> We provide comprehensive drone solutions to meet all your aerial needs  <span><Link to="/login" style={{color:'inherit'}}> LOGIN </Link>| <Link to="/register" style={{color:'inherit'}}>SIGNUP</Link></span></div>
+        }
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbarhead">
   <div class="container-fluid">
     <Link class="navbar-brand" className="hdlogo" to="/">
       <img src="/images/dronevala.png" alt="logo"/>
     </Link>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" style={{background:'#f0f8ffa6'}} data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -19,7 +35,7 @@ const Header =()=>{
           <Link class="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li class="nav-item">
-          <Link class="nav-link" to="/">Academy</Link>
+          <Link class="nav-link" to="/academy">Academy</Link>
         </li>
         <li class="nav-item">
           <Link class="nav-link" to="/">Service</Link>
@@ -29,6 +45,9 @@ const Header =()=>{
         </li> 
         <li class="nav-item">
           <Link class="nav-link" to="/">Store</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/aboutus">About</Link>
         </li>
        
       </ul>

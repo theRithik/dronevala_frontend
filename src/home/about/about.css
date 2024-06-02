@@ -1,0 +1,26 @@
+.botborder{
+    width: 100px;
+    height: 4px;
+    border-radius: 20px;
+    background-color: var(--color1);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.italicFont{
+    color:grey;
+        font-size:16px;
+        font-style:italic;
+        font-weight:100;
+}
+
+.abouth1{
+    font-size: 50px !important;
+}
+
+@media screen and (max-width:650px){
+    .abouth1{
+        font-size: 25px !important;
+    }
+    
+}
