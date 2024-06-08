@@ -68,7 +68,7 @@ const UserRegister=()=>{
                     <h6 className="heading2" style={{fontSize:16,fontWeight:500}}>Access Your Account and Soar Higher</h6>
                 <p className="normalText" style={{textAlign:'center'}}>Login to manage your bookings, track your progress, and explore exclusive member benefits.</p>
                <Link to="/login" style={{fontSize:14,color:'rgb(34, 153, 151)',fontWeight:600,marginBottom:30}}>Click here to Login</Link>
-               <Link to="/admin/login" style={{position:'absolute',right:20,bottom:20,fontWeight:500,fontSize:13,color:'rgb(34, 153, 151)'}}> Vender Register here </Link>
+               <Link to="/vendor/login" style={{position:'absolute',right:20,bottom:20,fontWeight:500,fontSize:13,color:'rgb(34, 153, 151)'}}> Vender Register here </Link>
                 </div>
 </div>
             </div>

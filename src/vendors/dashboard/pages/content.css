@@ -1,0 +1,115 @@
+.homesection .cal-cn{
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+.rbc-off-range-bg{
+    background-color: transparent !important;
+}
+
+.dark .homesection .cal-cn{
+    background-color: #1d1c1c;
+}
+
+.rbc-month-row{
+    border: none !important;
+} 
+
+.rbc-month-view{
+    border-color: transparent !important;
+}
+.rbc-header{
+    padding: 10px;
+    border-bottom: none;
+}
+
+.rbc-btn-group {
+white-space: wrap;
+
+}
+.rbc-btn-group button{
+    border: 1px solid #f2eded;
+    border-radius: 20px;
+}
+.rbc-active{
+    background-color: #d0d9ef !important;
+    border-color: #f5f8ff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 2px #f5f8ff !important;
+}
+
+.rbc-btn-group button:hover{
+    background-color: #d0d9ef !important;
+    border-color: #f5f8ff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0 2px #f5f8ff !important;
+}
+.rbc-month-row {
+    justify-content: center;
+}
+
+.rbc-day-bg{
+    border: 1px solid #f2eded;
+    border-radius: 9px;
+    margin: 5px;
+}
+.rbc-date-cell{
+    text-align: center;
+}
+
+.rbc-header + .rbc-header{
+    border-left: none !important;
+}
+
+.rbc-day-bg + .rbc-day-bg{
+    border-left: 1px solid inherit !important;
+}
+
+@media screen and (max-width:550px) {
+    .rbc-toolbar-label{
+        padding: 20px !important;
+    }
+}
+
+
+.dark .homesection .rbc-btn-group button{
+    border-color: #2f2e2e;
+    color: grey;
+    background-color: #2f2e2e;
+}
+
+.dark .homesection .rbc-btn-group button:hover ,.dark .homesection .rbc-btn-group .rbc-active,.dark .homesection .rbc-btn-group button:active{
+    background-color: black !important;
+    color: #fff !important;
+    border-color: #1d1c1c !important;
+    box-shadow: 0 0 2px black !important;
+}
+
+.dark .homesection .rbc-toolbar-label{
+    color: grey;
+}
+.dark .homesection .rbc-header span{
+    color: #d0d9ef;
+}
+.dark .homesection .rbc-off-range button{
+    color: #3a3a3a !important;
+}
+
+.dark .homesection .rbc-day-bg{
+    border-color: #383636;
+}
+
+.dark .homesection .rbc-date-cell button{
+    color: grey;
+}
+
+.dark .homesection .rbc-today{
+    background-color: rgb(14, 14, 14);
+    border-color: black;
+    color: #d0d9ef;
+}
+
+/* .dark .homesection .rbc-now.rbc-current button{
+    color: #d0d9ef;
+} */

@@ -60,7 +60,7 @@ const UserLogin=()=>{
                     <h6 className="heading2" style={{fontSize:16,fontWeight:500}}>Sign Up and Start Your Drone Journey</h6>
                 <p className="normalText" style={{textAlign:'center'}}>Create an account to access our comprehensive drone services,enroll in training programs, rent equipment, and shop for high-quality drones and accessories</p>
                <Link to="/register" style={{fontSize:14,color:'rgb(34, 153, 151)',fontWeight:600,marginBottom:30}}>Click here to Signup</Link>
-               <Link to="/admin/login" style={{position:'absolute',right:20,bottom:20,fontWeight:500,fontSize:13,color:'rgb(34, 153, 151)'}}> Vender Login here </Link>
+               <Link to="/vendor/login" style={{position:'absolute',right:20,bottom:20,fontWeight:500,fontSize:13,color:'rgb(34, 153, 151)'}}> Vender Login here </Link>
                 </div>
 </div>
             </div>

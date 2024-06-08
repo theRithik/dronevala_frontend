@@ -33,6 +33,9 @@ body::-webkit-scrollbar-thumb
     --color2blue:#0b1a46;
 }
 
+a{
+    text-decoration: none;
+}
 .centerText{
     display: flex;
     flex-direction: column;
