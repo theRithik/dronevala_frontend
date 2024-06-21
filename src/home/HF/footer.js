@@ -4,13 +4,13 @@ import './footer.css'
 const Footer =()=>{
     return(
         <>
-          <footer style={{position:'relative',bottom:'0',marginTop:'100px',backgroundColor:'#0b1a46',paddingTop:'50px',paddingBottom:'74px',overflowX:'hidden'}} >
+          <footer style={{position:'relative',bottom:'0',backgroundColor:'#0b1a46',paddingTop:'50px',paddingBottom:'74px',overflowX:'hidden'}} >
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-4">
                         <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
                             <div style={{display:'flex',alignItems:'center',justifyContent:'center',marginBottom:20}}>
-                            <img src="/images/logo.png" style={{width:'20%'}} alt="dronevala"/>
+                            <img src="/images/logo.png" width="100px" alt="dronevala"/>
                         <h4 style={{paddingLeft:'10px',color:'rgb(226, 228, 228)'}}>Dronevala</h4>
                         </div>
                         </div>

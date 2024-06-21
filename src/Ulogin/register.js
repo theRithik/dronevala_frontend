@@ -26,7 +26,7 @@ const UserRegister=()=>{
         <>
         <div  className="userLoginPage" >
             <div style={{position:'relative'}}>
-            <img src="/images/back3.webp" alt="academy" className="acdbanner"/>
+            <img src="/images/heading1.webp" alt="academy" className="acdbannerlogin"/>
             <div className="acadmain1">
                 <h1 >Register</h1>
                 <p className="pstyle">Innovative Aerial Solutions for Every Need</p>
@@ -67,8 +67,8 @@ const UserRegister=()=>{
                     <h2 className="heading2">Already have account?</h2>
                     <h6 className="heading2" style={{fontSize:16,fontWeight:500}}>Access Your Account and Soar Higher</h6>
                 <p className="normalText" style={{textAlign:'center'}}>Login to manage your bookings, track your progress, and explore exclusive member benefits.</p>
-               <Link to="/login" style={{fontSize:14,color:'rgb(34, 153, 151)',fontWeight:600,marginBottom:30}}>Click here to Login</Link>
-               <Link to="/vendor/login" style={{position:'absolute',right:20,bottom:20,fontWeight:500,fontSize:13,color:'rgb(34, 153, 151)'}}> Vender Register here </Link>
+               <Link to="/login" style={{fontSize:14,color:'#ffa500',fontWeight:600,marginBottom:30}}>Click here to Login</Link>
+               <Link to="/vendor/login" style={{position:'absolute',right:20,bottom:20,fontWeight:500,fontSize:13,color:'#ffa500'}}> Vender Register here </Link>
                 </div>
 </div>
             </div>

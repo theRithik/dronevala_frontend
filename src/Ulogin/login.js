@@ -2,6 +2,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
 import Googlelogin from "./googleLogin";
+import './register.css'
 
 const UserLogin=()=>{
     useEffect(()=>{
@@ -25,7 +26,7 @@ const UserLogin=()=>{
         <>
         <div  className="userLoginPage" >
             <div style={{position:'relative'}}>
-            <img src="/images/back3.webp" alt="academy" className="acdbanner"/>
+            <img src="/images/heading1.webp" alt="academy" className="acdbannerlogin"/>
             <div className="acadmain1">
                 <h1 >Login</h1>
                 <p className="pstyle">Innovative Aerial Solutions for Every Need</p>
@@ -59,8 +60,8 @@ const UserLogin=()=>{
                     <h2 className="heading2">New user?</h2>
                     <h6 className="heading2" style={{fontSize:16,fontWeight:500}}>Sign Up and Start Your Drone Journey</h6>
                 <p className="normalText" style={{textAlign:'center'}}>Create an account to access our comprehensive drone services,enroll in training programs, rent equipment, and shop for high-quality drones and accessories</p>
-               <Link to="/register" style={{fontSize:14,color:'rgb(34, 153, 151)',fontWeight:600,marginBottom:30}}>Click here to Signup</Link>
-               <Link to="/vendor/login" style={{position:'absolute',right:20,bottom:20,fontWeight:500,fontSize:13,color:'rgb(34, 153, 151)'}}> Vender Login here </Link>
+               <Link to="/register" style={{fontSize:14,color:'orange',fontWeight:600,marginBottom:30}}>Click here to Signup</Link>
+               <Link to="/vendor/login" style={{position:'absolute',right:20,bottom:20,fontWeight:500,fontSize:13,color:'orange'}}> Vender Login here </Link>
                 </div>
 </div>
             </div>

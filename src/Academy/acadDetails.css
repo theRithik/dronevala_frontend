@@ -1,0 +1,354 @@
+.acdbanner{
+    border-radius: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+.acadmain1{
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    padding: 35px;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+max-width: 50%;
+    h1{
+        font-size: 20px;
+        color: var(--color1);
+    }
+    h2{
+        font-size: 30px;
+        color: var(--secoundryblue);
+        font-weight: 700;
+    }
+    .mainP{
+        font-size: 12px;
+    color: var(--darkgrey);
+    font-weight: 500;
+    text-align: justify;
+    margin-top: 20px;
+    line-height: 200%;
+    }
+}
+
+.main1Div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    margin-top: 5%;
+}
+.acdheading{
+    font-size: var(--largeFont);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.mainnumeff{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    h3{
+        font-size: 40px;
+        color: var(--secoundryblue);
+        margin-bottom: 0;
+    }
+    p{
+        margin-bottom: 0;
+        font-size: 8px;
+        color: var(--darkgrey);
+        font-weight: 500;
+        margin-top: 5px;
+    }
+    span{
+        font-size: 10px;
+        color: var(--darkgrey);
+        font-weight: 800;
+    }
+}
+.acdtext{
+    font-size: var(--normalFont);
+    line-height: var(--lineheight);
+    text-align: justify;
+    word-spacing: 2px;
+    color: grey;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.plusicon{
+    font-size: 20px;
+    color: grey;
+}
+
+.cgetcard{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primarygrey);
+    border-radius: 20px;
+    position: relative;
+    p{
+        font-size: 10px;
+        font-weight: 500;
+        line-height: var(--lineheight);
+        margin-bottom: 0;
+    }
+}
+
+.acdspan{
+    font-size: 17px;
+    color: rgb(50, 48, 48);
+    font-weight: 600;
+    line-height: var(--lineheight);
+    word-spacing: 2px;
+}
+
+.choosecard{
+    padding: 30px;
+    background: var(--primarygrey);
+    border-radius:40px;
+    max-width: 300px;
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    transition: .5s ease;
+   
+    i{
+        position: absolute;
+        top:10px;
+        right: 20px;
+    }
+    p{
+        font-size: 11px;
+        color: var(--darkgrey);
+        text-align: center;
+    }
+}
+
+.choosecard:hover{
+    box-shadow: -11px 20px 10px rgb(207, 206, 206);
+    transition: .5s ease;
+}
+
+.acddiv3{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.trainerCard{
+    padding: 20px;
+    background: var(--orangebackground);
+    border-radius: 30px;
+    margin-bottom: 30px;
+    transition: .5s ease;
+    position: relative;
+}
+.trainerCard:hover{
+    box-shadow: -11px 20px 10px rgb(207, 206, 206);
+    transition: .5s ease;
+}
+
+.trainericon{
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    width: fit-content;
+}
+.cgallerycontainer{
+    overflow: hidden;
+    margin-top: 30px;
+    position: relative;
+    padding: 30px;
+}
+
+.cgallery{
+    display: flex;
+    gap: 30px;
+    overflow-x: scroll;
+    border-radius: 20px;
+    img{
+        border-radius: 30px;
+        width: 210px;
+    }
+}
+.cgallery::-webkit-scrollbar{
+    display: none;
+}
+
+.ariconlef{
+    position: absolute;
+    top: 45%;
+    left: 0px;
+    cursor: pointer;
+    background: #edeeef;
+        padding: 8px 12px 8px 12px;
+        border-radius: 30px;
+        color: #aeb0b1;
+        z-index: 3;
+    }
+    
+    .ariconlef:hover{
+        background: #9c9e9e;
+        color: aliceblue;
+    }
+    
+    .ariconrig{
+        position: absolute;
+        right: 0px;
+        top: 45%;
+        cursor: pointer;
+    background: #edeeef;
+        padding: 8px 12px 8px 12px;
+        border-radius: 30px;
+        color: #aeb0b1;
+        z-index: 3;
+    }
+    
+    .ariconrig:hover{
+        background: #9c9e9e;
+        color: aliceblue;
+    }
+
+    .trainerImg{
+    max-width:150px;
+    border-radius:30
+    }
+    .reviewDiv{
+    padding:5%;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center
+    }
+    
+    .reviewcard{
+        padding: 30px;
+        border-radius: 30px;
+        background: var(--primarygrey);
+        max-width: 400px;
+        z-index: 2;
+    }
+
+    .reviewImg{
+        position: absolute;
+        left: 0;
+        max-width: 300px;
+    }
+
+    .acdetailcard{
+    margin: 5%;
+    padding: 20px;
+    border-radius: 30px;
+    background: var(--orangebackground);
+    position: sticky;
+    top: 20px;
+    cursor: pointer;
+    transition: .5s ease;
+    .arrup{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    }
+
+    .acdetailcard:hover{
+        box-shadow: -11px 20px 10px rgb(207, 206, 206);
+        transition: .5s ease;
+    }
+
+    .acdpricetext1{
+        font-size: .7rem; 
+        color: orange;
+        line-height: 150%;
+        margin-bottom: 0;
+
+    }
+    .acdpricetext{
+        font-size: 15px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        span{
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    .acdpricenote{
+        font-size: .5rem;
+        line-height: 180%;
+        word-spacing: 1.5px;
+    }
+
+    .price{
+        font-size: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       
+        span{
+            color: var(--secoundryblue);
+            font-size: 30px;
+            font-weight: 600;
+        }
+    }
+
+    .pricebutton{
+        padding: 10px 20px;
+        font-size: .7rem;
+        border-radius: 20px;
+        outline: none;
+        border:1px solid transparent;
+        background: var(--color1);
+    }
+    .pricebutton:hover{
+        background: var(--secoundryblue);
+        color: #fff;
+       .bi-arrow-right{
+            transform: translateX(5px);
+        }
+    }
+    
+
+@media screen and (max-width:730px) {
+    .acadmain1{
+        max-width: 90%;
+        h1{
+            font-size: 15px;
+        }
+        h2{
+            font-size: 20px;
+        }
+        .mainP{
+            font-size: 12px;
+        }
+        .main1Div{
+            gap: 10px;
+            .mainnumeff{
+                h3{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+    @media screen and (max-width:650px){
+        .reviewImg{
+            position: relative;
+            max-width: 200px;
+        }
+        .reviewDiv{
+            padding: 0;
+        }
+        .trainerImg{
+            width: 100px;
+        }  
+    }

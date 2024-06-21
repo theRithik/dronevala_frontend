@@ -1,3 +1,14 @@
+
+#carouselExampleRide{
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+    border-radius: 30px;
+    .carousel-inner{
+        border-radius: 30px;
+    }
+}
+
 .carousel-control-prev{
     width: 10%;
     i{
@@ -55,7 +66,7 @@ h1{
 h2{
     font-size: 40px;
     font-weight: 1000;
-    color: var(--color2blue);
+    color: var(--secoundryblue);
 }
 h6{
     margin-top: 30px;
@@ -71,14 +82,378 @@ button{
     background: var(--color1);
     padding: 10px 25px 10px 25px;
     border-radius: 30px;
-    color: #fff;
+    font-weight: 500;
+    color: #000000;
     border-color: var(--color1);
     border:none
 }
     }
 }
 
+
+.greycard{
+    border-radius: 20px;
+    background:var(--greygradient);
+    padding: 30px;
+position: relative;
+    .colorEffect{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-image: url('/public/images/bk.png');
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+    }
+
+    .num{
+        background:var(--orangegreengradient);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-size:60px;
+        font-weight: 300;
+    }
+
+    .content{
+        margin-top: 20px;
+        h6{
+            font-weight: 400;
+            font-size: var(--largeFont);
+
+        }
+        p{
+            font-weight: 200;
+            font-size: var(--smallFont);
+            width: 90%;
+            line-height: 150%;
+            word-spacing: 2px;
+        }
+    }
+    img{
+        width: 100%;
+        position: absolute;
+        bottom: 10px;
+
+    }
+}
+
+
+.greycard2{
+    border-radius: 20px;
+    background:var(--greygradient);
+    padding: 30px;
+position: relative;
+    .colorEffect2{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-image: url('/public/images/bluebk.png');
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        border-radius: 20px;
+    }
+
+    .num2{
+        background:var(--lightbluegradient);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-size:60px;
+        font-weight: 300;
+    }
+
+    .content{
+        margin-top: 20px;
+        h6{
+            font-weight: 400;
+            font-size: var(--largeFont);
+
+        }
+        p{
+            font-weight: 200;
+            font-size: var(--smallFont);
+            width: 90%;
+            line-height: 150%;
+            word-spacing: 2px;
+        }
+    }
+    img{
+        width: 100%;
+        position: absolute;
+        bottom: 10px;
+
+    }
+}
+
+
+.greycard3{
+    border-radius: 20px;
+    background:var(--greygradient);
+    padding: 30px;
+position: relative;
+max-width: 800px;
+    .colorEffect3{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-image: url('/public/images/violetbk.png');
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
+        border-radius: 20px;
+    }
+
+    .num3{
+        background:var(--orangegradient);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-size:60px;
+        font-weight: 300;
+    }
+
+    .content{
+        margin-top: 20px;
+        h6{
+            font-weight: 400;
+            font-size: var(--largeFont);
+
+        }
+        p{
+            font-weight: 200;
+            font-size: var(--smallFont);
+            width: 90%;
+            line-height: 150%;
+            word-spacing: 2px;
+        }
+    }
+    img{
+        width: 100%;
+        position: absolute;
+        bottom: 10px;
+
+    }
+}
+
+.smalltext{
+    font-size: var(--smallFont);
+    line-height: var(--lineheight);
+    text-align: justify;
+    word-spacing: 2px;
+    color: grey;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.smallheading{
+    font-size: var(--largeFont);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+
+.acdcard{
+    width: 16rem;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 300px;
+    img{
+        width: 100%;
+        height: 200px;
+    }
+    .cardbody{
+        margin: 5px;
+        position: relative;
+        bottom: 60px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 30px;
+        box-shadow: -1px 0 10px rgb(208, 207, 207);
+        max-height: 150px;
+        h3{
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--secoundryblue);
+            margin-top: 0;
+        }
+        div{
+            h6{
+                font-size:10px ;
+                color: var(--black);
+                overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+            }
+            p{
+                font-size: var(--largeFont);
+                color: var(--black);
+                margin-bottom: 2px;
+            }
+            h5{
+                font-size: var(--smallFont);
+                color: grey;
+                i{
+                    color: orange;
+                }
+               
+            }
+            .likeicon{
+                color: orange;
+                font-size: var(--mediumFont);
+                padding: 5px 10px;
+                margin-left: auto;
+                background-color: var(--primarygrey);
+                border-radius: 30px;
+                margin-top: 3px;
+            }
+        }
+    }
+ }
+
+
+.card2{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    background-color: var(--primarygrey);
+    max-width: 370px;
+    /* min-height: 370px; */
+position: relative;
+box-shadow: 0 0 10px rgb(223, 220, 220);
+overflow: hidden;
+   margin-bottom: 20px;
+   transition: .5s ease;
+    img{
+        width: 30px;
+        margin-bottom: 20px;
+        z-index: 2;
+        position: relative;
+    }
+    
+    i{
+        font-size: 30px;
+        position: relative;
+        bottom: 12px;
+      
+    }
+    i.arricon{
+        position: absolute;
+        font-size: 20px;
+        color: var(--color1);
+        top: 13px;
+        right: 18px;
+        height: fit-content;
+    }
+    h6{
+        text-align: center;
+    }
+    p{
+        text-align: center;
+    }
+    .content{
+        margin-top: 10px;
+        z-index: 2;
+        position: relative;
+    }
+}
+
+.card2:hover{
+    box-shadow: -11px 20px 10px rgb(207, 206, 206);
+    transition: .8s ease;
+}
+
+.imgscen{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    gap: 40px;
+}
+
+.imgcard:hover{
+    box-shadow: -11px 20px 10px rgb(207, 206, 206);
+    transition: .8s ease;
+    transform: rotateZ(10deg);
+}
+
+.imgcard{
+    max-width: 300px;
+    height: 400px;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: .5s ease;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    i{
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        padding: 2px 5px 0px;
+        border-radius: 50%;
+        background: #fff;
+        color: var(--color1);
+      
+        width: fit-content;
+    }
+    .imgcontent{
+        position: absolute;
+        bottom: 0;
+        padding: 10px;
+        left: 10px;
+        h5{
+            font-size: var(--largeFont);
+            font-weight: 600;
+            color: #fff;
+        }
+    }
+}
+
+.homecaro2{
+    display: none !important;
+}
+
+@media screen and (max-width:768px){
+    .greycard,.greycard2,.greycard3{
+        img{
+            position: relative;
+        }
+    }
+    .homecaro{
+        display: none !important;
+    }
+    .homecaro2{
+        display: block !important;
+    }
+    
+}
+
 @media screen and (max-width:650px) {
+    #carouselExampleRide{
+        width: 95%;
+        height: 90vh;
+        .carousel-inner{
+            height: 90vh;
+            img{
+                height: 90vh;
+            }
+        }
+    }
     .carousel-item{
         div{
             padding-top: 30%;
@@ -112,6 +487,7 @@ button{
     justify-content: center;
     align-items: center;
     margin-top: 5%;
+    gap: 20px;
 }
 
 .hmsec4{
@@ -123,10 +499,12 @@ button{
     .hmsechid{
         display: flex;
         overflow-x: scroll;
+        gap: 30px;
     }
     .hmsechid2{
         display: flex;
         overflow-x: scroll; 
+        gap: 30px;
     }
 }
 
@@ -154,12 +532,17 @@ button{
     border-radius: 20px;
     margin: 40px 10px 10px 10px;
     background: #fff;
+    position: relative;
+
+    
+
     img{
         position: absolute;
         top:-40px;
         width: 12rem;
         border-radius: 20px;
     }
+
     div{
         position: relative;
         top: 65px;
@@ -288,7 +671,7 @@ overflow-x: scroll;
 .coutab .courseC:nth-child(even){
     
         span{
-            background-color: var(--color2blue);
+            background-color: var(--secoundryblue);
     }
    
 }

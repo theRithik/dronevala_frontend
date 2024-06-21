@@ -15,6 +15,19 @@ addGallery:"",
 addViedo:"",
 updateCourseDate:"/admin/courseStartDate",
 
+// user Routes
+// Academy
+AllCourses:"/user/user",
+academyBanner:"/user/getImageBanner",
+academyDetails:"/user/fullcourseDetails",
+getCourseSyllabus:"/user/getSyllabus",
+getTrainer:"/user/getTrainers",
+getReviews:'/user/getreviews',
+getBanner:"/user/getImageBanner",
+
+// Services
+AllServices:'/user/serviceDetails'
+
 }
 
 export default endpoints

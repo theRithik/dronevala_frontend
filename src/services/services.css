@@ -1,0 +1,284 @@
+
+.servicePage{
+    background: var(--primarygrey);
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    position: relative;
+ }
+
+ .acdcard{
+    width: 16rem;
+    border-radius: 30px;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 200px;
+    }
+    .cardbody{
+        margin: 5px;
+        position: relative;
+        bottom: 60px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 30px;
+        box-shadow: -1px 0 10px rgb(208, 207, 207);
+        max-height: 150px;
+        h3{
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--secoundryblue);
+            margin-top: 0;
+        }
+        div{
+            h6{
+                font-size:10px ;
+                color: var(--black);
+                overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+            }
+            p{
+                font-size: var(--largeFont);
+                color: var(--black);
+                margin-bottom: 2px;
+            }
+            h5{
+                font-size: var(--smallFont);
+                color: grey;
+                i{
+                    color: orange;
+                }
+               
+            }
+            .likeicon{
+                color: orange;
+                font-size: var(--mediumFont);
+                padding: 5px 10px;
+                margin-left: auto;
+                background-color: var(--primarygrey);
+                border-radius: 30px;
+                margin-top: 3px;
+            }
+        }
+    }
+ }
+
+ .rightsection{
+    background-color: #fff;
+    padding: 20px;
+    width: 75%;
+    border-radius: 20px;
+    transition: .5s;
+    h3{
+        font-size: var(--largeFont);
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    p{
+        font-size: var(--smallFont);
+        font-weight: 500;
+        color: grey;
+    }
+    .Pcount{
+        font-size: var(--mediumFont);
+        font-weight: 600;
+    }
+
+    .acddiv{
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        justify-content: center;
+    }
+ }
+ .filtericon{
+    padding: 5px 10px;
+    background-color: var(--color1);
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.leftsection::-webkit-scrollbar{
+    display: none;
+}
+ .leftsection{
+    width: 25%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    transition: .5s;
+    position: sticky;
+    top: 10px;
+    overflow-y: scroll;
+    height: 100vh;
+    h3{
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    h4{
+        font-size: 16px;
+        font-weight: 600;
+    }
+ }
+ .ant-picker-calendar-date-content{
+    height: 10px !important;
+ }
+ .menuElement{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    i{
+        color: grey;
+    }
+
+
+}
+.menuElement2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    h4{
+        margin-bottom: 0;
+    }
+    i{
+        color: grey;
+    }
+
+
+}
+
+.menuElement2.closeEff{
+    padding: 10px 20px;
+    background: var(--primarygrey);
+    border-radius: 10px;
+}
+
+.menuover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.submenuElements{
+    margin-top: 20px;
+    border: 1.5px solid;
+    border-color: var(--secoundrygrey);
+    padding: 10px 5px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;   
+}
+
+.submenuElements.close{
+    display: none !important;
+    transition: .5s;
+}
+
+.arrowdown{
+display: none;
+}
+.arrowdown.show{
+    display: block;
+}
+.arrowup.hide{
+    display: none;
+}
+
+.menubutton{
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 15px;
+    min-width: 47%;
+    background: var(--primarygrey);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.overlay{
+width: 100vw;
+height: 100vh;
+z-index: 2;
+background-color: rgba(0, 0, 0, 0.112);
+position: absolute;
+display: none;
+overflow: hidden;
+}
+
+.menubutton.menuclick{
+background-color: var(--color1);
+color: #fff;
+}
+
+.menubutton.menuclickloc,.menubutton.menuclickcou{
+background-color: var(--color1);
+color: #fff;
+}
+@media screen and (max-width:900px){
+    body.overflow{
+        overflow: hidden;
+    }
+    .leftsection{
+        display: none;
+    }
+    .rightsection{
+        width: 100%;
+    }
+    .filtericon{
+        background-color: var(--primarygrey);
+        color: black;
+    }
+    .leftsection.showFilter{
+        position: absolute !important;
+        right: 0% !important;
+        transition: .5s !important;
+        z-index: 3;
+        display: block;
+    width: 70%;
+    max-height: 90vh !important;
+    }
+   
+            .rightsection.fullcotent{
+                width: 100%;
+                transition: .5s;
+                .filtericon.filteroff{
+                    background-color: var(--color1);
+                    color:#fff;
+                        }
+                    
+            }
+
+            .overlay.showover{
+                display: block;
+            }
+}
+
+.leftsection.showFilter{
+    position: absolute;
+    right: -50%;
+    transition: .5s;
+}
+
+.filtericon.filteroff{
+background-color: var(--primarygrey);
+color: black;
+}
+
+.rightsection.fullcotent{
+    width: 100%;
+    transition: .5s;
+}

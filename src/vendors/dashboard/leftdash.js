@@ -8,7 +8,7 @@ import endpoints from "../../config/config";
 
 const Leftdash =()=>{
 const history = useNavigate()
-const [data,setData]=useState('')
+// const [data,setData]=useState('')
 const [value1,setValue1]=useState(false)
 const [value2,setValue2]=useState(false)
 const [value3,setValue3]=useState(false)

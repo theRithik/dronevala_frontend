@@ -3,6 +3,7 @@ import axiosInstance from "./axiosConfig"
 
 export const GetData=async(data)=>{
     try{
+        console.log(data)
         const response = await axiosInstance.get(`${data.endpoint}`)
         return response.data
     }

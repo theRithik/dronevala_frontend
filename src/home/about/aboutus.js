@@ -1,12 +1,25 @@
 import React from "react";
 import './about.css'
+import { Helmet } from "react-helmet-async";
+
 const About =()=>{
     return(
         <>
 
           <div  className="academyDetailPage" >
+          <Helmet>
+        <title>Dronevala</title>
+        <meta name="description" content="At Dronevala, we are passionate about harnessing the power of drones to revolutionize var ous industries. Founded on the principles of innovation, quality, and customer satisfaction Dronevala has quickly become a trusted name in the world of drone technology. Our mission is to provide cutting-edge drane services, training, rentals and products that cater to a wide ronge of applications and nonds." />
+        <meta name="keywords" content="about dronevala, aboutus,"/>
+        <link rel="canonical" href="https://dronevala.com/aboutus" />
+        <meta property="og:title" content="Dronevala - Aboutus" />
+        <meta property="og:url" content="https://dronevala.com/aboutus" />
+        <meta property="og:image" content="https://dronevala.com/images/logo.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Dronevala: Your One-Stop Solution for All Your Drone Needs"/>
+    </Helmet>
             <div style={{position:'relative'}}>
-            <img src="/images/h5.jpg" alt="academy" className="acdbanner"/>
+            <img src="/images/h5.jpg" alt="academy" className="acdbannerabout"/>
             <div className="acadmain1" style={{left:'5%'}}>
                 <h1 className="abouth1" >About Dronevala</h1>
                 <p className="pstyle">Innovative Aerial Solutions for Every Need</p>

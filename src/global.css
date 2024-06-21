@@ -10,14 +10,13 @@ body{
 body::-webkit-scrollbar-track
 {
     display: none;
-    background-color: var(--custom-white);
+   
 }
 
 body::-webkit-scrollbar
 {
-  width: 5px;
-
-  background-color: transparent;
+    display: none;
+ 
 }
 
 body::-webkit-scrollbar-thumb
@@ -28,9 +27,34 @@ body::-webkit-scrollbar-thumb
 }
 
 :root{
+    /* text */
     --heading-size:18px;
-    --color1:rgb(34, 153, 151);
-    --color2blue:#0b1a46;
+    --largeFont:25px;
+    --mediumFont:18px;
+    --normalFont:14px;
+    --smallFont:11px;
+    --lineheight:200%;
+    /* colors */
+
+
+    --color1:#ffa500;
+    --primaryorange:#ffa500;
+    --secoundryorange:#f8a813;
+    --lightorange:#fffbf6;
+    --orangebackground:#ffa9005e;
+    --primaryyellow:#f5f60d;
+    --secoundryblue:#0b1a46;
+    --primarygrey:#f5f5f5;
+    --secoundrygrey:#e5e5e5;
+    --darkgrey:#6b6464;
+    --primaryblue:#1037d4;
+    --black:#111111;
+    --multigradient:linear-gradient(270deg, #C7E4CC 14.58%, #FFCD1D 54.69%, #FB8B08 100%);
+    --orangegreengradient:linear-gradient(270deg, #C7E4CC 14.58%, #FFCD1D 54.69%, #FB8B08 100%);
+    --lightbluegradient:linear-gradient(89.52deg, #BCD5F7 0%, #91ABF6 71.35%, #BCDAFA 100%);
+    --orangegradient:linear-gradient(270deg, #FFA654 14.58%, #E39D6A 54.69%, #B2778B 100%);
+    --greygradient:linear-gradient(180deg, #0000000D 0%, #02010100 100%);
+
 }
 
 a{
@@ -44,14 +68,16 @@ a{
 }
 
 .heading1{
-    color: var(--color1);
+    background: var(--orangegreengradient);
     font-weight: 700;
     text-align: center;
     font-size: 25px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 
 .heading2{
-    color:  var(--color2blue);
+    color:  var(--secoundryblue);
     font-weight: 700;
     text-align: center;
     font-size: 23px;
@@ -93,20 +119,21 @@ a{
 
 .button{
     border:none;
-    background:var(--color1);
-    color: aliceblue;
+    background:var(--secoundryorange);
+    color: var(--black);
     padding: 10px 25px 10px 25px;
     border-radius: 30px;
     margin-top: 20px;
 }
 
-.button:hover{
+.button:hover,.button:focus,.button:active{
     background: #0b1a46;
+    color: #fff;
 }
 
 .button3{
     border:none;
-    background:var(--color2blue);
+    background:var(--secoundryblue);
     color: aliceblue;
     padding: 10px 25px 10px 25px;
     border-radius: 30px;
@@ -115,32 +142,6 @@ a{
 
 .button3:hover{
     background:var(--color1);
-}
-
-
-
-.card2{
-    border-radius: 20px;
-    margin: 2%;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 14rem;
-    border:1px solid #e2e2e2;
-    img{
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        width: 100%;
-        height: 150px;
-    }
-    h6{
-        font-weight: 600;
-        font-size: 12px;
-        margin-top: 10px;
-        text-align: center;
-    }
 }
 @media screen and (max-width:650px) {
     .heading1{
@@ -159,7 +160,7 @@ a{
 
 .pstyle{
     font-size: 13px;
-    color: rgb(215, 215, 215);
+    color: var(--darkgrey);
     font-weight: 500;
     text-align: center;
 }
@@ -188,13 +189,13 @@ a{
 }
 
 .buttonstyle:hover{
-    background-color: var(--color2blue) !important;
-    border-color: var(--color2blue) !important;
+    background-color: var(--secoundryblue) !important;
+    border-color: var(--secoundryblue) !important;
 }
 
 .button:active,.button:focus{
-    background-color: var(--color2blue);
-    border-color: var(--color2blue);
+    background-color: var(--secoundryblue);
+    border-color: var(--secoundryblue);
 }
 
 .card5{
@@ -218,7 +219,7 @@ a{
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            color: var(--color2blue);
+            color: var(--secoundryblue);
         }
         div{
             padding: 10px;
@@ -269,7 +270,7 @@ a{
                 color: grey;
                 margin-bottom: 15px;
                 span{
-                    color: var(--color2blue);
+                    color: var(--secoundryblue);
                     font-weight: 700;
                 }
             }
@@ -322,4 +323,10 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media screen and (max-width:650px){
+    .acdbanner{
+        height: 30%;
+    }
 }

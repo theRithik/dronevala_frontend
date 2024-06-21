@@ -11,6 +11,9 @@
     }
 
 }
+.acdbanner{
+    width: 90%;
+}
 
 .disclamerText{
     font-size: 10px;
@@ -25,7 +28,7 @@
         font-size: 14px;
         font-weight: 500;
         padding: 15px;
-        color: var(--color2blue);
+        color: var(--secoundryblue);
     }
     td{
         font-size: 14px;
@@ -35,4 +38,22 @@
 
 .table-active{
     --bs-table-bg-state:rgba(210, 244, 244, 0.852);
+}
+
+.loginicon{
+    position: relative;
+
+    .icc{
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        font-size: 14px;
+        color: rgb(161, 159, 159);
+    }
+    .eyeicon{
+        position: absolute;
+        right: 15%;
+       top:8px;
+        cursor: pointer;
+    }
 }

@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import './Acdbooking.css'
+
 const AcdBooking=()=>{
+  
     useEffect(()=>{
         document.querySelector('footer').style.marginTop="0px"
+      
+     // eslint-disable-next-line    
     },[])
     return(
         <>
         <div  className="academyDetailPage" >
-            <div style={{position:'relative'}}>
+            <div style={{position:'relative',display:'flex',justifyContent:'center'}}>
             <img src="/images/back3.webp" alt="academy" className="acdbanner"/>
             <div className="acadmain1">
                 <h1 >Checkout</h1>
