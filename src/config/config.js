@@ -26,7 +26,14 @@ getReviews:'/user/getreviews',
 getBanner:"/user/getImageBanner",
 
 // Services
-AllServices:'/user/serviceDetails'
+AllServices:'/user/serviceDetails',
+serviceperson : "/user/servicePerson",
+Typeofservicesoffer : "/user/serviceTypes",
+droneType: "/user/DroneTypes",
+serviceBanner:"/user/getserviceBanner",
+serviceGallery:"/user/servicephotoGallery",
+serviceReviews:"/user/getreviews",
+travelcharges:"/user/getTcharge"
 
 }
 

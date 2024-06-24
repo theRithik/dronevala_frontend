@@ -6,6 +6,8 @@ import PrivcyandPolicy from "../home/policy/privacyPolicy";
 import Refund from "../home/policy/refund";
 import ShipppingPolicy from "../home/policy/shipping";
 import Terms from "../home/policy/terms&cond";
+import ServiceDetails from "../services/serviceDetails";
+import ServiceBooking from "../services/serviceBooking";
 
 const Home=lazy(()=>import("../home/home"))
 const Academy =lazy(()=>import("../Academy/academy"))
@@ -31,6 +33,8 @@ const CommonRoutes =()=>{
             <Route path="/academy/:institute/:course/:id" element={<AcadDetails/>}/>
             <Route path="/academy/course/booking" element={<AcdBooking/>}/>
             <Route path="/services" element={<Service/>}/>
+            <Route path="/services/:serivcestype/:company/:person/:id" element={<ServiceDetails/>}/>
+            <Route path="/services/booking/:servicetype/:mainservice/:company" element={<ServiceBooking/>}/>
             <Route path="/aboutus" element={<About/>}/>
             <Route path="/termsandconditions" element={<Terms/>}/>
 <Route path="/privacyandpolicy" element={<PrivcyandPolicy/>}/>

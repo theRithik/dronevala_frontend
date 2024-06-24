@@ -1,0 +1,364 @@
+.serdetailPagediv1{
+    padding: 5%;
+}
+.serbanner{
+    border-radius: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+
+.sermain1{
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    padding: 35px;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+  
+max-width: 50%;
+    h1{
+        font-size: 20px;
+        color: var(--color1);
+    }
+    h2{
+        font-size: 30px;
+        color: var(--secoundryblue);
+        font-weight: 700;
+    }
+    .mainP{
+        font-size: 12px;
+    color: var(--darkgrey);
+    font-weight: 500;
+    text-align: justify;
+    margin-top: 20px;
+    line-height: 200%;
+    }
+}
+
+.ser1Div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    margin-top: 5%;
+}
+.sernumeff{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    h3{
+        font-size: 40px;
+        color: var(--secoundryblue);
+        margin-bottom: 0;
+    }
+    p{
+        margin-bottom: 0;
+        font-size: 8px;
+        color: var(--darkgrey);
+        font-weight: 500;
+        margin-top: 5px;
+    }
+    span{
+        font-size: 10px;
+        color: var(--darkgrey);
+        font-weight: 800;
+    }
+}
+
+.SerImage{
+    position: absolute;
+    bottom: -140px;
+    left: 5%;
+    img{
+        border-radius: 40px;
+    }
+}
+
+.serheading{
+    font-size: var(--largeFont);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.sertext{
+    font-size: var(--normalFont);
+    line-height: var(--lineheight);
+    text-align: justify;
+    word-spacing: 2px;
+    color: grey;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.serprof{
+    display: flex;
+    gap: 20px;
+    img{
+        max-width: 300px;
+        max-height: 300px;
+        border-radius: 40px;
+        position: sticky;
+        top: 10px;
+    }
+}
+.serOffer{
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--secoundryblue);
+}
+
+.sertypesoffer{
+    border:1px solid transparent;
+     margin-right:10px;
+     border-radius:10px;
+     padding-top:0px;
+     padding-bottom:1px;
+     padding-right:6px;
+     padding-left:6px;
+     background-color:var(--primarygrey);
+        margin-bottom:10px;
+        display:inline-block;
+}
+
+.serDiv{
+    margin-top: 30px;
+}
+
+.serdronefea{
+   display: flex;
+   align-items: start;
+   gap: 10px;
+   margin-bottom: 10px;
+   i{
+    color:grey;
+    font-size: 20px;
+   }
+
+}
+
+.cgallerycontainer{
+    overflow: hidden;
+    margin-top: 30px;
+    position: relative;
+    padding: 30px;
+}
+
+.cgallery{
+    display: flex;
+    gap: 30px;
+    overflow-x: scroll;
+    border-radius: 20px;
+    img{
+        border-radius: 30px;
+        width: 210px;
+    }
+}
+.cgallery::-webkit-scrollbar{
+    display: none;
+}
+
+.ariconlef2{
+    position: absolute;
+    top: 45%;
+    left: 0px;
+    cursor: pointer;
+    background: #edeeef;
+        padding: 8px 12px 8px 12px;
+        border-radius: 30px;
+        color: #aeb0b1;
+        z-index: 3;
+    }
+    
+    .ariconlef2:hover{
+        background: #9c9e9e;
+        color: aliceblue;
+    }
+    
+    .ariconrig2{
+        position: absolute;
+        right: 0px;
+        top: 45%;
+        cursor: pointer;
+    background: #edeeef;
+        padding: 8px 12px 8px 12px;
+        border-radius: 30px;
+        color: #aeb0b1;
+        z-index: 3;
+    }
+    
+    .ariconrig2:hover{
+        background: #9c9e9e;
+        color: aliceblue;
+    }
+    .reviewDiv{
+        padding:5%;
+        display:flex;
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+        align-items:center
+        }
+        
+        .reviewcard{
+            padding: 30px;
+            border-radius: 30px;
+            background: var(--primarygrey);
+            max-width: 400px;
+            z-index: 2;
+        }
+    
+        .reviewImg{
+            position: absolute;
+            left: 0;
+            max-width: 300px;
+        }
+
+        .serdetailcard{
+            margin: 10%;
+            padding: 20px;
+            border-radius: 30px;
+            background: var(--orangebackground);
+            position: relative;
+            cursor: pointer;
+            transition: .5s ease;
+            .arrup{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        
+            }
+        
+            .serdetailcard:hover{
+                box-shadow: -11px 20px 10px rgb(207, 206, 206);
+                transition: .5s ease;
+            }
+        .sercardheading{
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        
+        .sercardtext{
+            font-size: var(--normalFont);
+            line-height: var(--lineheight);
+            text-align: center;
+            word-spacing: 2px;
+            color: var(--color1);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        
+.serinput{
+    margin-top: 10px;
+    border:1px solid rgba(255, 166, 0, 0.9);
+    border-radius: 20px;
+    padding: 8px;
+    padding-left: 20px !important;
+    background: transparent;
+    padding-right: 40px;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+}
+.form-select{
+    option{
+        padding: 10px;
+        background:transparent;
+        border-radius: 30px;
+    }
+}
+
+.serinput:focus,.serinput:active{
+    box-shadow: none;
+    background: transparent;
+    border-color: var(--color1);
+}
+
+.serinput::placeholder{
+    font-weight: 500;
+}
+
+.serrangeDate{
+    margin-top: 10px;
+border-radius: 20px;
+padding: 6px 10px;
+font-size: 11px;
+background: transparent;
+border-color: orange;
+color: black;
+width: 100%;
+padding-left: 20px;
+}
+
+.serrangeDate:focus,.serrangeDate:active,.serrangeDate:hover{
+    border-color: orange;
+    background: transparent;
+    box-shadow: none;
+    outline: orange;
+}
+
+.serrangeDate::placeholder{
+    color: var(--darkgrey)
+}
+
+#alertbtn{
+    padding: 0px 10px 5px 10px;
+    border: 1px solid red;
+    border-radius: 10px;
+    background: red;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+    span{
+        font-size: 9px;
+        color: rgb(255, 255, 255);
+        line-height: 150%;
+        text-align: center;
+    }
+}
+
+#alertbtn2{
+    padding: 0px 10px 5px 10px;
+    border: 1px solid green;
+    border-radius: 10px;
+    background: green;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+    span{
+        font-size: 9px;
+        color: rgb(255, 255, 255);
+        line-height: 150%;
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width:730px) {
+    .sermain1{
+        max-width: 90%;
+        h1{
+            font-size: 15px;
+        }
+        h2{
+            font-size: 20px;
+        }
+        .mainP{
+            font-size: 12px;
+        }
+        .ser1Div{
+            gap: 10px;
+            .sernumeff{
+                h3{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

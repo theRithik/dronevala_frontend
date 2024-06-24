@@ -25,7 +25,7 @@ const renderCourses =(data)=>{
                   let cu = item.companyName.replace(/\s+/g, '-')
 
                 return(
-                    <Link to={`/services/${nm}/${cu}/${item.serviceID}`} key={item.id} >
+                    <Link to={`/services/${item.service}/${cu}/${nm}/${item.serviceID}`} key={item.id} >
                     <div className="acdcard">
     <img src="/images/slide1.webp" className="card5img" alt="academy"/>
     <div className="cardbody">

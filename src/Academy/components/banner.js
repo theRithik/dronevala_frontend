@@ -21,11 +21,11 @@ const Banner=(props)=>{
           console.log(data,'bannner')
           if(data.length>0){
             return data.map((item,i)=>{
-                return  <img key={i} src={item.banner_Image?item.banner_Image:"/images/slide2.webp"} alt="academy" className="acdbanner"/>
-      
+                return  <img key={i} src={item.banner_Image} alt="academy" className="acdbanner"/>
             })
           }else{
-
+return <img  src="/images/slide2.webp" alt="academy" className="acdbanner"/>
+      
           }
         }
         else{
