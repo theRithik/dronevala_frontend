@@ -1,95 +1,81 @@
-import React,{useState,useEffect}from "react"
+import React,{useState}from "react"
+import '../dashboard/content.css'
+import CourseNames from "./component.js/coursenames"
+import { message } from "antd"
+import { PostImage } from "../../config/vendor/aws/awsapi"
 import endpoints from "../../config/config"
-import { PostData } from "../../config/vendor/Apiconfig"
+import { VPostData } from "../../config/vendor/Apiconfig"
 
-// import DashboardUser from "../Dashboard/dashboard";
-// import Front from "../Dashboard/front";
-
-const pimg ='http://localhost:5000/admin/photoGallery'
 const AddGallery=()=>{
     const [courseId,setCourseId]=useState('')
-  
-    const [coursedata,setCoursedata]= useState('')
     const [addPhoto,setAddPhoto]=useState('')
-    const [msg,setMsg]=useState('')
+
+    const photoGallery=async()=>{
+      try{
+          const upload = document.getElementById('uploads').files
     
-    useEffect(()=>{
-        const data2={
-            endpoint:endpoints.findCourses,
-            id:"1693767581921",
-            token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUml0aGlrIiwicm9sZSI6IkFkbWluIiwiaWQiOiIxNjkzNzY3NTgxOTIxIiwiZXhwIjoxNzE4MTgwMzE1LCJpYXQiOjE3MTc1NzU1MTV9.A9K0LAwSje71PrJMGrj1I4iN1P7_48aPWWMGsvOON_o"
+      if(courseId!==''){
+          if(upload.length<6 && upload[0]!==undefined){
+       document.getElementById('loader').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+      message.loading('Processing')
+      let arr=[]
+      for(let i =0;i<upload.length;i++){
+          let obj={}
+          const dt  ={
+              fileInput:upload[i],
+              folder:"academy",
+              endpoint:endpoints.aws
+            }
+            const result = await PostImage(dt)
+            obj['image'+i] = result.path
+            arr.push( obj['image'+i])
+      }
+       console.log(arr)       
+        const im ={
+          endpoint:endpoints.addGallery,
+          image:arr,
+          id:courseId
         }
-    const data =async()=>{ 
-        try{
-        const data = await PostData(data2)
-        console.log(data)
-    setCoursedata(data.data)
-    }
-    catch (error) {
-        return console.error('Error fetching data:', error);
-        } finally {
-          console.log('finished')
+        const result2= await VPostData(im)
+        if(result2){
+      message.success('Images Successfully Added')
+      setAddPhoto('Image Successfully Added')
         }
-    }
-       
-    data()
-    
-    // eslint-disable-next-line
-    },[])  
-    
-      
-      const photoGallery=()=>{
-        try{
-        setAddPhoto('')
-        if(!courseId && courseId===''){
-          alert('please add a course first')
-        }
-        else{
-        document.getElementById('loader').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
-        const id=courseId
-      const upload=  document.getElementById('uploads').files
-      if(upload.length<6){
-     const formData = new FormData()
-     for(let i=0; i<upload.length; i++){
-        let obj={}
-       obj[i] = document.getElementById('uploads').files[i]
-       formData.append('image',obj[i])
-       formData.set('name',upload[0],id)
-     }
-// api calllllllllllllllllllllllllllllllllllllll
-   
-        alert('Successfully Added')     
-        
-          setAddPhoto('Successfully Added')
-        }
-    else{
-      alert('you can add only 5 images in a single time')
-    }
-  }
-}catch(err){
-    throw err
-}finally {
-    console.log('finished')
-     document.getElementById('loader').innerHTML='<span id="loader">Submit</span>'
-  }
-    }
+      }else{
+          message.error('you can add only 5 images in a single time')
+      }
+      }else{
+          message.error('please select the service person to update dates')
+      }
+      }catch(err){
+          console.log(err)
+      }finally{
+          document.getElementById('loader').innerHTML='<span id="loader"></span>'
+      }
+      }
     
 
-    const courseIDRender5=()=>{
-        const idCourse= document.getElementById('courseId5').value
-        setCourseId(idCourse)
-     }
+const courseRender=(data)=>{
+  setCourseId(data)
+  }
 
- 
-const renderCourse=(data)=>{
-    if(data){
-        return data.map((item)=>{
-            return(
-                 <option key={item.id} value={item.courseID}>{item.course}</option>
-            
-            )
-        })
-    }
+               
+const [imgurl2,setImgurl2]=useState('')
+const imageAdd=()=>{
+  const img = document.getElementById('uploads').files[0]
+  if(img?.size<1100000){
+  const reader = new FileReader();
+  reader.onloadend=()=>{
+setImgurl2(reader.result)
+  }
+  if(img){
+    document.getElementById('prev').style.display='block'
+    reader.readAsDataURL(img)
+  }
+}else{
+  message.error('Image must be less than 1Mb')
+
+}
 }
     
     return(
@@ -108,10 +94,7 @@ const renderCourse=(data)=>{
 
 <div style={{position:'relative',margin:"auto"}}>
 <label className="profilelabeleff">Course Name</label>
- <select className="form-select profileinput" id='courseId5' onChange={courseIDRender5} aria-label="Default select example">
-  <option defaultValue value=''>Select the Course Name </option>
-  {renderCourse(coursedata)}
-</select>
+<CourseNames courseID ={(data)=>courseRender(data)}/>
 <i class="bi bi-caret-down-fill Instprofileinputicon"></i>
 </div>
 
@@ -120,13 +103,14 @@ const renderCourse=(data)=>{
 <label  className="drop-container2 col-md-6" id="dropcontainer2" style={{marginBottom:20}}>
   <span className="drop-title2" id="PPhoto" style={{position:'absolute',zIndex:'1',top:'5px'}}>Add course Iamges </span>
   <i class="bi bi-file-earmark-image"></i>
-  <input type="file" style={{paddingLeft:'5px',borderRadius:'5px'}} id="uploads" name="foo" accept=".jpg,.png" multiple/>
+  <input type="file" style={{paddingLeft:'5px',borderRadius:'5px'}} id="uploads" name="foo" accept=".jpg,.png" onChange={imageAdd}   multiple/>
+  <img src={imgurl2} id="prev" style={{position:'absolute',display:'none',zIndex:'2',width:'102%',height:'103%',borderRadius:'10px'}} alt="preview"/>
   <p style={{margin:0,fontSize:10,fontWeight:500}}>Each image must be less than 1 Mb</p>
 </label>
 </div>
 
     <div style={{display:'flex',justifyContent:'center'}}>
-<button className="bluebutton" onClick={photoGallery} ><span id="loader">Submit</span></button>
+<button className="bluebutton" onClick={photoGallery} ><span id="loader"></span>Submit</button>
 
   </div>
   </div>
@@ -134,8 +118,7 @@ const renderCourse=(data)=>{
 </div>      
 </div>  
 </div>
-      
-        </>
+</>
     )
 
 }

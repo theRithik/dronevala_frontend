@@ -1,5 +1,6 @@
 import axios from "axios";
 import endpoints from "../../config";
+import { message } from "antd";
 
 
 const AwsAxios = axios.create({
@@ -15,13 +16,13 @@ AwsAxios.interceptors.response.use(
     err=>{
         if (err.response) {
             // The request was made, but the server responded with a status code
-            alert(err.response.data)
+            message.error(err.response.data.message)
           } else if (err.request) {
             // The request was made but no response was received
-            alert(err.message)
+            message.error(err.message)
           } else {
             // Something else happened while setting up the request
-            alert(err.message)
+            message.error(err.message)
           }
     }
 

@@ -1,102 +1,72 @@
 
-import React,{useState,useEffect}from "react"
+import React,{useState}from "react"
 
-import { PostData } from "../../config/vendor/Apiconfig";
-import endpoints from "../../config/config";
 import { PostImage } from "../../config/vendor/aws/awsapi";
-
+import CourseNames from "./component.js/coursenames";
+import '../dashboard/content.css'
+import { VPostData } from "../../config/vendor/Apiconfig";
+import { message } from "antd";
+import endpoints from "../../config/config";
 const AddBanner=()=>{
     const [courseId,setCourseId]=useState('')
-    const [coursedata,setCoursedata]= useState('')
     const [addBanner,setAddBanner]=useState('')
-    const [msg,setMsg] = useState('')
-    
-    useEffect(()=>{
-        const data2={
-            endpoint:endpoints.findCourses,
-            id:"1693767581921",
-            token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUml0aGlrIiwicm9sZSI6IkFkbWluIiwiaWQiOiIxNjkzNzY3NTgxOTIxIiwiZXhwIjoxNzE4MTgwMzE1LCJpYXQiOjE3MTc1NzU1MTV9.A9K0LAwSje71PrJMGrj1I4iN1P7_48aPWWMGsvOON_o"
-        }
-    const data =async()=>{ 
-        try{
-        const data = await PostData(data2)
-        console.log(data)
-    setCoursedata(data.data)
-    }
-    catch (error) {
-        return console.error('Error fetching data:', error);
-        } finally {
-          console.log('finished')
-        }
-    }
-       
-    data()
-    
-    // eslint-disable-next-line
-    },[])   
-    
-      
-  
+         
 const BannerClick= async()=>{
   try{
     setAddBanner('')
     if(!courseId&& courseId===''){
        
-        alert('please select a course first')
+        message.error('please select a course first')
     }
     else{
-       const id =courseId
     const data2 = document.getElementById('banner').files[0]
     if(data2){
     document.getElementById('loader2').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
     
     
     if(data2.size<2100000){
-      
+      message.loading('Processing',[10])
         const dt  ={
           fileInput:data2,
-          folder:"academy"
+          folder:"academy",
+          endpoint:endpoints.aws
         }
         const result = await PostImage(dt)
     console.log(result)
-    setAddBanner('Successfully Added')
+    if(result){
+      const dt ={
+        id:courseId,
+        image:result.path,
+        endpoint:endpoints.addBanner
+      }
+      const result2 = await VPostData(dt)
+      message.destroy()
+      if(result2){
+        message.success('Successfully Added')
+        setAddBanner('Successfully Added')
+      }
+    }
+   
       
     }
     else{
-        alert('size must be less then 2mb')
+        message.error('size must be less then 2mb')
          }
 
 }else{
-  alert('Please select an Image First')
+  message.error('Please select an Image First')
   
 }
     }
   }catch(err){
-    throw err
+    console.log(err)
+    message.destroy()
 }finally {
     console.log('finished')
-    document.getElementById('loader2').innerHTML='<span id="loader2">Submit</span>'
+    document.getElementById('loader2').innerHTML='<span id="loader2"></span>'
   }
 }
 
-    
-
-   const courseIDRender4=()=>{
-    const idCourse= document.getElementById('courseId4').value
-    setCourseId(idCourse)
- }
-
- 
-const renderCourse=(data)=>{
-    if(data){
-        return data.map((item)=>{
-            return(
-                 <option key={item.id} value={item.courseID}>{item.course}</option>
-            
-            )
-        })
-    }
-}
 
 const [imgurl2,setImgurl2]=useState('')
 const imageAdd=()=>{
@@ -109,6 +79,9 @@ setImgurl2(reader.result)
     document.getElementById('prev').style.display='block'
     reader.readAsDataURL(img)
   }
+}
+const courseRender=(data)=>{
+setCourseId(data)
 }
 
     return(
@@ -130,10 +103,7 @@ setImgurl2(reader.result)
 <div style={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
      <div style={{position:'relative',width:'70%',margin:"auto"}}>
     <label className="profilelabeleff">Course Name</label>
- <select className="form-select profileinput" id='courseId4' onChange={courseIDRender4} aria-label="Default select example">
-  <option defaultValue value=''>Select the Course Name </option>
-  {renderCourse(coursedata)}
-</select>
+<CourseNames courseID ={(data)=>courseRender(data)}/>
 <i class="bi bi-caret-down-fill Instprofileinputicon" style={{top:40}}></i>
 </div>
 <div className="centerText" style={{marginTop:40}}>
@@ -147,7 +117,7 @@ setImgurl2(reader.result)
  </label>
 </div>
 <div className="centerText">
-<button type="submit" className="bluebutton" onClick={BannerClick}><span id="loader2">Submit</span></button>
+<button type="submit" className="bluebutton" onClick={BannerClick}><span id="loader2"></span>Submit</button>
 </div>
 </div>
 </div>

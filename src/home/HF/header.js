@@ -1,21 +1,27 @@
 import React,{useEffect, useState} from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import './header.css'
 import Footer from "./footer";
+
 const Header =()=>{
-
   const [note,setNote]=useState(true)
-
+  const [logged,setLogged]=useState(false)
+  const history=useNavigate()
+  const location =useLocation()
   useEffect(()=>{
-    console.log('header')
-const tk = localStorage.getItem('token')
-if(tk){
-  setNote(false)
-}
-else{
-  setNote(true)
-}
-  },[])
+checklogin()
+  },[logged,note])
+
+  const checklogin=()=>{
+    const tk = localStorage.getItem('token')
+    if(tk){
+     setLogged(true)
+     setNote(false)
+    }else{
+      setLogged(false)
+      setNote(true)
+    }
+  }
 
   const searchClick=()=>{
     document.querySelector('.overlayhome').classList.add('searchbodyhide')
@@ -29,55 +35,20 @@ else{
     document.querySelector('.searchoverlay').classList.remove('showSearchtab')
   }
 
+  const logout =()=>{
+    localStorage.clear()
+    checklogin()
+    history('/login')
+  }
+
     return(
         <>
-        {note &&
-        <div className="note"> <p>We provide comprehensive drone solutions to meet all your aerial needs </p>
-         <span><Link to="/register" style={{color:'inherit'}}> Join Us </Link>  | <Link to="/login" style={{color:'inherit'}}>Sign In</Link></span>
-         </div>
-        }
-      <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbarhead">
-  <div class="container-fluid">
-    <Link class="navbar-brand" className="hdlogo" to="/">
-      <img src="/images/dronevala.webp" alt="logo"/>
-    </Link>
-    <i class="bi bi-list d-lg-none" style={{marginRight:10,fontSize:25,cursor:'pointer'}} data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive"></i>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <Link class="nav-link active" aria-current="page" to="/">Home</Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/academy">Academy</Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/services">Service</Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/">Rental</Link>
-        </li> 
-        <li class="nav-item">
-          <Link class="nav-link" to="/">Store</Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/aboutus">About</Link>
-        </li>
-        
-       
-      </ul>
-      
-       <div className="searchInput" onClick={searchClick}>
-       <i class="bi bi-search"></i>
-        <input type="text" className="input" placeholder="Search" id="search"/>
-       </div>
-       <i class="bi bi-heart headIcon" style={{marginLeft:20}}></i>
-       <i class="bi bi-bag headIcon" style={{marginBottom:2}}></i>
-       <div className="searchoverlay">
+        <div className="searchoverlay">
 <div className="searchoverlaynav">
   <img src="/images/dronevala.webp" alt="logo" />
   <div className="searchInput2">
        <i class="bi bi-search searchicon"></i>
-        <input type="text" className="searchinputbox" placeholder="Search" id="search"/>
+        <input type="text" className="searchinputbox" placeholder="Search" id="search2"/>
        </div>
        <span className="cancel" onClick={cancelsearch}>Cancel</span>
 </div>
@@ -90,6 +61,102 @@ else{
 <span><Link to="/store">Store</Link></span>
 </div>
        </div>
+        {note &&
+        <div className="note"> <p>We provide comprehensive drone solutions to meet all your aerial needs </p>
+         <span><Link to="/register" style={{color:'inherit'}}> Join Us </Link>  | <Link to="/login" style={{color:'inherit'}}>Sign In</Link></span>
+         </div>
+        }
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbarhead">
+  <div class="container-fluid">
+    <Link class="navbar-brand" className="hdlogo" to="/">
+      <img src="/images/dronevala.webp" alt="logo"/>
+    </Link>
+    <i class="bi bi-list d-lg-none" style={{paddingRight:10,paddingLeft:10,fontSize:25,cursor:'pointer'}} data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive"></i>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <Link class="nav-link active" aria-current="page" to="/">Home</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/academy">Academy</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/services">Service</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/rental">Rental</Link>
+        </li> 
+        <li class="nav-item">
+          <Link class="nav-link" to="/store">Store</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to="/aboutus">About</Link>
+        </li>
+        
+       
+      </ul>
+      
+       <div className="searchInput" onClick={searchClick}>
+       <i class="bi bi-search"></i>
+        <input type="text" className="input" placeholder="Search" id="search"/>
+       </div>
+       <i class="bi bi-heart headIcon" onClick={()=>history('/contactus')} style={{marginLeft:20,cursor:'pointer'}}></i>
+       {/* profile menu */}
+       <div className="showMenuoptions" style={{position:'relative',padding:'1%,1.5%'}}>
+       <i class="bi bi-bag headIcon " style={{marginBottom:2,padding:'70%,90%'}}></i>
+       <div className="head-setting">
+        <span className="head-triangle">
+
+</span>
+    <div className="head-div">
+      <h6>My Account</h6>
+    </div>
+    <hr/>
+    <div className="head-menudiv">
+<ul style={{padding:0,listStyle:'none',margin:0}}>
+ {!logged && 
+  <div>
+
+<li onClick={()=>{history('/register',{state:{form:location.pathname}})}}>
+<i class="bi bi-at"></i>
+<p>Sign up</p>
+            </li>
+            
+           
+            <li onClick={()=>{history('/login',{state:{form:location.pathname}})}}>
+            <i class="bi bi-box-arrow-in-right"></i>
+            <p>Login</p>
+            </li>
+            
+            </div>
+            }
+            {logged &&  
+            <div>
+            <Link to="/user/profile" style={{color:'inherit'}}>
+            <li>
+            <i class="bi bi-person-lines-fill"></i>
+            <p>Profile</p>
+                        </li>
+                        </Link>
+                        <Link to="/user/profile" style={{color:'inherit'}}>
+            <li>
+            <i class="bi bi-bag-fill" style={{color:'#ef9a00'}}></i>
+            <p>orders</p>
+                        </li>
+                        </Link>
+                        
+                              
+                        <li onClick={logout}>
+                        <i class="bi bi-box-arrow-left" style={{color:'red'}}></i>
+                        <p>Log out</p>
+                                    </li>
+                                    </div>
+            }
+          </ul>
+          </div>
+        </div>
+</div>
+       
     </div>
   </div>
   <div class="offcanvas-lg offcanvas-end d-lg-none" tabIndex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
@@ -110,16 +177,25 @@ else{
       <h6 className="offcantag">
       Become a Dronevala Member for the best Drone courses, services, rental, and drone store in the world. 
       </h6>
+      {!logged && 
       <div className="offcanbutt">
-        <span>Join Us</span>
-        <span>Sign In</span>
+        <span onClick={()=>{history('/register',{state:{form:location.pathname}})}} style={{cursor:'pointer'}}>Join Us</span>
+        <span onClick={()=>{history('/login',{state:{form:location.pathname}})}} style={{cursor:'pointer'}}>Sign In</span>
       </div>
+}
+{logged &&
+ <div className="offcanbutt">
+ <span onClick={()=>{history('/user/profile')}} style={{cursor:'pointer'}}>Profile</span>
+ <span onClick={()=>{history('/user/dashboard')}} style={{cursor:'pointer'}}>Dashboard</span>
+</div>
+
+}
     </div>
   </div>
 </div>
 </nav>
 <div className="overlayhome"></div> 
-<Outlet/>
+<Outlet context={{note,setNote}}/>
 <Footer/>
 </>
     )

@@ -1,0 +1,24 @@
+.supportCard{
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 5%;
+
+}
+
+.suppemail{
+    color: aliceblue;
+    font-size: 13px;
+}
+
+.dark .homesection .supportCard{
+    background-color: black;
+    h1{
+        color: aliceblue;
+    }
+    i{
+        color: #fff;
+    }
+    h6{
+        color: grey;
+    }
+}

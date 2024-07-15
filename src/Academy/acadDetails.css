@@ -12,6 +12,7 @@
     backdrop-filter: blur(10px);
     border-radius: 20px;
 max-width: 50%;
+background: #ffffff3d;
     h1{
         font-size: 20px;
         color: var(--color1);
@@ -22,12 +23,13 @@ max-width: 50%;
         font-weight: 700;
     }
     .mainP{
-        font-size: 12px;
-    color: var(--darkgrey);
-    font-weight: 500;
+        font-size: 11px;
+    color: #252424;
+    font-weight: 600;
     text-align: justify;
     margin-top: 20px;
     line-height: 200%;
+    word-spacing: 2px;
     }
 }
 
@@ -56,13 +58,13 @@ max-width: 50%;
     p{
         margin-bottom: 0;
         font-size: 8px;
-        color: var(--darkgrey);
+        color: #040404;
         font-weight: 500;
         margin-top: 5px;
     }
     span{
         font-size: 10px;
-        color: var(--darkgrey);
+        color:#040404;
         font-weight: 800;
     }
 }
@@ -175,9 +177,10 @@ max-width: 50%;
     gap: 30px;
     overflow-x: scroll;
     border-radius: 20px;
-    img{
+    .moveImg{
         border-radius: 30px;
         width: 210px;
+        height: 210px;
     }
 }
 .cgallery::-webkit-scrollbar{
@@ -219,7 +222,7 @@ max-width: 50%;
     }
 
     .trainerImg{
-    max-width:150px;
+    max-width:80%;
     border-radius:30
     }
     .reviewDiv{
@@ -277,10 +280,10 @@ max-width: 50%;
     .acdpricetext{
         font-size: 15px;
         color: black;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: sans-serif;
         span{
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 400;
         }
     }
     .acdpricenote{
@@ -291,7 +294,7 @@ max-width: 50%;
 
     .price{
         font-size: 15px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: sans-serif;
        
         span{
             color: var(--secoundryblue);
@@ -340,6 +343,13 @@ max-width: 50%;
     }
 }
 
+@media screen and (max-width:767px) {
+    .trainerImg{
+        width: 100px;
+    }  
+    
+}
+
     @media screen and (max-width:650px){
         .reviewImg{
             position: relative;
@@ -348,7 +358,5 @@ max-width: 50%;
         .reviewDiv{
             padding: 0;
         }
-        .trainerImg{
-            width: 100px;
-        }  
+        
     }

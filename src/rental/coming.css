@@ -1,0 +1,20 @@
+.notFoundhead{
+    color:#EDF0F2;
+    font-size:80px
+}
+.notcontentdiv{
+    margin-top: 30%;
+}
+.notdiv1{
+    height: 100vh;
+    background-color: black;
+    padding: 5%;
+}
+@media screen and (max-width:650px){
+    .notFoundhead{
+        font-size: 70px;
+    }
+    .notdiv1{
+        height: 130vh;
+    }
+}

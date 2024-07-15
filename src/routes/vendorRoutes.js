@@ -1,29 +1,43 @@
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import SuspenseLoad from '../suspense/suspence';
+import AddCourse from '../vendors/academy/addCourse'
+import Dashheader from '../vendors/dashboard/topdash'
+import DashContent from '../vendors/dashboard/content'
+import UpdateCourse from '../vendors/academy/updateCourse'
+import AddTrainer from '../vendors/academy/addTrainer'
+import AddSyllabus from '../vendors/academy/addSyllabus'
+import AddBanner from '../vendors/academy/addBanner'
+import AddGallery from '../vendors/academy/addGallery'
+import AddViedo from '../vendors/academy/addViedo'
+import StartDate from '../vendors/academy/StartDate'
+import Aservice from '../vendors/service/addService';
+import ServiceDates from '../vendors/service/availableDates';
+import Servicephoto from '../vendors/service/updatephoto';
+import ServiceBanner from '../vendors/service/serviceBanner';
+import ServiceGallery from '../vendors/service/serviceGallery';
+import VenderCalender from '../vendors/components/calender';
+import VSetting from '../vendors/components/settings';
+import VSupport from '../vendors/components/support';
+import Vorders from '../vendors/orders/order';
+import VProfile from '../vendors/profile/profile';
+import AddDrone from '../vendors/service/addDrone';
+import CourseOrdersDetails from '../vendors/orders/courseorderDetails';
+import ServiceOrderDetails from '../vendors/orders/serviceorderDetails';
+import NotFound from '../errors/404';
 
-const ErrorPage=lazy(()=>import( '../vendors/errorPage'))
-const AddCourse=lazy(()=>import('../vendors/academy/addCourse'))
-const Dashheader=lazy(()=>import('../vendors/dashboard/topdash'))
-const DashContent=lazy(()=>import('../vendors/dashboard/content'))
-const UpdateCourse=lazy(()=>import('../vendors/academy/updateCourse'))
-const AddTrainer=lazy(()=> import('../vendors/academy/addTrainer'))
-const AddSyllabus=lazy(()=> import('../vendors/academy/addSyllabus'))
-const AddBanner=lazy(()=>import('../vendors/academy/addBanner'))
-const AddGallery=lazy(()=>import('../vendors/academy/addGallery'))
-const AddViedo=lazy(()=>import('../vendors/academy/addViedo'))
-const StartDate = lazy(()=>import('../vendors/academy/StartDate'))
+
 
 const VendorRoutes =()=>{
-    const [Authenticated,setAuthenticated]=useState(false)
+    const [Authenticated,setAuthenticated]=useState(true)
    const history = useNavigate()
    const location = useLocation()
         useEffect(()=>{
-    const value =localStorage.getItem('Vendortoken')
-    if(!value){
+    const value =localStorage.getItem('vtoken')
+    if(value){
       setAuthenticated(true)
     }else{
-      history('/institute/login',{state:{form:location.pathname}})
+      history('/vendors/login',{state:{form:location.pathname}})
       setAuthenticated(false)
     }
     // eslint-disable-next-line
@@ -42,13 +56,29 @@ const VendorRoutes =()=>{
                      <Route path='/academy/addGallery' element={<AddGallery/>}/>
                      <Route path='/academy/addViedo' element={<AddViedo/>}/>
                      <Route path='/academy/updateCourseStartDate' element={<StartDate/>}/>
+                     <Route path='/service/addService' element={<Aservice/>}/>
+                     <Route path='/service/addDrone' element={<AddDrone/>}/>
+                     <Route path='/service/updateAvaliableDates' element={<ServiceDates/>}/>
+                     <Route path='/service/updateservice' element={<Servicephoto/>}/>
+                     <Route path='/service/addBanner' element={<ServiceBanner/>}/>
+                     <Route path='/service/addGallery' element={<ServiceGallery/>}/>
+
+
+                     <Route path='/profile' element={<VProfile/>}/>
+                     <Route path='/orders' element={<Vorders/>}/>
+                     <Route path='/courseorder/:id' element={<CourseOrdersDetails/>}/>
+                     <Route path='/serviceorder/:id' element={<ServiceOrderDetails/>}/>
+                     <Route path='/calender' element={<VenderCalender/>}/>
+                     <Route path='/settings' element={<VSetting/>}/>
+                     <Route path='/support' element={<VSupport/>}/>
+            
     </Route>
-    <Route path="*" element={<ErrorPage/>}/>
+    <Route path="*" element={<NotFound/>}/>
     </Routes>
     </Suspense>
       ):(
   <Routes>
-  <Route element={<Navigate to='/institute/login'/>}/>
+  <Route element={<Navigate to='/vendors/login'/>}/>
   </Routes>
       )
   }

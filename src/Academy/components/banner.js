@@ -2,9 +2,10 @@ import React from "react";
 import endpoints from "../../config/config";
 import { PostData } from "../../config/vendor/Apiconfig";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 const Banner=(props)=>{
-   
+   const history = useNavigate()
     const det={
       id:props.id,
       endpoint:endpoints.getBanner
@@ -21,7 +22,7 @@ const Banner=(props)=>{
           console.log(data,'bannner')
           if(data.length>0){
             return data.map((item,i)=>{
-                return  <img key={i} src={item.banner_Image} alt="academy" className="acdbanner"/>
+                return  <img key={i} src={`${endpoints.imageprefix}${item.banner_Image}`} alt="academy" className="acdbanner"/>
             })
           }else{
 return <img  src="/images/slide2.webp" alt="academy" className="acdbanner"/>
@@ -40,6 +41,7 @@ return  (
     return(
         <>
         {imageRender(data)}
+        {data &&
        <div className="acadmain1">
                 <h1 >{props.details.institute_name}</h1>
                 <h2>{props.details.course}</h2>
@@ -68,8 +70,9 @@ return  (
 </div>
 
             </div>
-            <button className="button">Enroll Now</button>
+            <button className="button" onClick={()=>history('/academy/course/booking')}>Enroll Now</button>
             </div>
+}
         </>
     )
 }

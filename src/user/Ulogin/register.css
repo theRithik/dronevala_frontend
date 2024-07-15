@@ -1,0 +1,44 @@
+.loginicon{
+    position: relative;
+
+    .icc{
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        font-size: 14px;
+        color: rgb(161, 159, 159);
+    }
+    .eyeicon{
+        position: absolute;
+        right: 15%;
+       top:12px;
+        cursor: pointer;
+    }
+}
+
+.acdbannerlogin{
+    width: 100%;
+    max-height: 500px;
+}
+
+.acadmain1{
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+    background: transparent;
+    h1{
+        color: #fff;
+
+    }
+    p{
+        color: var(--color1);
+    }
+}
+
+.lgnormalText{
+    color: grey;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 200%;
+    text-align: justify;
+}

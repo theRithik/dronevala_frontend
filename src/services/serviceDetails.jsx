@@ -8,7 +8,10 @@ import endpoints from "../config/config";
 import ServiceBanner from "./components/banner";
 import SerGallery from "./components/gallery";
 import ServiceReviews from "./components/reviews";
-import { DatePicker } from "antd";
+import { DatePicker, message } from "antd";
+import SuspenseLoad from "../suspense/suspence";
+
+const {RangePicker} = DatePicker
 
 const ServiceDetails=()=>{
     const {id,company,person,serivcestype}=useParams()
@@ -23,6 +26,8 @@ const ServiceDetails=()=>{
     const [typePr,setTypePr]=useState('')
     const [seltST,setSelST] = useState('')
     const [selectedDates,setSelectedDates]=useState('')
+    const [available,setAvailable]=useState(false)
+    const [droneimage,setDroneImage]=useState('')
     const history = useNavigate()
    const dn ={
     id:id,
@@ -52,10 +57,10 @@ const ServiceDetails=()=>{
     })
 
     useEffect(()=>{
+      window.scrollTo(0,0)
 if(data){
     setDetails(data[0])
     setServiceT(data[0].service)
-    console.log(data)
 }
 if(typedata){
     console.log(typedata)
@@ -94,6 +99,7 @@ if(typedata){
     setPdiff(pricety)
 
     if(dronetype){
+      setDroneImage(dronetype[0].droneImage)
         let dronT = dronetype[0].tech
         setTech(dronT)
        const dronType = dronT.split("#")
@@ -182,11 +188,20 @@ if(typedata){
               }
           }
 
-          const datepicked=()=>{
-            let value =document.getElementById('calDate').value
+          const datepicked=(dates,dateStrings)=>{
+            // console.log('From: ', dates[0], ', to: ', dates[1]);
+            // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+            let value
+            if(dates){
+              if(dateStrings[0] === dateStrings[1]){
+             value =document.getElementById('calDate').value
+              }
+              else{
+                value = `${dateStrings[0]} ~ ${dateStrings[1]}`
+              }
+            console.log(value)
             setSelectedDates(value)
             const mdt= data[0].availableDates
-            if(value){
               let dfg;
               const val = mdt.split('~')
               const val1 = val[0].split('/').reverse().join('/')
@@ -208,35 +223,36 @@ if(typedata){
                dfg = d1<=new Date(start) && d2 >= new Date(start) 
             }
           if(dfg===false){
+            setAvailable(false)
           document.getElementById('alertbtn').style.display='block'
           document.getElementById('alertbtn2').style.display='none'
            
           }
           else{
+            setAvailable(true)
           document.getElementById('alertbtn').style.display='none'
           document.getElementById('alertbtn2').style.display='block'
           }
           }
           else{
-            console.log('Date should be selected')
-          //   setMsg('Date should be selected')
-          //   const toastLiveExample = document.getElementById('liveToast2')
-          //   toastLiveExample.classList.add('show')
-          // setTimeout(()=>{
-          // toastLiveExample.classList.remove('show')
-          // },4000)
+            message.error('Date should be selected')
           }
           }
 
           const bookservice=()=>{
             const size=  document.getElementById('qnum')?.value
-            if(size!=='' && seltST!=='' && selectedDates!=='' && typePr!==''){
+            const local = localStorage.getItem('token')
+            if(local){
+            if(size!=='' && seltST!=='' && selectedDates!=='' && typePr!=='' &&available){
               const ty = seltST.replace(/\s+/g, '-')
               const com = company.replace(/\s+/g, '-')
             history(`/services/booking/${serivcestype}/${ty}/${com}`,{state:{data:details,date:selectedDates,typepr:typePr,stype:stype,seltST:seltST,size:size,id:id}})
           }else{
-            alert('Please Select Service you want and fill the details')
+            message.error('Please Select Service you want and fill the details')
           }
+        }else{
+          message.info('Please Login First to Proceed ')
+        }
         }
     return(
         <>
@@ -252,8 +268,10 @@ if(typedata){
         <meta property="og:type" content="website" />
         <meta property="og:description" content={details.description}/>
     </Helmet>
-
+{data ?(
+<div>
     <div style={{position:'relative',padding:20,height:600,width:'100%'}}>
+     
         <ServiceBanner id={id} details={details}/>
         </div>
         <div className="serdetailPagediv1">
@@ -264,6 +282,7 @@ if(typedata){
                         <div>
                             <h6 className="serheading" style={{marginBottom:5}}>{details.firstName} {details.middleName} {details.lastName}</h6>
                             <p className="sertext" style={{color:'orange',fontSize:18}}>{details.companyName}</p>
+                           {/* <p className="sertext"> <i class="bi bi-patch-check-fill" style={{color:'blue'}}></i>Verified</p> */}
                             <p className="sertext">Welcome to {details.companyName}, your premier drone service provider dedicated to delivering innovative and reliable aerial solutions. We specialize in leveraging cutting-edge drone technology to offer a wide array of services tailored to meet the unique needs of various industries. Our team of skilled pilots and technicians is committed to providing exceptional service, ensuring safety, precision, and efficiency in every project.</p>
                             <p className="serOffer"  style={{display:'flex'}}><i class="bi bi-geo-alt-fill" style={{color:'orange',fontSize:20,marginRight:10}}></i>  <span>{details.serviceLocations}</span> </p>
                         <p className="serOffer">Services Offer : </p>
@@ -272,8 +291,18 @@ if(typedata){
                     </div>
                    
                     <div className="row" style={{marginTop:'10%'}}>
-                        <div className="col-md-4">
-
+                        <div className="col-md-4"style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',gap:20}}>
+                         {droneimage ? (
+                          <img src={`${endpoints.imageprefix}${dronetype[0].droneImage}`} style={{width:'100%'}} alt="drone"/>
+                         ):(
+                         
+                         <div>
+                          <img src="/images/demodrone.png" alt="drone" style={{width:'100%'}}/>
+                          <p style={{fontSize:8,color:'grey'}}>Drone Image not added by the service provider</p>
+                        </div>
+                         )
+                         }
+                         
                         </div>
                         <div className="col-md-8">
                         <div className="serDiv">
@@ -283,6 +312,7 @@ if(typedata){
                             
                         </div>
                     </div>
+
                    <SerGallery id={id}/>
                 </div>
                 <div className="col-md-4">
@@ -320,7 +350,7 @@ if(typedata){
                   <div id="alertbtn2">
                     <span> Good News Service person is available on that day </span>
                   </div>
-     <DatePicker needConfirm highlightToday={false} onChange={datepicked} className="serrangeDate" format="DD/MM/YYYY" id='calDate'/>
+     <RangePicker  highlightToday={false} onChange={datepicked} className="serrangeDate" format="DD/MM/YYYY" id='calDate'/>
     
               </div>
               <div style={{display:'flex',justifyContent:'center',marginTop:'20px'}}>
@@ -332,10 +362,15 @@ if(typedata){
                 </div>
             </div>
             <div style={{marginTop:'10%'}}>
-                        <h6 className="serheading">Reviews</h6>
+                        <h6 className="serheading" style={{zIndex:2,position:'relative'}}>Reviews</h6>
                        <ServiceReviews id={id}/>
                        </div> 
         </div>
+
+        </div>
+):(
+  <SuspenseLoad/>
+)}
         </div>
         </>
     )

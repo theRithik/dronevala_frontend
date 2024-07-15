@@ -125,6 +125,8 @@ a{
     padding: 10px 25px 10px 25px;
     border-radius: 30px;
     margin-top: 20px;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 .button:hover,.button:focus,.button:active{
@@ -285,9 +287,6 @@ a{
     }
 }
 
-.button{
-    font-size: 14px;
-}
 
 button:disabled,button:disabled:hover{
     background-color: rgb(225, 224, 224);
@@ -297,7 +296,7 @@ button:disabled,button:disabled:hover{
 
 .inputbox{
     border:1px solid rgba(199, 198, 198, 0.815);
-    padding: 7px 40px 7px 35px;
+    padding: 10px 40px 10px 35px;
     border-radius: 20px;
     width: 90%;
     margin-bottom: 30px;

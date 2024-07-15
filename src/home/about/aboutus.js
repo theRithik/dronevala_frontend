@@ -59,32 +59,32 @@ const About =()=>{
                     </div>
                 </div>
                 <div className="row" style={{marginTop:30}} >
-                    <div className="col-md-4">
-                        <div className="card">
-                            <img src="/images/r2.jpg" alt="drone pilot"/>
-                            <div className="card-body">
-                                <h6>Drone pilot training</h6>
-                                <button className="button"> Discover More</button>
-                            </div>
+                    <div className="col-md-4" style={{display:'flex',justifyContent:'center',marginBottom:20}}>
+                    <div className="imgcard">
+    <i class="bi bi-arrow-up-right-circle-fill "></i> 
+      <img src="/images/dronepilot.webp" alt="drone" />
+<div className="imgcontent">
+  <h5>Drone Pilot</h5>
+</div>
+    </div>
                         </div>
-                        </div>
-                        <div className="col-md-4">
-                        <div className="card">
-                            <img src="/images/r1.jpg" alt="drone pilot"/>
-                            <div className="card-body">
-                                <h6>Rent a drone</h6>
-                                <button className="button"> Discover More</button>
-                            </div>
-                        </div>
+                        <div className="col-md-4" style={{display:'flex',justifyContent:'center',marginBottom:20}}>
+                        <div className="imgcard">
+    <i class="bi bi-arrow-up-right-circle-fill "></i> 
+      <img src="/images/droneassembly.webp" alt="drone" />
+<div className="imgcontent">
+  <h5>Drone Assembly</h5>
+</div>
+    </div>
                     </div>
-                    <div className="col-md-4">
-                        <div className="card">
-                            <img src="/images/s1.webp" alt="drone pilot"/>
-                            <div className="card-body">
-                                <h6>Rent a drone</h6>
-                                <button className="button"> Discover More</button>
-                            </div>
-                        </div>
+                    <div className="col-md-4" style={{display:'flex',justifyContent:'center',marginBottom:20}}>
+                    <div className="imgcard">
+    <i class="bi bi-arrow-up-right-circle-fill "></i> 
+      <img src="/images/droneprogramming.webp" alt="drone" />
+<div className="imgcontent">
+  <h5>Drone Programming</h5>
+</div>
+    </div>
                     </div>
                     
                 </div>

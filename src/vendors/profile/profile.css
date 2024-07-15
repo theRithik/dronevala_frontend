@@ -1,0 +1,107 @@
+.profilecard{
+    padding: 5%;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+.profilecard3{
+    background-color: #f6f6f6;
+    border-radius: 30px;
+}
+
+.profilelabeleff2{
+    position: absolute;
+    left: 20px;
+    top: -13px;
+    display: none;
+    font-size: 12px;
+    font-weight: 500;
+    background: #f6f6f6;
+    z-index: 1;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.profileinput{
+    margin-top: 30px;
+    border:1px solid rgb(236 230 230);
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 20px !important;
+    background: transparent;
+    padding-right: 40px;
+   
+}
+.profileinput:focus,.profileinput:active{
+    box-shadow: none;
+    background: transparent;
+}
+
+.profileinput::placeholder{
+    font-weight: 500;
+}
+
+.profilebutton{
+    border-radius: 20px;
+    width: 200px;
+}
+
+.Instprofileinputicon{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: grey;
+}
+.dark .homesection .profilecard{
+    background: rgb(0, 0, 0);
+}
+
+.ProfileiMg{
+    position: absolute;
+    width: 20px;
+    padding-left: 30px;
+    cursor: pointer;
+    z-index: 3;
+    bottom: 10px;
+    right: 40%;
+}
+.ProfileiMg::-webkit-file-upload-button{
+    display: none;
+}
+
+.imgAddBTN{
+    position: absolute;
+    font-size: 30px;
+    color: crimson;
+    bottom: 0;
+    right: 40%;
+}
+
+
+.dark .homesection .profilecard2{
+    background:black;
+    h1{
+        color: aliceblue;
+    }
+    label{
+        color: grey;
+        background: black;
+    }
+    .profileinput{
+        color: #fff;
+        border-color: rgb(30, 29, 29);
+        
+    }
+    .profileinput::placeholder{
+        color: grey;
+    }
+    .profilebutton{
+        background-color: aliceblue;
+        color: black;
+    }
+    .Instprofileinputicon{
+        color: aliceblue;
+    }
+}

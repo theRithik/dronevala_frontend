@@ -1,0 +1,34 @@
+.notFoundstorehead{
+    color:#EDF0F2;
+    font-size:60px
+}
+.notcontentstorediv{
+    margin-top: 5%;
+}
+.notdiv1{
+  height: 120vh;
+    background-color: black;
+    padding:1% 5%;
+}
+
+.stdivsoon{
+    display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column
+}
+@media screen and (max-width:650px){
+    .notFoundhead{
+        font-size: 70px;
+    }
+    .notdiv1{
+        height: 130vh;
+    }
+    .stdivsoon{
+        margin-top: 40%;
+    }
+
+    .stsoonimg{
+        margin-top: 20%;
+    }
+}

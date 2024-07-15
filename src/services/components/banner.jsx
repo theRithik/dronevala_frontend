@@ -16,8 +16,7 @@ const dn ={
           console.log(data,'banner')
           if(data.length>0){
             return data.map((item,i)=>{
-                return  <img key={i} src={item.banner?item.banner:'/images/back3.1.png'} alt="academy" className="serbanner"/>
-      
+                return  <img key={i} src={`${endpoints.imageprefix}${item.banner?item.banner:'service/1719061365_back3.1.png'}`} alt="academy" className="serbanner"/>
             })
           }else{
             return <img  src="/images/back3.1.png" alt="service" className="serbanner"/>
@@ -35,6 +34,7 @@ return  (
     return(
         <>
         {bannerRender(data)}
+        {data &&
         <div className="sermain1">
                 <h1 >{props.details.companyName}</h1>
                 <h2>{props.details.firstName} {props.details.middleName} {props.details.lastName}</h2>
@@ -65,6 +65,7 @@ return  (
             </div>
             <button className="button">Book Service</button>
             </div>
+}
         </>
     )
 }

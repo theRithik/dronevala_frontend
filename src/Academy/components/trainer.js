@@ -2,7 +2,7 @@ import React from "react";
 import endpoints from "../../config/config";
 import { PostData } from "../../config/vendor/Apiconfig";
 import { useQuery } from "@tanstack/react-query";
-
+import { Empty } from 'antd';
 const Trainer =({id})=>{
     
     const det={
@@ -32,10 +32,22 @@ if(data){
               </div>
         })
     }else{
-
+return(
+  <Empty
+  image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+  imageStyle={{ height: 100 }}
+  description={
+    <h6 style={{fontSize:12,fontWeight:700}}> No Data</h6>
+  }
+  style={{margin:'auto'}}
+>
+</Empty>
+)
     }
 }else{
-
+return(
+  <img src="/images/loading.gif" alt="loading" style={{width:50}}/>
+)
 }
     }
     return(

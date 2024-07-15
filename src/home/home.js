@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './home.css'
 import HomeServicecard from "./components/homeservice";
 import Homeacademy from "./components/homeacademy";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 const Home =()=>{
-
-
+const history = useNavigate()
+  useEffect(()=>{
+window.scrollTo(0,0)
+  },[])
   const moveleft =()=>{
     if(window.innerWidth>650){
     const ct = document.querySelector('.hmsechid')
@@ -95,44 +98,44 @@ const Home =()=>{
 
         <p>Gain the skills and certification you need to fly drones professionally with our comprehensive courses.</p>
 
-        <button>DISCOVER MORE</button>
+        <button onClick={()=>history('/academy')}>DISCOVER MORE</button>
       </div>
     </div>
     <div class="carousel-item">
       <img src="/images/slide2.webp" class="d-block w-100" alt="..."/>
       <div>
         <span>Drone Services</span>
-        <h1>Become a</h1>
-        <h2>Certified Drone Pilot</h2>
-        <h6>Expert Training for Safe and Skilled Flying</h6>
+        <h1>Choose our</h1>
+        <h2>Expert Drone Services</h2>
+        <h6>We have all kind of drone services that fits your need</h6>
 
-        <p>Gain the skills and certification you need to fly drones professionally with our comprehensive courses.</p>
+        <p>Drone services offer innovative solutions for various industries, providing capabilities in all the industries and enhancing efficiency and accuracy in operations</p>
 
-        <button>DISCOVER MORE</button>
+        <button onClick={()=>history('/services')}>DISCOVER MORE</button>
       </div>
     </div>
     <div class="carousel-item">
       <img src="/images/slide3.webp" class="d-block w-100" alt="..."/>
       <div>
         <span>Drone Rental</span>
-        <h1>Become a</h1>
-        <h2>Certified Drone Pilot</h2>
-        <h6>Expert Training for Safe and Skilled Flying</h6>
+        <h1>Affordable &</h1>
+        <h2>Flexible Drone Rental</h2>
+        <h6>Elevate Your Perspective with Hassle-Free Drone Rentals</h6>
 
-        <p>Gain the skills and certification you need to fly drones professionally with our comprehensive courses.</p>
+        <p>Drone rental services provide affordable and flexible access to high-quality drones for short-term use, allowing businesses and individuals to leverage advanced aerial technology without the commitment of ownership.</p>
 
-        <button>COMING SOON</button>
+        <button onClick={()=>history('/rental')}>COMING SOON</button>
       </div>
     </div>
     <div class="carousel-item">
       <img src="/images/slide4.webp" class="d-block w-100" alt="..."/>
       <div>
         <span>Drone Store</span>
-        <h1>Become a</h1>
-        <h2>Certified Drone Pilot</h2>
-        <h6>Expert Training for Safe and Skilled Flying</h6>
+        <h1>Discover </h1>
+        <h2>The Best Drone Shop</h2>
+        <h6>Your One-Stop Shop for All Drone Things</h6>
 
-        <p>Gain the skills and certification you need to fly drones professionally with our comprehensive courses.</p>
+        <p> Our Drone store offers a wide range of cutting-edge drones and accessories, catering to hobbyists, professionals, and businesses seeking high-performance aerial solutions.</p>
 
         <button>COMING SOON</button>
       </div>

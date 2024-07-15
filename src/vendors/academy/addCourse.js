@@ -2,17 +2,14 @@ import React from "react";
 import { useState } from "react";
 // import DatePicker from "react-multi-date-picker";
 import { PostImage } from "../../config/vendor/aws/awsapi";
-import { PostData } from "../../config/vendor/Apiconfig";
 import MyComponent from "../map"
 import endpoints from "../../config/config";
-import { DatePicker } from "antd";
-
+import { DatePicker, message } from "antd";
+import '../dashboard/content.css'
+import { VPostData } from "../../config/vendor/Apiconfig";
 const AddCourse =()=>{
-
-    const[header,setHeader]=useState('')
     const[option,setOption]=useState('')
    const[courseType,setCourseType]=useState('')
-   const[msg,setMsg]=useState('')
    const[showMap,setShowMap]=useState(false)
    const[lat,setLat]=useState('')
    const[lng,setLng]=useState('')
@@ -33,20 +30,18 @@ const handleClick= async()=>{
   const img = document.getElementById('PhotoS').files[0]
 if(img && inst!=='' && course!==''&&fees!=='' &&state!==''&&city!==''&&address!=='' &&date!=='' &&courseDuration!=='' &&droneType!=='' && description!=='' &&lat!=='' &&lng!==''){
   document.getElementById('loader').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
- 
-    
-   
+ message.loading('Processing',[20])
     const data2={
         fileInput:img,
-        folder:"academy"
+        folder:"academy",
+        endpoint:endpoints.aws
     }
 
      const result = await PostImage(data2)
      const api =result.path
-     console.log(result,api)
        
   const data = {
-      "Institute_id":localStorage.getItem('id'),
+      "Institute_id":localStorage.getItem('vid'),
       "institute_name":inst,
       "course":course,
       "fees":fees,
@@ -59,40 +54,28 @@ if(img && inst!=='' && course!==''&&fees!=='' &&state!==''&&city!==''&&address!=
       "droneType":droneType,
       "droneCategory":droneCategory,
       "description":description,
-      "token":localStorage.getItem('Adtoken'),
       "display_Image":api,
       "lat":lat,
       "lng":lng,
-      endpoints:endpoints.addCourse
+      endpoint:endpoints.addCourse
     }
 
-    const result2 = await PostData(data)
+    const result2 = await VPostData(data)
+    message.destroy()
     if(result2){
-      setMsg('Successfully Added')
-      const toastLiveExample = document.getElementById('liveToast7')
-      toastLiveExample.classList.add('show')
-      setTimeout(()=>{
-        toastLiveExample.classList.remove('show')
-      
-      },4000)
+      message.success('Successfully Added')
     }
 }
 
 else{
-  setMsg('all the fileds are necessary')
-  const toastLiveExample = document.getElementById('liveToast7')
-  toastLiveExample.classList.add('show')
-  setTimeout(()=>{
-    toastLiveExample.classList.remove('show')
-  
-  },4000)
+  message.error('all the fileds are necessary')
 }
     }
     catch (error) {
-        return console.error('Error fetching data:', error);
+         console.error('Error fetching data:', error);
+         message.destroy()
         } finally {
-          console.log('finished')
-          document.getElementById('loader').innerHTML='<span id="loader2">Submit</span>'
+          document.getElementById('loader').innerHTML='<span id="loader2"></span>'
         }
 }
 
@@ -118,12 +101,7 @@ setImgurl2(reader.result)
     reader.readAsDataURL(img)
   }
 }else{
-  setMsg('Image must be less than 1Mb')
-  const toastLiveExample = document.getElementById('liveToast7')
-  toastLiveExample.classList.add('show')
-  setTimeout(()=>{
-    toastLiveExample.classList.remove('show')
-  },4000)
+  message.error('Image must be less than 1Mb')
 }
 }
   
@@ -138,7 +116,6 @@ const inputchange=(e)=>{
 }
 
 const LatLng =(data)=>{
-console.log(data)
 setLat(data.lat)
 setLng(data.lng)
 }
@@ -153,7 +130,6 @@ setLng(data.lng)
   <div className="profilecard2">
   <div id="cardDiv" style={{marginBottom:20}}>
           <h1 style={{textAlign:'center',fontWeight:600,fontSize:30}}>Add Course</h1>
-          <span style={{fontSize:'15px'}} id='headerMsg'>{header}</span>
         </div>
       
     <form id="frm">
@@ -300,26 +276,12 @@ setLng(data.lng)
         <MyComponent mapLocation={(data)=>LatLng(data)}/>
 }
 <div style={{display:'flex',justifyContent:'center',marginTop:20}}>
-        <button type="submit" style={{marginBottom:'20px',marginTop:'10px',}} onClick={handleClick} className="bluebutton"><span id="loader">Submit</span></button>
+        <button type="submit" style={{marginBottom:'20px',marginTop:'10px',}} onClick={handleClick} className="bluebutton"><span id="loader"></span>Submit</button>
 </div>
 
 </div>
 </div>
 
-</div>
-
-<div className="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast7" className="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div className="toast-header">
-      <img src="/background/profile.svg" className="rounded me-2" style={{width:'20px'}} alt="boot"/>
-      <strong className="me-auto">Dronevala</strong>
-      <small>Personal Assistance</small>
-      <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div className="toast-body">
-    {msg}
-    </div>
-  </div>
 </div>
       </>
     )

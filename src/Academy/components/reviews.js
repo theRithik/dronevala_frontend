@@ -1,7 +1,7 @@
 import React from "react";
 import endpoints from "../../config/config";
 import { PostData } from "../../config/vendor/Apiconfig";
-import { Rate } from "antd";
+import { Empty, Rate } from "antd";
 import { useQuery } from "@tanstack/react-query";
 
 const Review =({id})=>{
@@ -31,13 +31,25 @@ const Review =({id})=>{
                     </div>
                   
                 })
+            }else{
+              return(
+                <Empty
+                image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+                imageStyle={{ height: 100 }}
+                description={
+                  <h6 style={{fontSize:12,fontWeight:700}}> No Reviews</h6>
+                }
+                style={{margin:'auto'}}
+              >
+              </Empty>
+              )
             }
         }
       }
     return(
         <>
          <div className="reviewDiv">
-         <img src="/images/reviews.svg" alt="reviews" className="reviewImg"/>
+         <img src="/images/reviews.svg" alt="reviews" style={{zIndex:-1}} className="reviewImg"/>
         {ReviewRender(data)}
         </div>
         </>

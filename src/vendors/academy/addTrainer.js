@@ -1,38 +1,13 @@
-import React,{useState,useEffect}from "react"
+import React,{useState}from "react"
 import endpoints from "../../config/config";
-import { PostData } from "../../config/vendor/Apiconfig";
-
+import { VPostData } from "../../config/vendor/Apiconfig";
+import '../dashboard/content.css'
+import CourseNames from "./component.js/coursenames";
+import { message } from "antd";
 
 const AddTrainer=()=>{
     const [trainerUpdate,setTrainerUpdate]=useState('')
     const [courseId,setCourseId]=useState('')
-    const [coursedata,setCoursedata]= useState('')
-    const [msg,setMsg]=useState('')
-    
-    useEffect(()=>{
-        const data2={
-            endpoint:endpoints.findCourses,
-            id:"1693767581921",
-            token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUml0aGlrIiwicm9sZSI6IkFkbWluIiwiaWQiOiIxNjkzNzY3NTgxOTIxIiwiZXhwIjoxNzE4MTgwMzE1LCJpYXQiOjE3MTc1NzU1MTV9.A9K0LAwSje71PrJMGrj1I4iN1P7_48aPWWMGsvOON_o"
-        }
-    const data =async()=>{ 
-        try{
-        const data = await PostData(data2)
-        console.log(data)
-    setCoursedata(data.data)
-    }
-    catch (error) {
-        return console.error('Error fetching data:', error);
-        } finally {
-          console.log('finished')
-        }
-    }
-       
-    data()
-    
-    // eslint-disable-next-line
-    },[]) 
-
 
     var count =0
     const trainerClick=async()=>{
@@ -40,23 +15,17 @@ const AddTrainer=()=>{
        count++;
        //console.log()(count)
        if(!courseId&& courseId===''){
-        setMsg('please select a course first')
-        const toastLiveExample = document.getElementById('liveToast5')
-        toastLiveExample.classList.add('show')
-        setTimeout(()=>{
-          toastLiveExample.classList.remove('show')
-        },5000)
-          
+        message.error('please select a course first') 
        }
        else{
-       document.getElementById('loader4').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+       document.getElementById('loader2').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
        const tname= document.getElementById('tname').value
        const tExp = document.getElementById('tExp').value
        const topt = document.getElementById('toption').value
        const desc = document.getElementById('desc').value
        //console.log()(tname,tExp,topt)
        if(tname !=='' && tExp !=='' && topt !=='' && desc !==''){
-      
+      message.loading('Processing',[10])
          const train = {
                id:courseId,
                tid:count,
@@ -64,58 +33,33 @@ const AddTrainer=()=>{
                tExp:tExp,
                topt:topt,
                desc:desc,
-               token:localStorage.getItem('Adtoken'),
                endpoint:endpoints.addTrainer
            }
-       const result = await PostData(train)
+       const result = await VPostData(train)
+       if(result){
        console.log(result)
-
+       message.destroy()
   document.getElementById("trainerColor").style.color='green'
    setTrainerUpdate('Trainer Added Successfully')
 
-   setMsg('Trainer Added Successfully')
-   const toastLiveExample = document.getElementById('liveToast5')
-   toastLiveExample.classList.add('show')
-   setTimeout(()=>{
-     toastLiveExample.classList.remove('show')
-   },4000)
+   message.success('Trainer Added Successfully')
    }
+  }
    else{
-    setMsg('please fill all the fields')
-    const toastLiveExample = document.getElementById('liveToast5')
-    toastLiveExample.classList.add('show')
-    setTimeout(()=>{
-      toastLiveExample.classList.remove('show')
-    },4000)
+    message.error('please fill all the fields')
    }
   }
 }
 catch(err){
-   throw err
+   console.log(err)
+   message.destroy()
 } finally {
     console.log('finished')
-    document.getElementById('loader').innerHTML='<span id="loader2">Submit</span>'
+    document.getElementById('loader2').innerHTML='<span id="loader2"></span>'
   }
    }
 
-   const courseIDRender2=()=>{
-    const idCourse= document.getElementById('courseId2').value
-    setCourseId(idCourse)
- }
-
  
-const renderCourse=(data)=>{
-    if(data){
-      if(data.length>0){
-        return data.map((item)=>{
-            return(
-                 <option key={item.id} value={item.courseID}>{item.course}</option>
-            
-            )
-        })
-    }
-  }
-}
 
 const inputchange=(e)=>{
   const vl = e.target.value
@@ -127,6 +71,9 @@ const inputchange=(e)=>{
   }
 }
 
+const courseRender=(data)=>{
+  setCourseId(data)
+  }
  
     return(
         <>
@@ -140,10 +87,7 @@ const inputchange=(e)=>{
         <h6 id="trainerColor">{trainerUpdate}</h6>
         <div style={{position:'relative'}}>
         <label className="profilelabeleff">Course Name</label>
-        <select className="form-select profileinput" id='courseId2' onChange={courseIDRender2} aria-label="Default select example">
-  <option defaultValue value=''>Select the Course Name </option>
-  {renderCourse(coursedata)}
-</select>
+        <CourseNames courseID ={(data)=>courseRender(data)}/>
 <i class="bi bi-caret-down-fill Instprofileinputicon"></i>
 </div>
 
@@ -176,7 +120,7 @@ const inputchange=(e)=>{
 <i class="bi bi-menu-down Instprofileinputicon"></i>
         </div>
 <div style={{display:'flex',justifyContent:'center'}}>
-<button type="submit" className="bluebutton" onClick={trainerClick}><span id="loader4">Submit</span></button>
+<button type="submit" className="bluebutton" onClick={trainerClick}><span id="loader2"></span>Submit</button>
     </div>
     </div>
 </div>                                           

@@ -1,42 +1,14 @@
 
-import React,{useState,useEffect}from "react"
-import {Link} from "react-router-dom"
-import { PostImage } from "../../config/vendor/aws/awsapi"
-import endpoints from "../../config/config"
-import { PostData } from "../../config/vendor/Apiconfig"
+import React,{useState}from "react"
 
-const bImg = 'http://localhost:5000/admin/addInstituteViedo'
+import { PostImage } from "../../config/vendor/aws/awsapi"
+
+import '../dashboard/content.css'
+import CourseNames from "./component.js/coursenames"
 
 const AddViedo=()=>{
     const [courseId,setCourseId]=useState('')
-    const [coursedata,setCoursedata]= useState('')
     const [addBanner,setAddBanner]=useState('')
-    const [msg,setMsg]=useState('')
-  
-    useEffect(()=>{
-        const data2={
-            endpoint:endpoints.findCourses,
-            id:"1693767581921",
-            token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUml0aGlrIiwicm9sZSI6IkFkbWluIiwiaWQiOiIxNjkzNzY3NTgxOTIxIiwiZXhwIjoxNzE4MTgwMzE1LCJpYXQiOjE3MTc1NzU1MTV9.A9K0LAwSje71PrJMGrj1I4iN1P7_48aPWWMGsvOON_o"
-        }
-    const data =async()=>{ 
-        try{
-        const data = await PostData(data2)
-        console.log(data)
-    setCoursedata(data.data)
-    }
-    catch (error) {
-        return console.error('Error fetching data:', error);
-        } finally {
-          console.log('finished')
-        }
-    }
-       
-    data()
-    
-    // eslint-disable-next-line
-    },[])  
-    
       
   
 const viedoClick=()=>{
@@ -49,14 +21,12 @@ const viedoClick=()=>{
       const data2 = document.getElementById('uploads').files[0]
       if(data2){
         document.getElementById('loader2').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
-    const id =courseId
     console.log(data2.size)
   if(data2.size<5000000){
     
     const result = PostImage(data2)
         document.getElementById('loader2').innerHTML='<span id="loader2">Submit</span>'
         setAddBanner('Successfully Added')
-        setMsg('Successfully Added')
    
     
     }else{
@@ -78,24 +48,9 @@ const viedoClick=()=>{
    }
 }
     
-
-   const courseIDRender4=()=>{
-    const idCourse= document.getElementById('courseId4').value
-    setCourseId(idCourse)
- }
-
- 
-const renderCourse=(data)=>{
-    if(data){
-        return data.map((item)=>{
-            return(
-                 <option key={item.id} value={item.courseID}>{item.course}</option>
-            
-            )
-        })
-    }
-}
-    
+const courseRender=(data)=>{
+  setCourseId(data)
+  }
     return(
         <>
         
@@ -114,10 +69,7 @@ const renderCourse=(data)=>{
 <div style={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
 <div style={{position:'relative',margin:"auto"}}>
 <label className="profilelabeleff">Course Name</label>
- <select className="form-select profileinput" id='courseId4' onChange={courseIDRender4} aria-label="Default select example">
-  <option defaultValue value=''>Select the Course Name </option>
-  {renderCourse(coursedata)}
-</select>
+<CourseNames courseID ={(data)=>courseRender(data)}/>
 <i class="bi bi-caret-down-fill Instprofileinputicon" style={{top:40}}></i>
 </div>
 <div className="centerText" style={{marginTop:30}}>

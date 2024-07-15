@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { PostData } from "../../config/vendor/Apiconfig";
 import endpoints from "../../config/config";
+import { Empty, Image } from "antd";
 
 const SerGallery=({id})=>{
     const [galler,setGaller]=useState('')
@@ -18,9 +19,9 @@ const dt={
         if(data){
             const arr2=[]
             const arr3=[]
-           
-           for(let i=0;i<data.length;i++){
-            let data5 = Object.values(data[i])
+           const ht = data
+           for(let i=0;i<ht.length;i++){
+            let data5 = Object.values(ht[i])
             data5.splice(0,2)
           arr3.push(data5)
            }
@@ -29,9 +30,9 @@ const dt={
            for(let i=0;i<ass.length; i++){
             let obj2={}
             if(ass[i]!==''){
-            if(ass[i].data.length>0){
+            if(ass[i].length>0){
               obj2['id']=(i+1+'R').toString()
-            obj2['image']=ass[i].data
+            obj2['image']=ass[i]
           arr2.push(obj2)
             }
         }
@@ -41,32 +42,29 @@ const dt={
         }
     },[data])
 
-    const imageGallery=(data)=>{
-        if(data){  
-            if(data.length>0){
-          return data.map((item)=>{
-            
-            return(
-              <span key={item.id}><img  src={item.image} id="photoG" alt={item.id}/></span>
-            )
+   
+    const RenderImage =(data)=>{
+      if(data.length>0){
+          return data.map((item,i)=>{
+              console.log(item)
+              return (
+                  <Image className="moveImg" key={i} src={`${endpoints.imageprefix}${item.image}`} alt="service"  />
+              )
           })
-        }else{
-            return(
-                <>
-                <div style={{display:'flow',marginLeft:'10%'}}>
-               <img src="/background/noImage.svg" style={{width:'150px'}} alt="No Photos"/>
-              <h6 style={{color:'gray'}}>No photo Provided</h6>
-              </div>
-             </>
-            )
-          }
-        }else{
-          return(
-            <img src='/background/loading.gif' style={{width:30,height:30,marginLeft:30}} alt="loading"/>
-          )
+      }else{
+      return(
+        <Empty
+        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        imageStyle={{ height: 100 }}
+        description={
+          <h6 style={{fontSize:12,fontWeight:700}}> No Data</h6>
         }
+        style={{margin:'auto'}}
+      >
+      </Empty>
+      )
       }
-
+           }
       const moveleft =()=>{
         if(window.innerWidth>650){
         const ct = document.querySelector('.cgallery')
@@ -102,12 +100,9 @@ const dt={
                         <i class="bi bi-chevron-left ariconlef2" onClick={moveleft}></i>
                         <i class="bi bi-chevron-right  ariconrig2" onClick={moveright}></i>
                         <div className="cgallery">
-                        <img src="/images/r1.jpg" alt="service"  />
-                        <img src="/images/r1.jpg" alt="service" />
-                        <img src="/images/r1.jpg" alt="service" />
-                        <img src="/images/r1.jpg" alt="service"/>
-                        <img src="/images/r1.jpg" alt="service"/>
-                        <img src="/images/r1.jpg" alt="service"/>
+                          <Image.PreviewGroup>
+                      {RenderImage(galler)}
+                        </Image.PreviewGroup>
                         </div>
                        </div>
                        </div>

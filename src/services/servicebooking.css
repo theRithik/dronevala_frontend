@@ -106,7 +106,7 @@
 }
 
 .billcard{
-    background: aliceblue;
+    background: #fffdf0;
     width: 100%;
     padding: 10%;
     padding-top: 5%;
@@ -119,4 +119,20 @@
     border-radius: 30px;
     width: 100%;
     height: 100%;
+    position: relative;
+}
+
+.billbackicon{
+    position: absolute;
+    top: 10px;
+    left: 11px;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--color1);
+}
+
+.sertext{
+    margin-bottom: 0;
+    font-weight: 500;
+    color: grey;
 }

@@ -1,70 +1,31 @@
-import React,{useEffect,useState} from "react";
+import React,{useState} from "react";
 // import DatePicker from "react-multi-date-picker"
-import { PostData } from "../../config/vendor/Apiconfig";
+import { VPostData } from "../../config/vendor/Apiconfig";
 import endpoints from "../../config/config";
-import { DatePicker } from "antd";
+import { DatePicker, message } from "antd";
 
-const rurl = "http://localhost:5000/admin/courseStartDate"
+import '../dashboard/content.css'
+import CourseNames from "./component.js/coursenames";
+
 const StartDate=()=>{
     const [courseId,setCourseId]=useState('')
-    const [coursedata,setCoursedata]= useState('')
     const [addPhoto,setAddPhoto]=useState('')
     const [value, setValue] = useState('');
-    const[msg,setMsg]=useState('')
    
-    useEffect(()=>{
-        const data2={
-            endpoint:endpoints.findCourses,
-            id:"1693767581921",
-            token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUml0aGlrIiwicm9sZSI6IkFkbWluIiwiaWQiOiIxNjkzNzY3NTgxOTIxIiwiZXhwIjoxNzE4MTgwMzE1LCJpYXQiOjE3MTc1NzU1MTV9.A9K0LAwSje71PrJMGrj1I4iN1P7_48aPWWMGsvOON_o"
-        }
-
-    const data =async()=>{ 
-        try{
-        const data = await PostData(data2)
-        console.log(data)
-    setCoursedata(data.data)
-    }
-    catch (error) {
-        return console.error('Error fetching data:', error);
-        } finally {
-          console.log('finished')
-        }
-    }
-       
-    data()
-    
-    // eslint-disable-next-line
-    },[]) 
 
 
-        const courseIDRender5=()=>{
-            const idCourse= document.getElementById('courseId5').value
-            setCourseId(idCourse)
-         }
-         const renderCourse=(data)=>{
-            if(data){
-                return data.map((item)=>{
-                    return(
-                        <option key={item.id} value={item.courseID}>{item.course}</option>
-                    
-                    )
-                })
-            }
-         }
-        
           const updateDate=async()=>{
             try{
             setAddPhoto('')
             if(!courseId && courseId===''){
-            alert('please select a course first')
+            message.error('please select a course first')
             }
             else{
              const d1 = document.getElementById('DtPk').value
             
             if(d1){
               document.getElementById('loader').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
-          
+
           const dt = {
                 id:courseId,
                 date:d1,
@@ -72,22 +33,28 @@ const StartDate=()=>{
                 endpoint:endpoints.updateCourseDate
           }
 
-          const result = await PostData(dt)
-
+          const result = await VPostData(dt)
+          if(result){
                 setAddPhoto('Successfully Updated')
-                alert('Successfully Updated')
+                message.success('Successfully Updated')
+          }
         
           }else{
-            alert('please select a date')
+            message.error('please select a date')
           }
         }
     }catch(err){
-        throw err
+        console.log(err)
+        message.destroy()
      } finally {
          console.log('finished')
-         document.getElementById('loader').innerHTML='<span id="loader">Update</span>'
+         document.getElementById('loader').innerHTML='<span id="loader"></span>'
        } 
         }
+
+        const courseRender=(data)=>{
+            setCourseId(data)
+            }
     
     return(
         <>
@@ -100,10 +67,7 @@ const StartDate=()=>{
     <h6 style={{color:'green'}}>{addPhoto}</h6>
     <div style={{position:'relative'}}>
     <label className="profilelabeleff">Course Name</label>
- <select className="form-select profileinput" id='courseId5' onChange={courseIDRender5} aria-label="Default select example">
-  <option defaultValue value=''>Select the Course Name </option>
-  {renderCourse(coursedata)}
-</select>
+    <CourseNames courseID ={(data)=>courseRender(data)}/>
 <i class="bi bi-caret-down-fill Instprofileinputicon" style={{top:40}}></i>
 </div>
 
@@ -114,7 +78,7 @@ const StartDate=()=>{
 </div>
 </div>
     <div style={{display:'flex',justifyContent:'center',marginTop:'30px'}}>
-<button className="bluebutton" onClick={updateDate} ><span id="loader">Update</span></button>
+<button className="bluebutton" onClick={updateDate} ><span id="loader"></span>Update</button>
 </div>
  
   </div>

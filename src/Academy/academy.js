@@ -5,6 +5,7 @@ import { GetData } from "../config/vendor/Apiconfig";
 import endpoints from "../config/config";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import { Empty } from "antd";
 
 
 const Academy =()=>{
@@ -75,9 +76,15 @@ const renderCourses =(data)=>{
             })
         }else{
             return(
-                <>
-                <img src="/images/no-results.png" alt="No Result" style={{width:'50%'}}/>
-                </>
+                <Empty
+            image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+            imageStyle={{ height: 120 }}
+            description={
+              <h6 style={{fontSize:12,fontWeight:700}}> No Course Found</h6>
+            }
+            style={{margin:'auto',marginTop:'15%'}}
+          >
+          </Empty>
             )
         }
     }else{
@@ -234,6 +241,7 @@ const showAll=(e)=>{
 e.target.classList.add('menuclick')
 }
 const hidemenu=(e)=>{
+    console.log(e.target)
     const mn =  e.target.nextSibling
     mn.nextSibling.classList.toggle('hide')
     mn.nextSibling.nextSibling.classList.toggle('show')

@@ -1,20 +1,17 @@
-import React,{useState,useEffect} from "react";
+import React,{useState} from "react";
 
-import { PostData } from "../../config/vendor/Apiconfig";
+import { VPostData } from "../../config/vendor/Apiconfig";
 import endpoints from "../../config/config";
 import { PostImage } from "../../config/vendor/aws/awsapi";
-// import DashboardUser from "../Dashboard/dashboard";
-// import Front from "../Dashboard/front";
-
-
+import '../dashboard/content.css'
+import CourseNames from "./component.js/coursenames";
+import { message } from "antd";
 
 
 
 const UpdateCourse=()=>{
 const [wrong,setWrong] = useState('')
-const [coursedata,setCoursedata]= useState('')
 const [courseId,setCourseId]=useState('')
-const [msg,setMsg]=useState('')
 
 
 
@@ -26,14 +23,10 @@ const [msg,setMsg]=useState('')
         const discount = document.getElementById('discount').value
         const courseDuration = document.getElementById('courseDuration').value
         if(!courseId&& courseId===''){
-            const toastLiveExample = document.getElementById('liveToast2')
-            toastLiveExample.classList.add('show')
-            setTimeout(()=>{
-              toastLiveExample.classList.remove('show')
-            },4000)
-            setMsg('please add a course first')
+            message.error('please add a course first')
         }
         else{
+          message.loading('Processing',[5])
      document.getElementById('loader5').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'   
           const dt = {
                     "_id":courseId,
@@ -41,26 +34,22 @@ const [msg,setMsg]=useState('')
                     "fees":fees,
                     "discount":discount,
                     "courseDuration":courseDuration,
-                    "token":localStorage.getItem('Adtoken'),
-                    endpoints:endpoints.updateCourse
+                    endpoint:endpoints.updateCourse
                 }
 
-                const result = await PostData(dt)
+                const result = await VPostData(dt)
+                message.destroy()
                 if(result){
                 console.log(result.data)
                     setWrong('Successfully Updated')
                     document.getElementById('wrong').style.color='green'
-                    setMsg('Successfully Updated')
-      const toastLiveExample = document.getElementById('liveToast9')
-        toastLiveExample.classList.add('show')
-        setTimeout(()=>{
-          toastLiveExample.classList.remove('show')
-        },5000)
+                    message.success('Successfully Updated')
     }    
         }
     }
     catch(err){
-        throw err
+        console.log(err)
+        message.destroy()
     }
     finally {
         console.log('finished')
@@ -69,48 +58,10 @@ const [msg,setMsg]=useState('')
     }
 
 
-useEffect(()=>{
-    const data2={
-        endpoint:endpoints.findCourses,
-        id:"1693767581921",
-        token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUml0aGlrIiwicm9sZSI6IkFkbWluIiwiaWQiOiIxNjkzNzY3NTgxOTIxIiwiZXhwIjoxNzE4MTgwMzE1LCJpYXQiOjE3MTc1NzU1MTV9.A9K0LAwSje71PrJMGrj1I4iN1P7_48aPWWMGsvOON_o"
-    }
-const data =async()=>{ 
-    try{
-    const data = await PostData(data2)
-    console.log(data)
-setCoursedata(data.data)
-}
-catch (error) {
-    return console.error('Error fetching data:', error);
-    } finally {
-      console.log('finished')
-    }
-}
-   
-data()
-
-// eslint-disable-next-line
-},[]) 
-
-
-const renderCourse=(data)=>{
-    if(data){
-        return data.map((item)=>{
-            return(
-                 <option key={item.id} value={item.courseID}>{item.course}</option>
-            
-            )
-        })
-    }
-    
-   
-
-}
 const renderImage=async()=>{
     try{
     if(!courseId && courseId===''){
-      alert('please select the course first')
+      message.error('please select the course first')
         
     }
     else{
@@ -119,50 +70,43 @@ if(img){
   document.getElementById('loader6').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'   
 
     if(img.size<1100000){
-       
+       message.loading('Processing',[10])
             const data2={
                 fileInput:img,
                 folder:"academy",
             }
         
            const dt= await PostImage(data2)
-const path  = dt.data.path
-      setMsg('Image add successfully',path)
-
+const path  = dt.path
       const upd = {
         courseID:courseId,
-        display_Image:path,
-        token:localStorage.getItem('venderToken'),
-        endpoints:endpoints.updateImage
+        image:path,
+        endpoint:endpoints.updateImage
       }
-      const result = await PostData(upd)
+      const result = await VPostData(upd)
       if(result){
     //   Api call to update Image url in database
-      alert('Successfully Updated')
+    message.destroy()
+      message.success('Successfully Updated')
       }
     }
     else{
-        alert('size must be less then 1MB')
+        message.error('size must be less then 1MB')
         document.getElementById('PhotoS').files=''
         }
 
     }
     else{
-      alert('Please select an Image')
+      message.error('Please select an Image')
     }
   }
 }catch(err){
-    throw err
+    console.log(err)
+    message.destroy()
 }finally {
     console.log('finished')
-    document.getElementById('loader6').innerHTML='<span id="loader2">Submit</span>'
+    document.getElementById('loader6').innerHTML='<span id="loader2"></span>'
   }
-}
-
-const courseIDRender=()=>{
-   const idCourse= document.getElementById('courseId').value
-   setCourseId(idCourse)
-   
 }
 
 
@@ -188,6 +132,10 @@ const inputchange=(e)=>{
     }
 }
 
+const courseRender=(data)=>{
+  setCourseId(data)
+  }
+
 return(
     <>
      <div className="homesection">
@@ -203,10 +151,7 @@ return(
 <div style={{display:'flex',justifyContent:'center'}}>
 <div style={{position:'relative',width:'70%'}}>
 <label className="profilelabeleff">Course Type</label>
-<select className="form-select profileinput" id='courseId' style={{marginBottom:10}} onChange={courseIDRender} aria-label="Default select example">
-  <option defaultValue value=''>Select the Course Name </option>
-  {renderCourse(coursedata)}
-</select>
+<CourseNames courseID ={(data)=>courseRender(data)}/>
 <i class="bi bi-caret-down-fill Instprofileinputicon" style={{top:40}}></i>
         </div>
 </div>
@@ -250,10 +195,10 @@ return(
   <input type="file" accept=".jpg, .png" id='PhotoS' style={{paddingLeft:'5px',borderRadius:'5px'}} onChange={imageAdd}  required/>
   <img src={imgurl2} id="prev" style={{position:'absolute',display:'none',zIndex:'2',width:'102%',height:'103%',borderRadius:'10px'}} alt="preview"/>
 
-  <p style={{margin:0,fontSize:10,fontWeight:500}}>Image size must be less than 2Mb</p>
+  <p style={{margin:0,fontSize:10,fontWeight:500}}>Image size must be less than 1Mb</p>
  </label>
         
-<button className="button" onClick={renderImage}><span id="loader6">Submit</span></button>
+<button className="button" onClick={renderImage}><span id="loader6"></span>Submit</button>
         </div>
           
                   </div>

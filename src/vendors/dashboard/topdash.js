@@ -5,12 +5,25 @@ import { Link, Outlet } from "react-router-dom";
 
 
 import Leftdash from "./leftdash";
+import { useQuery } from "@tanstack/react-query";
+import { VGetData } from "../../config/vendor/Apiconfig";
+import endpoints from "../../config/config";
 
 const Dashheader=()=>{
   const [search,setSearch]=useState('')
   const [image,setImage]=useState('')
+
+  const dp={
+    endpoint:endpoints.vendorDetails,
+  }
+
+  const {data}=useQuery({
+    queryKey:['vbasicDetails'],
+    queryFn:()=>VGetData(dp)
+  })
+
+
 useEffect(()=>{
- 
 const theme = localStorage.getItem('theme')
 console.log('running')
 if(theme){
@@ -29,9 +42,13 @@ if(theme){
   }
 }
 
+if(data){
+  console.log(data)
+  setImage(data[0].profile_photo)
+}
 // imgRender()
 
-},[])
+},[data])
 
 
 
@@ -50,19 +67,19 @@ const menu =[
   },
   {
     id:3,
-    link:'bill',
-    name:'bill',
+    link:'orders',
+    name:'orders',
     icon:'wallet'
   },
   {
     id:4,
-    link:'bill',
-    name:'bank deatils',
-    icon:'bank'
+    link:'settings',
+    name:'settings',
+    icon:'gear'
   },
   {
     id:5,
-    link:'setting',
+    link:'settings',
     name:'themes',
     icon:'stars'
   }
@@ -161,16 +178,16 @@ const menurender=(data)=>{
     <p>Profile</p>
   </li>
   </Link>
-  <Link to="/vendor/bill" style={{color:'inherit'}}>
+  <Link to="/vendor/orders" style={{color:'inherit'}}>
   <li>
-  <i class="bi bi-wallet"></i>
-  <p>Bill</p>
+  <i class="bi bi-bag-check"></i>
+  <p>orders</p>
   </li>
   </Link>
-  <Link to="/vendor/setting" style={{color:'inherit'}}>
+  <Link to="/vendor/settings" style={{color:'inherit'}}>
   <li>
   <i class="bi bi-gear"></i>
-  <p>Setting</p>
+  <p>Settings</p>
   </li>
   </Link>
   <Link to="/vendor/support" style={{color:'inherit'}}>
@@ -190,6 +207,7 @@ const dashshow=()=>{
   document.querySelector('.overlay').classList.add('showol3')
   document.querySelector('.search-container').classList.add('showsugg')
 }
+
     return(
         <>
         <nav class="navbar navbar-expand-lg dashhead" >
@@ -233,10 +251,9 @@ const dashshow=()=>{
     <i class="bi bi-bell-fill" style={{color:'rgb(97 101 101)'}}></i> 
    </div>
    <div style={{position:'relative'}}>
-    {
-    image ? 
-   <img src={`data:image/png;base64,${image}`} onClick={imgClick} style={{width:35,cursor:'pointer',borderRadius:'50%'}} alt="person"/>
-   :
+    {image &&
+   <img src={`${endpoints.imageprefix}${image}`} onClick={imgClick} style={{width:35,cursor:'pointer',borderRadius:'50%'}} alt="person"/>
+    }{!image &&
    <img src="/images/addimg.svg" onClick={imgClick} style={{width:35,cursor:'pointer'}} alt="person"/>
    }
    <div className="sett-container">
@@ -256,13 +273,13 @@ const dashshow=()=>{
     <p>Profile</p>
   </li>
   </Link>
-  <Link to="/vendor/bill" style={{color:'inherit'}}>
+  <Link to="/vendor/orders" style={{color:'inherit'}}>
   <li>
-  <i class="bi bi-wallet"></i>
-  <p>Bill</p>
+  <i class="bi bi-bag-check"></i>
+  <p>Orders</p>
   </li>
   </Link>
-  <Link to="/vendor/setting" style={{color:'inherit'}}>
+  <Link to="/vendor/settings" style={{color:'inherit'}}>
   <li>
   <i class="bi bi-gear"></i>
   <p>Settings</p>
@@ -286,7 +303,7 @@ const dashshow=()=>{
   </div>
 </nav>
 <Leftdash/>
-<Outlet/>
+<Outlet context={{setImage}}/>
 
         </>
     )

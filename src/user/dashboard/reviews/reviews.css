@@ -1,0 +1,67 @@
+
+
+.reviewbox::-webkit-scrollbar{
+    visibility: hidden;
+}
+
+.reviewbox{
+    background-color: transparent;
+    border:.5 solid rgb(232, 232, 232);
+    padding: 10px 16px;
+    line-height: 200%;
+    font-size: 13px !important;
+}
+
+.reviewbox:focus,.reviewbox:active{
+    outline: none;
+    border-color: rgb(232, 232, 232);
+    box-shadow: none;
+    background: transparent;
+}
+#reviewcard{
+    border: .5px solid rgb(232, 232, 232);
+    border-radius: 15px;
+    box-shadow: -7px 6px 0px rgb(226, 226, 226);
+    position: relative;
+    transition: .5s ease;
+    .ant-rate{
+        padding: 10px;
+    }
+}
+
+#reviewcard:hover{
+ 
+    box-shadow: -16px 20px 2px 0px rgb(206, 205, 205);
+    transition: .5s ease;
+}
+
+.dark .homesection .profilecard2 {
+    h5{
+        color: aliceblue;
+    }
+#reviewcard{
+    background:#161515f2;
+    border-color: #4d4c4c;
+        box-shadow: -7px 6px 0px rgb(44, 43, 43);
+
+        h6{
+            color: #949a9a;
+        }
+
+        textarea{
+            border-color: #4d4c4c;
+            color: #949a9a;
+        }
+
+        .ant-rate{
+            background: blanchedalmond;
+          
+            border-radius: 10px;
+        }
+    }
+#reviewcard:hover{
+    box-shadow: -16px 20px 2px 0px rgb(32, 32, 32);
+
+
+}
+}

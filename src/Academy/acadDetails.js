@@ -1,25 +1,27 @@
 
 import React,{useEffect, useState} from "react";
-import { FloatButton} from "antd";
+import { FloatButton, message} from "antd";
 import './acadDetails.css'
 import { useNavigate, useParams } from "react-router-dom";
 import endpoints from "../config/config";
-import { PostData } from "../config/vendor/Apiconfig";
+import { GetData, PostData } from "../config/vendor/Apiconfig";
 import Syllabus from "./components/syllabus";
 import Trainer from "./components/trainer";
 import Review from "./components/reviews";
 import Banner from "./components/banner";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-
-
-
+import SuspenseLoad from "../suspense/suspence";
+import Gallery from "./components/gallery";
 
 const AcadDetails =()=>{
 const history = useNavigate()
 const {id,course,institute} = useParams()
 const [details,setDetails]=useState('')
-// const [banner,setBanner]=useState('')
+const [adv,setAdv]=useState('')
+const [discountP,setDiscountp]=useState('')
+const  [total,setTotal]=useState('')
+
 const det={
   _id:id,
   endpoint:endpoints.academyDetails
@@ -30,42 +32,50 @@ const {data}=  useQuery({
     queryFn:()=>PostData(det)
   })
 
+  const dt2 ={
+    endpoint:endpoints.getAdvance
+  }
+  const {data:advance}=useQuery({
+    queryKey:['advancefee'],
+    queryFn:()=>GetData(dt2)
+  })
+
 useEffect(()=>{
 if(data){
 setDetails(data[0])
+if(data[0].discount!==''){
+  const dis = Number(data[0].discount)
+  const pri = Number(data[0].fees)
+  const total = pri - dis
+  setDiscountp(data[0].fees)
+  setTotal(total)
 }
+else{
+setTotal(data[0].fees)
+}
+}
+if(advance){
+  setAdv(advance[0].fee)
+}
+
+window.scrollTo(0,0)
 // eslint-disable-next-line
-},[data])
+},[data,advance])
 
-  const moveleft =()=>{
-    if(window.innerWidth>650){
-    const ct = document.querySelector('.cgallery')
-    ct.style.scrollBehavior ="smooth"
-    ct.scrollLeft -= 900
-    }
-    else{
-      const ct = document.querySelector('.cgallery')
-    ct.style.scrollBehavior ="smooth"
-    ct.scrollLeft -= 300
-    }
-  }
-
-  const moveright =()=>{
-    if(window.innerWidth>650){
-    const ct = document.querySelector('.cgallery')
-    ct.style.scrollBehavior ="smooth"
-    ct.scrollLeft+=900
-    }
-    else{
-      const ct = document.querySelector('.cgallery')
-    ct.style.scrollBehavior ="smooth"
-    ct.scrollLeft+=250
-    }
-  }
+ 
   // const bannerFunction=(data)=>{
   //   setBanner(data)
   //   console.log(data)
   // }
+
+  const handleClick=()=>{
+    const loc= localStorage.getItem('token')
+    if(loc){
+    history('/academy/course/booking',{state:{details:details,total:total,discount:discountP,advance:adv}})
+    }else{
+      message.info('Please Login First to Proceed')
+    }
+  }
     return(
         <>
         <div  className="academyDetailPage" >
@@ -81,9 +91,12 @@ setDetails(data[0])
         <meta property="og:type" content="website" />
         <meta property="og:description" content={details.description}/>
     </Helmet>
+    {data ?(
+    <div>
             <div style={{position:'relative',padding:20,height:600,width:'100%'}}>
            <Banner id={id}  details={details}/>
             </div>
+
                     <div className="acddiv1" style={{padding:'10%',paddingTop:'5%'}}>
                   <div className="row">
                     <div className="col-md-8">
@@ -205,21 +218,7 @@ setDetails(data[0])
                         <Trainer id={id}/>
                        </div>
 
-                       <div style={{marginTop:50}}>
-                        <h6 className="acdheading">Course Gallery</h6>
-                        <div className="cgallerycontainer">
-                        <i class="bi bi-chevron-left ariconlef" onClick={moveleft}></i>
-                        <i class="bi bi-chevron-right  ariconrig" onClick={moveright}></i>
-                        <div className="cgallery">
-                        <img src="/images/r1.jpg" alt="service"  />
-                        <img src="/images/r1.jpg" alt="service" />
-                        <img src="/images/r1.jpg" alt="service" />
-                        <img src="/images/r1.jpg" alt="service"/>
-                        <img src="/images/r1.jpg" alt="service"/>
-                        <img src="/images/r1.jpg" alt="service"/>
-                        </div>
-                       </div>
-                       </div>
+                     <Gallery id ={id}/>
 
                        </div>
 
@@ -232,9 +231,9 @@ setDetails(data[0])
                         <span className="acdpricetext">₹ <span>40000</span> /-</span>
 
                         <p className="acdpricetext1">Book this course with an Advance Payment</p>
-                        <span className="price">₹<span>100 </span>/-</span>
+                        <span className="price">₹<span>{adv} </span>/-</span>
                         <h6 className="acdpricenote">Remaining amount will be paid by the student to the training institute before the course starts</h6>
-                        <button className="pricebutton"onClick={()=>{history('/academy/course/booking')}} > BOOK NOW </button>
+                        <button className="pricebutton" onClick={handleClick}> BOOK NOW </button>
                     </div>
                        </div>
                        </div>
@@ -243,6 +242,11 @@ setDetails(data[0])
                        <Review id={id}/>
                        </div>
                     </div>
+                    </div>
+    ):(
+      <SuspenseLoad/>
+    )
+}
                 </div>
         </>
     )

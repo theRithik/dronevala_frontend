@@ -28,7 +28,7 @@ const renderCourses =(data)=>{
 <h3>{item.institute_name}</h3>
 <div>
     <h6>{item.course}</h6>
-    <p>₹ {item.fees} </p>
+    <p><span>₹</span> {item.fees} </p>
     <div style={{display:'flex'}}>
     <h5><span><i class="bi bi-geo-alt-fill"></i></span> {item.city}</h5>
     <i class="bi bi-suit-heart likeicon"></i>

@@ -45,6 +45,7 @@
                 font-size: var(--largeFont);
                 color: var(--black);
                 margin-bottom: 2px;
+                font-family: 'poppins';
             }
             h5{
                 font-size: var(--smallFont);

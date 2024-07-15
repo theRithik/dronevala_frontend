@@ -73,10 +73,13 @@ h6{
     font-size: 20px;
 }
 p{
-color: black;
+color: rgb(97, 95, 95);
 width: 60%;
 margin-top: 20px;
-font-size: 14px;
+font-size: 12px;
+font-weight: 500;
+line-height: 200%;
+
 }
 button{
     background: var(--color1);
@@ -297,6 +300,10 @@ max-width: 800px;
                 font-size: var(--largeFont);
                 color: var(--black);
                 margin-bottom: 2px;
+                font-family: sans-serif;
+                span{
+                    font-size: 12px;
+                }
             }
             h5{
                 font-size: var(--smallFont);

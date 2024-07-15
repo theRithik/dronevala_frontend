@@ -32,7 +32,7 @@ const renderCourses =(data)=>{
 <h3>{item.companyName}</h3>
 <div>
     <h6>{item.firstName} {item.middleName} {item.lastName}</h6>
-    <p style={{fontSize:18}}>{item.service} </p>
+    <p style={{fontFamily:'poppins',fontSize:17,fontWeight:600}}>{item.service} </p>
     <div style={{display:'flex'}}>
     <h5><span><i class="bi bi-geo-alt-fill"></i></span>{item.currentLocation}</h5>
     <i class="bi bi-suit-heart likeicon"></i>

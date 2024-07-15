@@ -13,7 +13,37 @@
             "type": "image/png"
         }
     ],
+    "id": "/",
+    "start_url": "/",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display_override": ["window-controls-overlay"],
+  "display": "standalone",
+    "description": "One Stop Solution For All Your Drone Needs",
+  "screenshots": [
+    {
+        "src": "/images/wallpaper1.webp",
+        "type": "image/webp",
+        "sizes": "540x720",
+        "form_factor": "narrow"
+      },
+      {
+        "src": "/images/wallpaper3.webp",
+        "type": "image/webp",
+        "sizes": "540x720",
+        "form_factor": "narrow"
+      },
+      {
+        "src": "/images/wallpaper2.webp",
+        "type": "image/webp",
+        "sizes": "720x540",
+        "form_factor": "wide"
+      },
+      {
+        "src": "/images/wallpaper4.webp",
+        "type": "image/webp",
+        "sizes": "720x540",
+        "form_factor": "wide"
+      }
+  ]
 }
