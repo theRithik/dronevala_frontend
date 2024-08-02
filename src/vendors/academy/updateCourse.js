@@ -16,7 +16,7 @@ const [courseId,setCourseId]=useState('')
 
 
     const handleClick=async()=>{
-        //console.log()(courseId)
+        //// console.log()(courseId)
         try{
         const CourseName = document.getElementById('CourseName').value
         const fees = document.getElementById('fees').value
@@ -40,7 +40,7 @@ const [courseId,setCourseId]=useState('')
                 const result = await VPostData(dt)
                 message.destroy()
                 if(result){
-                console.log(result.data)
+                // console.log(result.data)
                     setWrong('Successfully Updated')
                     document.getElementById('wrong').style.color='green'
                     message.success('Successfully Updated')
@@ -48,11 +48,11 @@ const [courseId,setCourseId]=useState('')
         }
     }
     catch(err){
-        console.log(err)
+        // console.log(err)
         message.destroy()
     }
     finally {
-        console.log('finished')
+        // console.log('finished')
         document.getElementById('loader5').innerHTML='<span id="loader5">Submit</span>'
       }
     }
@@ -101,10 +101,10 @@ const path  = dt.path
     }
   }
 }catch(err){
-    console.log(err)
+    // console.log(err)
     message.destroy()
 }finally {
-    console.log('finished')
+    // console.log('finished')
     document.getElementById('loader6').innerHTML='<span id="loader2"></span>'
   }
 }

@@ -32,7 +32,7 @@ const ServiceGallery=()=>{
               obj['image'+i] = result.path
               arr.push( obj['image'+i])
         }
-         console.log(arr)  
+         // console.log(arr)  
           const im ={
             endpoint:endpoints.sGallery,
             image:arr,
@@ -52,7 +52,7 @@ const ServiceGallery=()=>{
             alert('please select the service person to update dates')
         }
         }catch(err){
-            console.log(err)
+            // console.log(err)
         }finally{
           
             document.getElementById('loader').innerHTML='<span id="loader"></span>'

@@ -26,7 +26,7 @@ const dt={
           arr3.push(data5)
            }
            const ass = [].concat(...arr3)
-           console.log(ass)
+           // console.log(ass)
            for(let i=0;i<ass.length; i++){
             let obj2={}
             if(ass[i]!==''){
@@ -46,7 +46,7 @@ const dt={
     const RenderImage =(data)=>{
       if(data.length>0){
           return data.map((item,i)=>{
-              console.log(item)
+              // console.log(item)
               return (
                   <Image className="moveImg" key={i} src={`${endpoints.imageprefix}${item.image}`} alt="service"  />
               )

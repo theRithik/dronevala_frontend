@@ -65,7 +65,7 @@ const AddDrone=()=>{
        
       }
     }catch(err){
-        console.log(err)
+        // console.log(err)
 
     }finally{
         document.getElementById('loader').innerHTML='<span id="loader"></span>'
@@ -86,7 +86,7 @@ const LatAndLng=(data)=>{
     setLat(data.lat)
     setLng(data.lng)
   }
-  console.log(data)
+  // console.log(data)
 }
 const inputchange=(e)=>{
     const vl = e.target.value
@@ -121,7 +121,7 @@ const inputchange=(e)=>{
 <div style={{position:'relative'}}>
         <label className="profilelabeleff">Drone Specifications</label>
     <textarea  onChange={inputchange}   id="techSp" className="form-control profileinput" placeholder="Drone Specifications" ></textarea>
-    <p style={{fontSize:'10px',color:'grey'}}>Add # this to make it as a Separate point in the user view</p>
+    <p style={{fontSize:'10px',color:'grey'}}>Add # to make it as a Separate point in the user view</p>
     <i class="bi bi-layers-fill Instprofileinputicon"></i>
         </div>
  <label style={{fontWeight: 500, padding: 10, fontSize: 18,display:'block',marginTop:20}}>Select your location on Map</label>

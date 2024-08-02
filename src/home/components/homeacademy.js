@@ -23,7 +23,15 @@ const renderCourses =(data)=>{
                 return(
                     <Link to={`/academy/${nm}/${cu}/${item.courseID}`} key={item.id} >
                     <div className="acdcard">
-    <img src="/images/r1.jpg" className="card5img" alt="academy"/>
+                    {item.display_image ?(
+    <img src={`${endpoints.imageprefix}${item.display_image}`} className="card5img" alt="academy"/>
+                        ):(
+                            <div style={{position:'relative'}}>
+                            <img src="/images/wallpaper2.webp" className="card5img" alt="academy"/>
+                        <p style={{position:'absolute',top:15,right:15,color:'orange',fontSize:10,fontWeight:700}}>No Image Provided</p>
+                        </div>
+                             )
+                        }
     <div className="cardbody">
 <h3>{item.institute_name}</h3>
 <div>

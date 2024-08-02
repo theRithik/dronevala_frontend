@@ -39,7 +39,7 @@ setZoom(6)
   }, [])
 
  const handleClick = (e) => {
-    //console.log()(this.state.ms)
+    //// console.log()(this.state.ms)
    const pos = {
     lat:e.latLng.lat(),
     lng:e.latLng.lng()

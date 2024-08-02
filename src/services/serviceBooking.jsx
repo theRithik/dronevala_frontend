@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import './servicebooking.css'
 import Servicemap from "./servicemap";
@@ -36,7 +36,7 @@ const ServiceBooking=()=>{
     })
    
     useEffect(()=>{
-        console.log(location)
+        // console.log(location)
         window.scrollTo(0,0)
         const n1 = location.state.data.firstName
         const n3 = location.state.data.lastName
@@ -55,7 +55,7 @@ const ServiceBooking=()=>{
         else{
             e.target.previousSibling.style.display="none"
         }
-        console.log(e.target.name,e.target.value)
+        // console.log(e.target.name,e.target.value)
         setForm(prev =>({
             ...prev,
             [e.target.name]:vl
@@ -63,13 +63,13 @@ const ServiceBooking=()=>{
        
     }
     const latlng=(data)=>{
-        console.log(data)
+        // console.log(data)
         const radius = location.state.data.serviceRadius?.split('K')[0]
     let trv;
     if(data){
       setLat(data.lat)
       setLng(data.lng)
-    console.log(radius)
+    // console.log(radius)
     if(Number(radius)>=Number(data.dist)){
  setTdist(data.dist)
  const distance = data.dist
@@ -77,10 +77,10 @@ const ServiceBooking=()=>{
       const filt = tchar.filter((item)=>{ 
         return Number(item.distanceB) >= Number(distance) && Number(distance)>=Number(item.distanceA)
       })
-      //console.log()(filt)
+      //// console.log()(filt)
       setTravelCharges(filt[0].price)
       trv=filt[0].price
-      //console.log()(trv)
+      //// console.log()(trv)
       const sprice = Number(location.state.typepr)
       const subTot = sprice*Number(location.state.size)
       const travel = Number(trv)
@@ -100,13 +100,13 @@ const ServiceBooking=()=>{
     
   }
   else{
-   console.log('else')
+   // console.log('else')
   }
 }
     }
     const detailClick=()=>{
         if(form.name!=='' && form.email!=='' && form.phone!==''){
-            console.log(form.name)
+            // console.log(form.name)
         setDetails(false)
         SetLoca(true)
     }else{
@@ -158,7 +158,7 @@ const ServiceBooking=()=>{
         if(checked ){
             document.getElementById('loader').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
             setClick(true)
-            message.loading('Processing',[5])
+            message.loading('Processing')
             const uniq = 'uniq'+Math.floor(Date.now()*Math.random())  
             const dt ={
                 uniqID:uniq,
@@ -191,8 +191,9 @@ const ServiceBooking=()=>{
 
 const result = await PostData(dt)
 
-message.destroy()
 if(result){
+    
+message.destroy()
     message.success('You Order was Regisered Successfully Our Team will contact you')
 }
 
@@ -200,7 +201,7 @@ if(result){
             message.info('Please select the checkbox')
         }
     }catch(err){
-        console.log(err)
+        // console.log(err)
     }finally{
         setClick(false)
         document.getElementById('loader').innerHTML='<span id="loader"></span>'

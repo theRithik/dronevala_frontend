@@ -1,0 +1,40 @@
+
+.profilelabeleff{
+    position: absolute;
+    left: 20px;
+    top: -13px;
+    display: none;
+    font-size: 12px;
+    font-weight: 500;
+    background: #ffffff;
+    z-index: 1;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.profileinput{
+    margin-top: 30px;
+    border:1px solid rgb(236 230 230);
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 20px !important;
+    background: transparent;
+    padding-right: 40px;
+   
+}
+.profileinput:focus,.profileinput:active{
+    box-shadow: none;
+    background: transparent;
+}
+
+.profileinput::placeholder{
+    font-weight: 500;
+}
+.Instprofileinputicon{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: grey;
+}

@@ -4,7 +4,7 @@ import vendoraxiosInstance from "./vendoraxiosConfig"
 
 export const GetData=async(data)=>{
     try{
-        console.log(data)
+        // console.log(data)
         const response = await axiosInstance.get(`${data.endpoint}`)
         return response?.data
     }
@@ -16,7 +16,7 @@ export const GetData=async(data)=>{
 
 export const PostData =async(data)=>{
     try{
-        console.log(data)
+        // console.log(data)
         const response = await axiosInstance.post(`${data.endpoint}`,data)
         return response?.data
     }
@@ -39,7 +39,7 @@ export const PutData = async(data)=>{
 
 export const VGetData=async(data)=>{
     try{
-        console.log(data)
+        // console.log(data)
         const response = await vendoraxiosInstance.get(`${data.endpoint}`)
         return response?.data
     }
@@ -51,7 +51,7 @@ export const VGetData=async(data)=>{
 
 export const VPostData =async(data)=>{
     try{
-        console.log(data)
+        // console.log(data)
         const response = await vendoraxiosInstance.post(`${data.endpoint}`,data)
         return response?.data
     }
@@ -74,7 +74,7 @@ export const VPutData = async(data)=>{
 
 export const AGetData=async(data)=>{
     try{
-        console.log(data)
+        // console.log(data)
         const response = await AdminaxiosInstance.get(`${data.endpoint}`)
         return response?.data
     }
@@ -86,7 +86,7 @@ export const AGetData=async(data)=>{
 
 export const APostData =async(data)=>{
     try{
-        console.log(data)
+        // console.log(data)
         const response = await AdminaxiosInstance.post(`${data.endpoint}`,data)
         return response?.data
     }

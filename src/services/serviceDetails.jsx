@@ -63,7 +63,7 @@ if(data){
     setServiceT(data[0].service)
 }
 if(typedata){
-    console.log(typedata)
+    // console.log(typedata)
     const resType = Object.values(typedata[0])
     resType.splice(0,3)
     const arrType =[]
@@ -160,19 +160,19 @@ if(typedata){
 
           const priceRen=()=>{
             const ptd=  document.getElementById('serviceRen').value
-      console.log(ptd)
+      // console.log(ptd)
             if(ptd!=='Select Service Type' && ptd!==''){
             if(pdiff){
                   const mpd = pdiff.filter((item)=>{
                     return Number(item.id) === Number(ptd)
                   })
-                  console.log(mpd[0].priceType)
+                  // console.log(mpd[0].priceType)
                   setTypePr(mpd[0].priceType)
                   if(type){
                   const finalTp = type.filter((item)=>{
                     return Number(item.id) === Number(ptd)
                   })
-               console.log(finalTp[0].type)
+               // console.log(finalTp[0].type)
                   setSelST(finalTp[0].type)
                 }
               }   
@@ -189,8 +189,8 @@ if(typedata){
           }
 
           const datepicked=(dates,dateStrings)=>{
-            // console.log('From: ', dates[0], ', to: ', dates[1]);
-            // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+            // // console.log('From: ', dates[0], ', to: ', dates[1]);
+            // // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
             let value
             if(dates){
               if(dateStrings[0] === dateStrings[1]){
@@ -199,7 +199,7 @@ if(typedata){
               else{
                 value = `${dateStrings[0]} ~ ${dateStrings[1]}`
               }
-            console.log(value)
+            // console.log(value)
             setSelectedDates(value)
             const mdt= data[0].availableDates
               let dfg;
@@ -278,7 +278,14 @@ if(typedata){
             <div className="row">
                 <div className="col-md-8">
                     <div className="serprof" >
-                        <img src="/images/dronepilot.webp" alt="profile"/>
+                    {details.serviceImage ?(
+ <img src={`${endpoints.imageprefix}${details.serviceImage}`} className="card5img" alt="academy"/>
+                        ):(
+                            <div className="card5img">
+                            <img src="/images/wallpaper2.webp"  style={{borderRadius:30}} alt="academy"/>
+                        <p style={{position:'absolute',top:15,right:15,color:'orange',fontSize:10,fontWeight:700}}>No Image Provided</p>
+                        </div>
+                        )}
                         <div>
                             <h6 className="serheading" style={{marginBottom:5}}>{details.firstName} {details.middleName} {details.lastName}</h6>
                             <p className="sertext" style={{color:'orange',fontSize:18}}>{details.companyName}</p>

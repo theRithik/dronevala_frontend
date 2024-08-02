@@ -8,7 +8,7 @@ const VerifyUserEmail=()=>{
     const location = useLocation()
     const context = useOutletContext()
     useEffect(()=>{
-        console.log('12')
+        // console.log('12')
        const fun =async()=>{
 
         try{
@@ -18,7 +18,7 @@ const VerifyUserEmail=()=>{
                 token:token
             }
             const value = await PostData(dt)
-            console.log(value)
+            // console.log(value)
             if(value){
                  document.getElementById('loder').style.display='none'
                   document.getElementById('tokenexper').style.display='none'
@@ -34,14 +34,14 @@ const VerifyUserEmail=()=>{
                     history('/')
                   }         
             }else{
-                console.log('err')
+                // console.log('err')
                     document.getElementById('loder').style.display='none'
           document.getElementById('tokenexper').style.display='block'
                 document.getElementById('succ').style.display='false'
             }
         }
     }catch(err){
-        console.log(err)
+        // console.log(err)
          document.getElementById('loder').style.display='none'
           document.getElementById('tokenexper').style.display='block'
                 document.getElementById('succ').style.display='none'

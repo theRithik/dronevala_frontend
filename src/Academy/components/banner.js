@@ -19,7 +19,7 @@ const Banner=(props)=>{
 
       const imageRender=(data)=>{
         if(data){
-          console.log(data,'bannner')
+          // console.log(data,'bannner')
           if(data.length>0){
             return data.map((item,i)=>{
                 return  <img key={i} src={`${endpoints.imageprefix}${item.banner_Image}`} alt="academy" className="acdbanner"/>

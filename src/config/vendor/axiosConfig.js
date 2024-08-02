@@ -23,7 +23,7 @@ axiosInstance.interceptors.response.use(
   
     response=>response,
     err=>{
-      console.log(err)
+      // console.log(err)
         if (err.response?.status ===404) {
             // The request was made, but the server responded with a status code
             message.error(err.message,[4])

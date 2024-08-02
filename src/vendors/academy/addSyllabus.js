@@ -60,10 +60,10 @@ message.info('you can add only upto 6')
           }
     }
   }catch(err){
-    console.log(err)
+    // console.log(err)
     message.destroy()
 }finally {
-    console.log('finished')
+    // console.log('finished')
     document.getElementById('loader2').innerHTML='<span id="loader2"></span>'
   }
   }

@@ -19,7 +19,7 @@ const UserRoutes =()=>{
     const history = useNavigate()
     const location = useLocation()
          useEffect(()=>{
-            console.log('user')
+            // console.log('user')
      const value =localStorage.getItem('token')
      if(value){
        setAuthenticated(true)

@@ -1,68 +1,116 @@
-import React, { useEffect, useState } from 'react'
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
+import { GoogleMap, LoadScriptNext, Marker, StandaloneSearchBox } from '@react-google-maps/api';
 
-const containerStyle = {
-  width: '100%',
-  height: '400px',
-  borderRadius:"30px",
-  marginTop:"40px"
-};
+const libraries=['places']
 
-const center = {
-  lat:16.3337217,
-  lng:77.2941666
-};
-
-const MyComponent= (props)=> {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyDuwFf2SPxY19094jHuEnU8x5vEdNBjcCg"
-  })
-const [postions,setPostion]=useState(null)
-  const [map, setMap] = React.useState(null)
-const [zoom,setZoom]=useState(4)
-useEffect(()=>{
+const MyComponent = (props) => {
+    const [map, setMap] = useState(null);
+    const [center, setCenter] = useState({ lat: 16.3337217, lng: 77.2941666 });
+    const [markerPosition, setMarkerPosition] = useState(null);
+    const [searchBox, setSearchBox] = useState(null);
+    const [zoom,setZoom] = useState(15)
+    const searchBoxRef = useRef(null);
+    // console.log('loading Map')
+    useEffect(()=>{
 setTimeout(()=>{
-setZoom(6)
+setZoom(5)
 },2000)
-},[])
-  const onLoad = React.useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-   
+    },[])
+  
+    const onLoad = useCallback((mapInstance) => {
+      setMap(mapInstance);
+    }, []);
+  
+    const onSearchBoxLoad = useCallback((ref) => {
+      // console.log(ref)
+      setSearchBox(ref);
+    }, []);
+  
+    const onPlacesChanged = () => {
+      const places = searchBox?.getPlaces();
+      if (places.length === 0) return;
+  
+      const place = places[0];
+      const location = place.geometry.location;
+      const lat = location.lat();
+      const lng = location.lng();
+  
+      setCenter({ lat, lng });
+      setMarkerPosition({ lat, lng });
+      map.panTo({ lat, lng });
+     
+      const cent = {
+        lat:lat,
+        lng:lng,
+      }
+      props.mapLocation(cent)
+    };
 
-    setMap(map)
-  }, [])
+    const handleClick = (e) => {
+        //// console.log()(this.state.ms)
+        const lat= e.latLng.lat()
+        const lng = e.latLng.lng()
+  
+        setCenter({ lat, lng });
+        setMarkerPosition({ lat, lng });
+        map.panTo({ lat, lng });
+       
+            const cent = {
+              lat:lat,
+              lng:lng,
+            }
+            props.mapLocation(cent)
+      };
 
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
 
- const handleClick = (e) => {
-    //console.log()(this.state.ms)
-   const pos = {
-    lat:e.latLng.lat(),
-    lng:e.latLng.lng()
-   }
-   setPostion(pos)
-props.mapLocation(pos)
-  };
-
-
-  return isLoaded ? (
+  return (
+    <LoadScriptNext googleMapsApiKey="AIzaSyDuwFf2SPxY19094jHuEnU8x5vEdNBjcCg" libraries={libraries}  loadingElement={<div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>}
+    options={{
+        defer: true,
+        async: true,
+    }}>
+      <StandaloneSearchBox
+        onLoad={onSearchBoxLoad}
+        onPlacesChanged={onPlacesChanged}
+      >
+        <input
+          type="text"
+          placeholder="Search for places"
+          ref={searchBoxRef}
+          style={{
+            boxSizing: `border-box`,
+            border: `1px solid orange`,
+            width: `fit-content`,
+            height: `40px`,
+            padding: `0 12px`,
+            borderRadius: `20px`,
+            boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+            fontSize: `14px`,
+            outline: `none`,
+            textOverflow: `ellipses`,
+            position: "absolute",
+            left: "50%",
+            paddingLeft:20,
+            marginLeft: "-120px",
+            top: "3%",
+            zIndex:10000
+          }}
+        />
+      </StandaloneSearchBox>
       <GoogleMap
-        mapContainerStyle={containerStyle}
+        mapContainerStyle={{ height: "400px", width: "100%",borderRadius:20 ,marginTop:30}}
         center={center}
         zoom={zoom}
         onLoad={onLoad}
-        onUnmount={onUnmount}
         onClick={handleClick}
       >
-        <Marker position={postions}/>
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
+        {/* You can add markers or other components here */}
+        {markerPosition && <Marker position={markerPosition} />}
       </GoogleMap>
-  ) : <></>
-}
+    </LoadScriptNext>
+  );
+};
 
-export default React.memo(MyComponent)
+export default MyComponent;

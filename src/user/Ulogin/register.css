@@ -21,20 +21,6 @@
     max-height: 500px;
 }
 
-.acadmain1{
-    position: absolute;
-    left: 10%;
-    bottom: 10%;
-    background: transparent;
-    h1{
-        color: #fff;
-
-    }
-    p{
-        color: var(--color1);
-    }
-}
-
 .lgnormalText{
     color: grey;
     font-size: 14px;

@@ -28,9 +28,9 @@ const Footer =()=>{
                         <span></span>
                         <ul>
                             <li><Link to ='/aboutus' style={{color:'black'}}>About us</Link></li>
-                            <li>Career</li>
-                            <li>Blogs</li>
-                            <li>Press Release</li>
+                            <li> <Link to ='/careers' style={{color:'black'}}>Career</Link></li>
+                            {/* <li>Blogs</li>
+                            <li>Press Release</li> */}
                         </ul>
                     </div>
                     <div className="col-md-4">
@@ -38,9 +38,9 @@ const Footer =()=>{
                         <span></span>
                    <ul>
                     {/* <li>Sell on Dronevala</li> */}
-                    <li  style={{cursor:'pointer'}}>Service with Dronevala</li>
+                    <li  style={{cursor:'pointer'}}><Link to="/vendors/register">Service with Dronevala </Link></li>
                     {/* <li>Protect and build your Brand</li> */}
-                    <li>Advertise your products</li>
+                    <li> <Link to="/contactus">Advertise your products</Link></li>
                     {/* <li>Fulfillment by Dronevala</li> */}
                    </ul>
                     </div>
@@ -63,7 +63,7 @@ const Footer =()=>{
                             {/* <li>Shipping Policy</li>  */}
                             <li><a href="https://dronevala.com/shippingpolicy" target="_blank" rel='noopener noreferrer' style={{color:'black'}} >Shipping Policy</a></li>
                           
-                            <li><a href="https://dronevala.com/refund" target="_blank" rel='noopener noreferrer' style={{color:'black'}} >Refund & Order Cancelltion</a></li>
+                            <li><a href="https://dronevala.com/refund" target="_blank" rel='noopener noreferrer' style={{color:'black'}} >Refund Policy</a></li>
                            
                             {/* <li>Cyber Security Policy</li>
                             <li>Data Policy</li>
@@ -95,18 +95,18 @@ const Footer =()=>{
                 </div> */}
 
                    <div className="footercollist">
-                    <a href="https://dronevala.com/disclaimer" target="_blank" rel='noopener noreferrer' >Disclaimer</a>
+                    {/* <a href="https://dronevala.com/disclaimer" target="_blank" rel='noopener noreferrer' >Disclaimer</a> */}
                     <a href="https://www.dgca.gov.in/digigov-portal/jsp/dgca/homePage/viewPDF.jsp?page=InventoryList/headerblock/drones/Drone%20Rules%202021.pdf" rel="noopener noreferrer" target="_blank">Drone Rules Book</a>
                     <a href="https://digitalsky.dgca.gov.in/airspace-map/#/app"  rel="noopener noreferrer" target="_blank">Drones Map</a>
-                    <a href="/">Jobs</a>
+                    <a href="/careers">Jobs</a>
                     <a href="https://gem.gov.in/cppp" target="_blank" rel="noopener noreferrer" >Tenders</a>
                     <a href="https://gem.gov.in/cppp" target="_blank" rel="noopener noreferrer" >GOVT Benefits</a>
-                    <a href="/">Latest News</a>
+                    {/* <a href="/">Latest News</a> */}
                     {/* <li>Forum & FAQs</li>
                     <li>Pilot Directory</li>
                     <li>Industry Directory</li>
                     <li>Drone Compliances</li> */}
-                    <a href="/">Frequently Asked Questions</a>
+                    {/* <a href="/">Frequently Asked Questions</a> */}
                    
                     </div>
 

@@ -23,7 +23,7 @@ const BannerClick=async()=>{
         folder:"service"
       }
       const result = await PostImage(dt)
-      console.log(result.path)
+      // console.log(result.path)
       const im ={
         endpoint:endpoints.servicePhoto,
         image:result.path,
@@ -40,7 +40,7 @@ const BannerClick=async()=>{
         alert('please select the service person to update dates')
     }
     }catch(err){
-        console.log(err)
+        // console.log(err)
     }finally{
         document.getElementById('loader').innerHTML='<span id="loader"></span>'
     }

@@ -34,7 +34,7 @@ const data2  ={
             return Ct.indexOf(item)===i
         })
         setCoursetype(Fc)
-        console.log(Fc)
+        // console.log(Fc)
         const dt = data.map((item,i)=>{
             return item.city 
         })
@@ -49,7 +49,7 @@ const data2  ={
    
 
 const renderCourses =(data)=>{
-    console.log("2")
+    // console.log("2")
     if(data){
         if(data.length>0){
             return data.map((item)=>{
@@ -58,7 +58,15 @@ const renderCourses =(data)=>{
                 return(
                     <Link to={`/academy/${nm}/${cu}/${item.courseID}`} key={item.id} >
                     <div className="acdcard">
-    <img src="/images/r1.jpg" className="card5img" alt="academy"/>
+                        {item.display_image ?(
+    <img src={`${endpoints.imageprefix}${item.display_image}`} className="card5img" alt="academy"/>
+                        ):(
+                            <div style={{position:'relative'}}>
+                            <img src="/images/wallpaper2.webp" className="card5img" alt="academy"/>
+                        <p style={{position:'absolute',top:15,right:15,color:'orange',fontSize:10,fontWeight:700}}>No Image Provided</p>
+                        </div>
+                             )
+                        }
     <div className="cardbody">
 <h3>{item.institute_name}</h3>
 <div>
@@ -114,7 +122,7 @@ const renderCourses =(data)=>{
 
 const courseType=(e)=>{
     const num = document.querySelectorAll('.menuclickcou')
-    console.log(num)
+    // console.log(num)
     if(num.length>0){
      num[0].classList.remove('menuclickcou')
     }
@@ -142,9 +150,9 @@ const val = acad2
 
 const droneType=(e)=>{
     if(acad){
-    console.log(e)
+    // console.log(e)
    const num = document.querySelectorAll('.menuclick')
-   console.log(num)
+   // console.log(num)
    if(num.length>0){
     num[0].classList.remove('menuclick')
    }
@@ -191,7 +199,7 @@ if(data){
 
 const locationFilter=(e)=>{
     const num = document.querySelectorAll('.menuclickloc')
-    console.log(num)
+    // console.log(num)
     if(num.length>0){
      num[0].classList.remove('menuclickloc')
     }
@@ -241,11 +249,11 @@ const showAll=(e)=>{
 e.target.classList.add('menuclick')
 }
 const hidemenu=(e)=>{
-    console.log(e.target)
+    // console.log(e.target)
     const mn =  e.target.nextSibling
     mn.nextSibling.classList.toggle('hide')
     mn.nextSibling.nextSibling.classList.toggle('show')
-    console.log(mn)
+    // console.log(mn)
     const nm = e.target.parentElement.nextSibling
     nm.classList.toggle('close')
     e.target.parentElement.classList.toggle('closeEff')

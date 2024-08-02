@@ -39,7 +39,7 @@ const UserServiceorderdetails=()=>{
         if(from.length>11){
             const m1 = from.split('~')[0]
             const m2 = from.split('~')[1]
-            //console.log()(from)
+            //// console.log()(from)
             return(
                 <div className="row">
                 <div className="col-md-5 col-sm-5" >

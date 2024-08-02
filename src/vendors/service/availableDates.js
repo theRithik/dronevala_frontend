@@ -34,7 +34,7 @@ const [messageApi,contextHolder]=message.useMessage()
             message.error('please select the service person to update dates')
         } 
         }catch(err){
-            console.log(err)
+            // console.log(err)
         }finally{
          
             document.getElementById('loader').innerHTML='<span id="loader"></span>'
@@ -47,8 +47,8 @@ const [messageApi,contextHolder]=message.useMessage()
         const [selectedDates, setSelectedDates] = useState([]);
 
         const handleDateChange=(dates,dateStrings)=>{
-            // console.log('From: ', dates[0], ', to: ', dates[1]);
-            // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+            // // console.log('From: ', dates[0], ', to: ', dates[1]);
+            // // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
             let value
             if(dates){
               if(dateStrings[0] === dateStrings[1]){
@@ -63,7 +63,7 @@ const [messageApi,contextHolder]=message.useMessage()
 
     const serviceRender=(data)=>{
         setServiceId(data)
-        console.log(data)
+        // console.log(data)
         }
         
     

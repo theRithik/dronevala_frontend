@@ -172,21 +172,21 @@ checklogin()
        <Link to="/rental"> <li data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive"><span>Rental</span><i class="bi bi-chevron-right"></i></li></Link>
        <Link to="/store"><li data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive"><span>Store</span><i class="bi bi-chevron-right"></i></li></Link>
        <Link to="/aboutus">  <li data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive"><span>About</span><i class="bi bi-chevron-right"></i></li></Link>
-       <Link to="/contact"><li data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive"><span>Contact</span><i class="bi bi-chevron-right"></i></li></Link>
+       <Link to="/contactus"><li data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive"><span>Contact</span><i class="bi bi-chevron-right"></i></li></Link>
       </ul>
       <h6 className="offcantag">
       Become a Dronevala Member for the best Drone courses, services, rental, and drone store in the world. 
       </h6>
       {!logged && 
       <div className="offcanbutt">
-        <span onClick={()=>{history('/register',{state:{form:location.pathname}})}} style={{cursor:'pointer'}}>Join Us</span>
-        <span onClick={()=>{history('/login',{state:{form:location.pathname}})}} style={{cursor:'pointer'}}>Sign In</span>
+        <span onClick={()=>{history('/register',{state:{form:location.pathname}})}} data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" style={{cursor:'pointer'}}>Join Us</span>
+        <span onClick={()=>{history('/login',{state:{form:location.pathname}})}} data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" style={{cursor:'pointer'}}>Sign In</span>
       </div>
 }
 {logged &&
  <div className="offcanbutt">
- <span onClick={()=>{history('/user/profile')}} style={{cursor:'pointer'}}>Profile</span>
- <span onClick={()=>{history('/user/dashboard')}} style={{cursor:'pointer'}}>Dashboard</span>
+ <span onClick={()=>{history('/user/profile')}} style={{cursor:'pointer'}} data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive">Profile</span>
+ <span onClick={()=>{history('/user/dashboard')}} style={{cursor:'pointer'}} data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive">Dashboard</span>
 </div>
 
 }

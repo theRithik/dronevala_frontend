@@ -25,7 +25,7 @@ const BannerClick=async()=>{
         endpoint:endpoints.aws
       }
       const result = await PostImage(dt)
-      console.log(result.path)
+      // console.log(result.path)
       const im ={
         endpoint:endpoints.sBanner,
         image:result.path,
@@ -44,7 +44,7 @@ const BannerClick=async()=>{
         message.error('please select the service person to update dates')
     }
     }catch(err){
-        console.log(err)
+        // console.log(err)
     }finally{
      
         document.getElementById('loader').innerHTML='<span id="loader"></span>'

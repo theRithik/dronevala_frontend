@@ -67,7 +67,8 @@ const dt ={
 }
 
 const result  = await VPostData(dt)
-console.log(arr.length)
+if(result){
+// console.log(result)
 if(arr.length>0 && result){
     const tg ={
         "id":localStorage.getItem('vid'),
@@ -85,6 +86,7 @@ if(arr.length>0 && result){
   message.destroy()
   history('/vendors/servicedetailsform')
   setValue(false)
+}
 }
     }
     else{

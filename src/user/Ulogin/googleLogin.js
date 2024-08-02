@@ -33,7 +33,7 @@ const context = useOutletContext()
       }
 
     }catch(err){
-      console.log(err)
+      // console.log(err)
     }
   }
     return(
@@ -41,7 +41,7 @@ const context = useOutletContext()
         <GoogleLogin
   onSuccess={handleClick}
   onError={() => {
-    console.log('Login Failed');
+    // console.log('Login Failed');
   }}
   useOneTap
 />

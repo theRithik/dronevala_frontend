@@ -42,7 +42,7 @@ const UserLogin=()=>{
              }
 
              const data = await PostData(dt)
-             console.log(data)
+             // console.log(data)
              if(data){
                 localStorage.setItem('token',data.token)
                 localStorage.setItem('_id',data.uniq)
@@ -62,7 +62,7 @@ const UserLogin=()=>{
         
     }
 }catch(err){
-console.log(err)
+// console.log(err)
 }finally{
 document.getElementById('loader').innerHTML='<span id="loader"></span>'    
 }
@@ -71,14 +71,14 @@ document.getElementById('loader').innerHTML='<span id="loader"></span>'
     return(
         <>
         <div  className="userLoginPage" >
-            <div style={{position:'relative'}}>
+            {/* <div style={{position:'relative'}}>
             <img src="/images/heading1.webp" alt="academy" className="acdbannerlogin"/>
             <div className="acadmain1">
                 <h1 >Login</h1>
                 <p className="pstyle">Innovative Aerial Solutions for Every Need</p>
             </div>
-            </div>
-            <div style={{padding:'10%',background:'aliceblue'}}>
+            </div> */}
+            <div style={{padding:'7% 10%',background:'#fffdf0'}}>
             <div className=" row loginCard" >
                 <div className="col-md-6" style={{padding:'30px',marginBottom:30}}>
                     <h2 className="heading2" style={{textAlign:'inherit'}}>Login</h2>

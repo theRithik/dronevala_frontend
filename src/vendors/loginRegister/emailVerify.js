@@ -9,7 +9,7 @@ const VEmailVerify=React.memo(()=>{
   const history=useNavigate()
 
   useEffect(()=>{
-    console.log('12')
+    // console.log('12')
    const fun =async()=>{
     try{
     if(token!==''){
@@ -18,7 +18,7 @@ const VEmailVerify=React.memo(()=>{
             token:token
         }
         const value = await VPostData(dt)
-        console.log(value)
+        // console.log(value)
         if(value){
              document.getElementById('loder').style.display='none'
               document.getElementById('tokenexper').style.display='none'
@@ -28,14 +28,14 @@ const VEmailVerify=React.memo(()=>{
             localStorage.setItem('vemail',value.email)
               history('/vendors/detailsform',{state:{data:value.email,instName:value.Instname,name:value.name}})    
         }else{
-            console.log('err')
+            // console.log('err')
                 document.getElementById('loder').style.display='none'
       document.getElementById('tokenexper').style.display='block'
             document.getElementById('succ').style.display='false'
         }
     }
 }catch(err){
-    console.log(err)
+    // console.log(err)
      document.getElementById('loder').style.display='none'
       document.getElementById('tokenexper').style.display='block'
             document.getElementById('succ').style.display='none'

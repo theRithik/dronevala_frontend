@@ -33,7 +33,7 @@ const VendorLogin =()=>{
             password:password
         }
         const data = await VPostData(dt)
-        console.log(data)
+        // console.log(data)
         if(data){
           message.destroy()
         localStorage.setItem('vtoken',data.data)
@@ -133,14 +133,14 @@ const VendorLogin =()=>{
     return(
         <>
  <div  className="userLoginPage" >
-            <div style={{position:'relative'}}>
+            {/* <div style={{position:'relative'}}>
             <img src="/images/heading1.webp" alt="academy" className="venbannerlogin"/>
             <div className="venmain1">
                 <h1 > Vendor Login</h1>
                 <p className="pstyle">Innovative Aerial Solutions for Every Need</p>
             </div>
-            </div>
-            <div style={{padding:'10%',background:'aliceblue'}}>
+            </div> */}
+            <div style={{padding:'7% 10%',background:'#fffdf0'}}>
             <div className=" row loginCard" >
                 <div className="col-md-6 stcol">
                     <h2 className="heading2" style={{textAlign:'inherit'}}>Login</h2>

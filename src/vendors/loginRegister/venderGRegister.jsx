@@ -10,7 +10,7 @@ const VenderGoogleRegister=()=>{
   const [detail,setDetail]=useState('')
   const history = useNavigate()
 const success=(data)=>{
-console.log(data)
+// console.log(data)
 setDetail(data)
 setOpen(true)
 
@@ -45,7 +45,7 @@ message.error('Please Enter your company Name')
     message.error('An Error Occured please try again')
   }
 }catch(err){
-  console.log(err)
+  // console.log(err)
 }finally{
   setLoading(false)
   setOpen(false)
@@ -62,7 +62,7 @@ message.error('Please Enter your company Name')
         <GoogleLogin
   onSuccess={success}
   onError={() => {
-    console.log('Login Failed');
+    // console.log('Login Failed');
   }}
   useOneTap
 />

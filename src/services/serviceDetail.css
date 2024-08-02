@@ -98,9 +98,13 @@ max-width: 50%;
     img{
         max-width: 300px;
         max-height: 300px;
+    }
+    .card5img{
+        max-width: 300px;
+        max-height: 300px;
         border-radius: 40px;
         position: sticky;
-        top: 10px;
+        top: 10px;   
     }
 }
 .serOffer{

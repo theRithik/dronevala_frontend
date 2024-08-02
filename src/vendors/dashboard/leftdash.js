@@ -26,7 +26,7 @@ const {data:basic,isLoading}= useQuery({
 
     useEffect(()=>{
       if(basic){
-        console.log(basic,'details')
+        // console.log(basic,'details')
               const catD = Object.values(basic[0])
       catD.splice(0,2)
         for(let i =0;i<catD.length;i++){
@@ -57,15 +57,6 @@ sh.addEventListener('click',()=>{
     document.querySelector('.overlay').classList.remove('showol')
 })
 }
-const lc = localStorage.getItem('theme')
-if(lc === 'dark'){
-    document.querySelector('.darkModeL').style.display ="none"
-    document.querySelector('.lightModeL').style.display ="block"
-}else{
-    document.querySelector('.lightModeL').style.display="none"
-    document.querySelector('.darkModeL').style.display="block"
-}
-
         }
 
      
@@ -215,24 +206,81 @@ if(ac ){
       const menu2=()=>{
         if(value2===true){
           return(
-          <li > 
-          <div className="icon_link" >
-              <i>
-              <i class="fa-solid fa-registered rotet"></i> 
-              <span className="link_name">Rental</span>
-              <span className="material-symbols-outlined arrow">chevron_right</span>
-              </i>
-      
-      </div>
-          <ul className="sub-menu">
-          <li><Link to="" className="link_name">Rental</Link></li>
-              <li><Link to='/vendor/rentalDrone'><span className="material-symbols-outlined" id="arrowMenu">arrow_forward</span>Add Rental Product</Link></li>
-              <li><Link to="/vendor/updateRental"><span className="material-symbols-outlined" id="arrowMenu">arrow_forward</span>Update Product</Link></li>
-              <li><Link to="/vendor/UpdateRentalDates"><span className="material-symbols-outlined" id="arrowMenu">arrow_forward</span>Avaliable Dates</Link></li>
-              <li><Link to="/vendor/rentalGallery"><span className="material-symbols-outlined" id="arrowMenu">arrow_forward</span>Rental Gallery</Link></li>
-             </ul>
-      </li>
-          )
+            <li> 
+            <div className="leftnavmenutab">
+            <p className="menuover" onClick={linkclick}></p>
+              <span >       
+              <i class="bi bi-ev-front dashicon"></i>
+              <h5>Rental</h5>
+              </span>
+              
+          </div>
+            <ul className="sub-menu">
+            <li>
+                  <div>
+                  <Link to='/vendor/rental/addRental'>
+                      <span>
+                      <i class="bi bi-ev-front-fill dashicon"></i>
+                      <h6>Add Rental Product</h6>
+                      </span>
+                      </Link>
+                      </div>
+                      </li>
+                      <li>
+                  <div>
+                  <Link to='/vendor/rental/updateRental'>
+                      <span>
+                      <i class="bi bi-arrow-bar-up dashicon"></i>
+                      <h6>Update Product</h6>
+                      </span>
+                      </Link>
+                      </div>
+                      </li>
+                      <li>
+                  <div>
+                  <Link to='/vendor/rental/productavailability'>
+                      <span>
+                      <i class="bi bi-bookmark-check dashicon"></i>
+                      <h6>Product Status</h6>
+                      </span>
+                      </Link>
+                      </div>
+                      </li>
+                      <li>
+                  <div>
+                  <Link to='/vendor/rental/rentalGallery'>
+                      <span>
+                      <i class="bi bi-images dashicon"></i>
+                      <h6>Rental Gallery</h6>
+                      </span>
+                      </Link>
+                      </div>
+                      </li>
+                      <li>
+                  <div>
+                  <Link to='/vendor/rental/rentalBanner'>
+                      <span>
+                      <i class="bi bi-image-fill dashicon"></i>
+                      <h6>Add Rental Banner</h6>
+                      </span>
+                      </Link>
+                      </div>
+                      </li> 
+                      
+                      {/* <li>
+                  <div>
+                  <Link to='/vendor/service/addViedo'>
+                      <span>
+                      <i class="bi bi-film dashicon"></i>
+                      <h6>Add Service Viedo</h6>
+                      </span>
+                      </Link>
+                      </div>
+                      </li> */}
+                    
+                </ul>
+        </li>
+            )
         }
       }
       
@@ -373,8 +421,9 @@ if(ac ){
         </Link>
     </li>
     {menu1()}
-{/* {menu2()}  */}
-{menu3()}
+    {menu3()}
+{menu2()} 
+
 {/* {menu4()} */}
     <li>
     <Link to="/vendor/calender" >
@@ -398,6 +447,39 @@ if(ac ){
         </div>
         </Link>
     </li>
+    <li> 
+         <div className="leftnavmenutab">
+       <p className="menuover" onClick={linkclick}></p>
+            <span >
+               
+            <i class="bi bi-patch-question dashicon"></i>
+            <h5>Post Job</h5>
+            
+            </span>
+            
+        </div>
+          <ul className="sub-menu">
+              <li>
+                <div>
+                <Link to='/vendor/addjob'>
+                    <span>
+                   <i class="bi bi-file-earmark-plus-fill dashicon"></i>
+                    <h6>Add Job</h6>
+                    </span>
+                    </Link>
+                    </div>
+                    </li>
+              <li>
+                <div>
+                <Link to="/vendor/jobStatus"><span>
+                <i class="bi bi-arrow-up-right-circle-fill dashicon"></i>
+                    <h6>Update Status</h6>
+                    </span>
+                    </Link>
+                    </div>
+                    </li>
+                    </ul>
+                    </li>
     <li className="modesEff">
         <div  className="darkModeL">
             <span onClick={darkClick}>

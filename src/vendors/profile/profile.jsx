@@ -57,7 +57,7 @@ if(data){
             ...details,
             [e.target.name]:e.target.value
         })
-        console.log(e.target.value)
+        // console.log(e.target.value)
 
     }
   
@@ -83,7 +83,7 @@ const mutation = useMutation({
                         endpoint:endpoints.vendorUpdate,
                     }     
                 const result = await mutation.mutate(newData)
-                console.log(result)
+                // console.log(result)
                 message.destroy()
                 return result
             }else{
@@ -91,7 +91,7 @@ const mutation = useMutation({
             }
         }
         catch(err){
-        console.log(err)
+        // console.log(err)
         }finally{
             message.destroy()
             document.getElementById('loader').innerHTML='<span id="loader"></span>'
@@ -111,7 +111,7 @@ const imagAdd=async(event)=>{
              folder:"vendors"
         }
         const result = await PostImage(dt)
-        console.log(result.path)
+        // console.log(result.path)
         if(result){
         const mt ={
             endpoint:endpoints.vendorImage,
@@ -127,9 +127,11 @@ const imagAdd=async(event)=>{
     }
     }else{
         message.info('image must be less than 1Mb')
+        event.target.value =""
     }
     }catch(err){
-        console.log(err)
+         event.target.value =""
+        // console.log(err)
     }finally{
         setLoading(false)
     }

@@ -20,7 +20,7 @@ const ServiceOrderDetails =()=>{
     })
     useEffect(()=>{
         if(data){
-            console.log(data)
+            // console.log(data)
             setOrder(data.data[0])
             function toDMS(deg) {
                 var d = Math.floor(deg);
@@ -78,7 +78,7 @@ const ServiceOrderDetails =()=>{
                 <p className="odHeadTag">Order Confirmed</p>
                 <div style={{marginTop:30,display:'flex',alignItems:'center',gap:20,flexWrap:'wrap'}}>
                     <p className="odHeadTag2">Paid On: <span>{order.DateandTime}</span></p>
-                    <p className="odHeadTag2">Enrolled: <span>{order.bookedDates}</span></p>
+                    <p className="odHeadTag2">Booked Dates: <span>{order.bookedDates}</span></p>
                 </div>
             </div>
             <div>

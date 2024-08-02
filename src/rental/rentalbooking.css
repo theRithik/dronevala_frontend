@@ -1,0 +1,138 @@
+/* .checkoutcard{
+    margin: 30px;
+    padding: 20px;
+   background: #fff;
+    border-radius: 20px;
+
+    label{
+        font-weight: 500;
+        
+        display: block;
+    }
+
+} */
+
+.disclamerText{
+    font-size: 10px;
+    color: grey;
+    margin: 0;
+    font-weight: 500;
+}
+
+.acdcheckout{
+    margin-top: 20px;
+    th{
+        font-size: 14px;
+        font-weight: 600;
+        padding: 15px;
+        color: var(--secoundryblue);
+        background: transparent;
+    }
+    td{
+        font-size: 14px;
+        padding: 15px;
+        text-align: end;
+        background: transparent;
+        font-weight: 500;
+    }
+}
+.table>:not(caption)>*>*{
+    border: none;
+}
+
+.table-active{
+    --bs-table-bg-state:var(--orangebackground2);
+}
+
+#checklabel{
+    font-size: 10px;
+    color: grey;
+    line-height: 200%;
+}
+
+
+.buttonblue{
+    border:none;
+    background:var(--secoundryblue);
+    color: aliceblue;
+    padding: 10px 30px 10px 30px;
+    border-radius: 30px;
+  font-weight: 600;
+}
+
+.buttonblue:hover{
+    background:#fff;
+    color: var(--color1);
+}
+
+.profilelabeleff{
+    position: absolute;
+    left: 20px;
+    top: -13px;
+    display: none;
+    font-size: 12px;
+    font-weight: 500;
+    background: #ffffff;
+    z-index: 1;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.profileinput{
+    margin-top: 30px;
+    border:1px solid rgb(236 230 230);
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 20px !important;
+    background: transparent;
+    padding-right: 40px;
+   
+}
+.profileinput:focus,.profileinput:active{
+    box-shadow: none;
+    background: transparent;
+}
+
+.profileinput::placeholder{
+    font-weight: 500;
+}
+.Instprofileinputicon{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: grey;
+}
+
+.billcard{
+    background: #fffdf0;
+    width: 100%;
+    padding: 10%;
+    padding-top: 5%;
+    height: 100%;
+}
+
+.billcard2{
+    padding: 5%;
+    background: #fff;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.billbackicon{
+    position: absolute;
+    top: 10px;
+    left: 11px;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--color1);
+}
+
+.sertext{
+    margin-bottom: 0;
+    font-weight: 500;
+    color: grey;
+}

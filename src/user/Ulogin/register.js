@@ -61,7 +61,7 @@ const UserRegister=()=>{
                         }             
         }
         }catch(err){
-            console.log(err)
+            // console.log(err)
         }
         finally{
             document.getElementById('loader').innerHTML='<span id="loader"></span>'
@@ -70,14 +70,14 @@ const UserRegister=()=>{
     return(
         <>
         <div  className="userLoginPage" >
-            <div style={{position:'relative'}}>
+            {/* <div style={{position:'relative'}}>
             <img src="/images/heading1.webp" alt="academy" className="acdbannerlogin"/>
             <div className="acadmain1">
                 <h1 >Register</h1>
                 <p className="pstyle">Innovative Aerial Solutions for Every Need</p>
             </div>
-            </div>
-            <div style={{padding:'10%',background:'aliceblue'}}>
+            </div> */}
+            <div style={{padding:'7% 10%',background:'#fffdf0'}}>
             <div className=" row loginCard" >
                 <div className="col-md-6" style={{padding:'30px',marginBottom:30}}>
                     <h2 className="heading2" style={{textAlign:'inherit'}}>New User Sign Up</h2>

@@ -15,7 +15,7 @@ const ServiceReviews=({id})=>{
     })
     const ReviewRender=(data)=>{
         if(data){
-            console.log(data)
+            // console.log(data)
             if(data.length>0){
                 return data.map((item,i)=>{
                     return <div className="reviewcard" key={i}>

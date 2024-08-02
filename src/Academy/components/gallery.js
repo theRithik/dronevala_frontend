@@ -28,7 +28,7 @@ if(data){
      
        }
        const ass = [].concat(...arr3)
-       console.log(ass)
+       // console.log(ass)
        for(let i=0;i<ass.length; i++){
         let obj2={}
         if(ass[i].length>0){
@@ -46,7 +46,7 @@ if(data){
      const RenderImage =(data)=>{
 if(data.length>0){
     return data.map((item,i)=>{
-        console.log(item)
+        // console.log(item)
         return (
             <Image className="moveImg" key={i} src={`${endpoints.imageprefix}${item.image}`} alt="service"  />
         )
@@ -100,7 +100,7 @@ return(
                         <i class="bi bi-chevron-left ariconlef" onClick={moveleft}></i>
                         <i class="bi bi-chevron-right  ariconrig" onClick={moveright}></i>
                         <div className="cgallery">
-                          <Image.PreviewGroup preview={{onChange:(current,prev)=>console.log(`current index: ${current}, prev index: ${prev}`)}}>
+                          <Image.PreviewGroup >
                             {RenderImage(photoGallery)}
                       
                         </Image.PreviewGroup>

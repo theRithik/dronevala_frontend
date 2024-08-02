@@ -23,12 +23,12 @@ const history=useNavigate()
             }
             const data = await APostData(dt)
             if(data){
-        console.log(data)
+        // console.log(data)
                 history('/admin/main')
                 localStorage.setItem('AdminT',data.token)
             }
         }catch(err){
-            console.log(err)
+            // console.log(err)
         }finally{
             document.getElementById('loader').innerHTML='<span id="loader"></span>'  
         }

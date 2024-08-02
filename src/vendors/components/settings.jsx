@@ -29,13 +29,13 @@ tr.checked = true
 //   th.classList.toggle('showcardtheme')
 // }
 // else if(e.target.childNodes[0]){
-//     console.log(e.target)
+//     // console.log(e.target)
 //     const tp =  e.target.nextSibling
 //     tp.classList.toggle('rotate')
 //    const th = e.target.parentElement.nextSibling
 //    th.classList.toggle('showcardtheme')
 // }else if(e.target.nodeName ==='path'){
-// console.log(e.target.parentElements)
+// // console.log(e.target.parentElements)
 // }
 // else{
 //     const tp =  e.target.nextSibling.nextSibling

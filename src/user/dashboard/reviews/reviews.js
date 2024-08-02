@@ -65,7 +65,7 @@ if(user){
             if(data.length>=1){
                 return data.map((item,i)=>{
                     const rating = Number(item.rating)
-                    console.log(item.type)
+                    // console.log(item.type)
                     return(
                       <div key={i} style={{marginTop:'40px'}}>
                           {(item.courseName) &&
@@ -255,7 +255,7 @@ if(user){
         message.info('please give rating and review')
     }
 }catch(err){
-    console.log(err)
+    // console.log(err)
 }
 
       }

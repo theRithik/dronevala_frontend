@@ -1,0 +1,206 @@
+.colcenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.jobcarddiv{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.teamcard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    /* border: 1px solid grey; */
+    border-radius: 30px;
+    box-shadow: 0 0 10px #e2e1e1;
+    margin: 20px;
+}
+
+.jobcontainer{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.jobcard{
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #eae6e6;
+    cursor: pointer;
+    width: 300px;
+    position: relative;
+}
+
+.joblkic{
+    position: absolute;
+    right: 20px;
+    color: #0c1765;
+    top:10px;
+    font-size: 14px;
+}
+
+.headingtag{
+    font-size:1.8rem;
+    font-weight:800;
+    color:#0c1765;
+}
+.headingtag2{
+    font-size:1.3rem;
+    font-weight:800;
+    color:#0c1765;
+}
+
+
+.centerlist2 li{
+    font-size: 13px;
+    word-spacing: 2px;
+    margin-top: 10px;
+    line-height: 2;
+    list-style-image: url('/public/images/cer7.png');
+    list-style-type: inherit;
+}
+
+.reglabeleff2{
+    position: absolute;
+    left: 20px;
+    top: -13px;
+    background: #fff;
+    padding: 5px;
+    display: none;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.lgicon{
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    color: grey;
+    font-size: 12px;
+}
+
+
+.reginput{
+    margin-top: 30px;
+    border:1px solid rgb(223, 221, 221);
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 40px !important;
+    background: transparent;
+   
+}
+.reginput:focus,.reginput:active{
+    box-shadow: none;
+    background: transparent;
+}
+
+.stylep{
+    font-size: 13px;
+    line-height: 1.8rem;
+    text-align: justify;
+}
+
+
+
+.regreq2{
+    position: absolute;
+    font-size: 10px;
+    color: red;
+    padding: 5px;
+    background: #fff;
+    right: 20px;
+    top: 33px;
+    display: none;
+}
+
+
+#form-main-content1::-webkit-scrollbar{
+    display: none;
+}
+
+iframe::-webkit-scrollbar{
+    display: none;
+}
+.cover-page::-webkit-scrollbar{
+    display: none;
+}
+
+.resumeupload::-webkit-file-upload-button{
+    display: none;
+}
+
+.resumeupload{
+    border: none;
+    color: transparent;
+    background: transparent;
+    width: 100%;
+    height: 100px;
+    z-index: 2;
+}
+
+.resumeupload:active,.resumeupload:focus{
+    box-shadow: none;
+    border: none;
+    color: transparent;
+    background: transparent;
+    width: 100%;
+    height: 100px;
+    z-index: 2;
+}
+
+.fileupdesign{
+    width: 39%;
+    border: 1px solid rgb(228 226 226);
+    border-radius: 20px;
+    border-color: rgb(228 226 226);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow:-20px 13px 10px rgb(240 236 236);
+
+    i{
+        position: absolute;
+        font-size: 50px;
+        color: grey;
+    }
+}
+.fileupdesign:focus,.fileupdesign:active{
+    box-shadow: none;
+}
+
+.resumeupload::-webkit-input-placeholder{
+    color: #fff;
+}
+
+.fle2{
+    display: none;
+    font-size: 125px !important;
+}
+
+.fileupdesign.fileadd{
+    width:92px;
+    height:120px;
+    border:none
+}
+
+.mnhomeh11{
+    font-size:75px;
+    
+    color:black
+    }
+
+    @media screen and (max-width:600px) {
+        .mnhomeh11{
+            font-size: 60px;
+        }
+    }

@@ -24,7 +24,7 @@ const {data}= useQuery({
   })
   useEffect(()=>{
     if(data){
-        console.log('service page')
+        // console.log('service page')
         setAcad(data)
         setAcad2(data)
         const Ct = data.map((item,i)=>{
@@ -34,7 +34,7 @@ const {data}= useQuery({
             return Ct.indexOf(item)===i
         })
         setServicetype(Fc)
-        console.log(Fc)
+        // console.log(Fc)
         const dt = data.map((item,i)=>{
             return item.currentLocation 
         })
@@ -48,7 +48,7 @@ const {data}= useQuery({
       
        
 const renderCourses =(data)=>{
-    console.log("2")
+    // console.log("2")
     if(data){
         if(data.length>0){
             return data.map((item)=>{
@@ -58,7 +58,15 @@ const renderCourses =(data)=>{
                 return(
                     <Link to={`/services/${item.service}/${cu}/${nm}/${item.serviceID}`} key={item.id} >
                     <div className="acdcard">
-    <img src="/images/slide1.webp" className="card5img" alt="academy"/>
+                        {item.serviceImage ?(
+ <img src={`${endpoints.imageprefix}${item.serviceImage}`} className="card5img" alt="academy"/>
+                        ):(
+                            <div style={{position:'relative'}}>
+                            <img src="/images/wallpaper2.webp" className="card5img" alt="academy"/>
+                        <p style={{position:'absolute',top:15,right:15,color:'orange',fontSize:10,fontWeight:700}}>No Image Provided</p>
+                        </div>
+                        )}
+   
     <div className="cardbody">
 <h3>{item.companyName}</h3>
 <div>
@@ -114,7 +122,7 @@ const renderCourses =(data)=>{
 
 const serviceType=(e)=>{
     const num = document.querySelectorAll('.menuclick')
-    console.log(num)
+    // console.log(num)
     if(num.length>0){
      num[0].classList.remove('menuclick')
     }
@@ -163,7 +171,7 @@ if(data){
 
 const locationFilter=(e)=>{
     const num = document.querySelectorAll('.menuclickloc')
-    console.log(num)
+    // console.log(num)
     if(num.length>0){
      num[0].classList.remove('menuclickloc')
     }
@@ -213,7 +221,7 @@ const hidemenu=(e)=>{
     const mn =  e.target.nextSibling
     mn.nextSibling.classList.toggle('hide')
     mn.nextSibling.nextSibling.classList.toggle('show')
-    console.log(mn)
+    // console.log(mn)
     const nm = e.target.parentElement.nextSibling
     nm.classList.toggle('close')
     e.target.parentElement.classList.toggle('closeEff')
@@ -222,7 +230,7 @@ const hidemenu=(e)=>{
 const handleRender=()=>{
     let value5
     const date = document.getElementById('DtPk').value
-    console.log(date)
+    // console.log(date)
     if(date.length>10){
        value5 = date.split('~')
        const start = value5[0].split('/').reverse().join('/')

@@ -68,14 +68,14 @@ const VendorRegister=()=>{
     return(
         <>
         <div  className="userLoginPage" >
-            <div style={{position:'relative'}}>
+            {/* <div style={{position:'relative'}}>
             <img src="/images/heading1.webp" alt="academy" className="venbannerlogin"/>
             <div className="venmain1">
                 <h1 > Vendor Register</h1>
                 <p className="pstyle">Innovative Aerial Solutions for Every Need</p>
             </div>
-            </div>
-            <div style={{padding:'10%',background:'aliceblue'}}>
+            </div> */}
+            <div style={{padding:'7% 10%',background:'#fffdf0'}}>
             <div className=" row loginCard" >
                 <div className="col-md-6" style={{padding:'30px',marginBottom:30}}>
                     <h2 className="heading2" style={{textAlign:'inherit'}}>New Vendor Sign Up</h2>

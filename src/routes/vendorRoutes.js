@@ -25,6 +25,14 @@ import AddDrone from '../vendors/service/addDrone';
 import CourseOrdersDetails from '../vendors/orders/courseorderDetails';
 import ServiceOrderDetails from '../vendors/orders/serviceorderDetails';
 import NotFound from '../errors/404';
+import AddRental from '../vendors/rental/addRental';
+import UpdateRental from '../vendors/rental/updateRental';
+import RentalGallery from '../vendors/rental/rentalGallery';
+import RentalBanner from '../vendors/rental/rentalBanner';
+import ProductAvailability from '../vendors/rental/productavailability';
+import RentalvendorOrdersDetails from '../vendors/orders/rentalorderDetails';
+import AddJob from '../vendors/job/addjob';
+import JobStatus from '../vendors/job/jobstatus';
 
 
 
@@ -62,12 +70,18 @@ const VendorRoutes =()=>{
                      <Route path='/service/updateservice' element={<Servicephoto/>}/>
                      <Route path='/service/addBanner' element={<ServiceBanner/>}/>
                      <Route path='/service/addGallery' element={<ServiceGallery/>}/>
-
-
+                     <Route path='/rental/addRental' element={<AddRental/>}/>
+                     <Route path='/rental/updateRental' element={<UpdateRental/>}/>
+                     <Route path='/rental/rentalGallery' element={<RentalGallery/>}/>
+                     <Route path='/rental/rentalBanner' element={<RentalBanner/>}/>
+                     <Route path='/rental/productavailability' element={<ProductAvailability/>}/>
                      <Route path='/profile' element={<VProfile/>}/>
                      <Route path='/orders' element={<Vorders/>}/>
                      <Route path='/courseorder/:id' element={<CourseOrdersDetails/>}/>
                      <Route path='/serviceorder/:id' element={<ServiceOrderDetails/>}/>
+                     <Route path='/rentalorder/:id' element={<RentalvendorOrdersDetails/>}/>
+                     <Route path='/addjob' element={<AddJob/>}/>
+                     <Route path='/jobStatus' element={<JobStatus/>}/>
                      <Route path='/calender' element={<VenderCalender/>}/>
                      <Route path='/settings' element={<VSetting/>}/>
                      <Route path='/support' element={<VSupport/>}/>

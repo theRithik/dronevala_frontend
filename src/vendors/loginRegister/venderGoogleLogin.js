@@ -13,7 +13,7 @@ if(data){
     endpoint:endpoints.vendorGoogleLogin
   }
   const result = await VPostData(dt)
-  console.log(result)
+  // console.log(result)
   if(result){
     localStorage.setItem('vtoken',result.token)
     localStorage.setItem('vid',result.vid)
@@ -21,7 +21,7 @@ if(data){
   }
 }
     }catch(err){
-      console.log(err)
+      // console.log(err)
  
     }finally{
       
@@ -32,7 +32,7 @@ if(data){
         <GoogleLogin
   onSuccess={handleclick}
   onError={() => {
-    console.log('Login Failed');
+    // console.log('Login Failed');
   }}
   useOneTap
 />

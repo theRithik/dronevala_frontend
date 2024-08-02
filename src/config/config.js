@@ -1,5 +1,6 @@
 // const baseurl ="https://lqeiv6e0eh.execute-api.ap-south-1.amazonaws.com/prod"
-const baseurl ="https://server.dronevala.com"
+// const baseurl ="https://server.dronevala.com"
+const baseurl ="https://vauni363b1.execute-api.ap-south-1.amazonaws.com/prod"
 const endpoints={
    url:baseurl,
    aws:"https://dronevala.com/api/aws/upload",
@@ -9,6 +10,9 @@ const endpoints={
    // vendor
 
    vcalender:'/admin/CalenderEvent',
+   jobpost:'/admin/jobpost',
+   jonnames:'/admin/jobtitle',
+   jobpoststatus:'/admin/jobstatus',
    // orders 
    vendorAcademyOrders:"/admin/getOrderDetails",
 vendorServiceOrders:"/admin/ServiceOrdersList",
@@ -43,6 +47,18 @@ servicePhoto:'/admin/addserviceImage',
 sBanner:'/admin/addserviceBanner',
 sGallery:'/admin/addserviceGallery',
 
+
+// Rental
+addRental:"/admin/addRental",
+addrentalProduct:"/admin/addRentalProduct",
+findRental:"/admin/findProducts",
+updateRentalImage:"/admin/updateRentalImage",
+updateRentalProduct:"/admin/UpdateRentalProduct",
+addRentalGallery:"/admin/rentalGallery",
+RentalBanner:"/admin/rentalBanner",
+Rentalproductstatus:"/admin/productstatus",
+vendorRentalOrderDetail:"/admin/rentalorderDetails",
+vendorRentalOrders:'/admin/rentalorders',
 
 // vendor Login
 vendorLogin:"/admin/instituteLogin",
@@ -100,6 +116,19 @@ serviceReviews:"/user/getreviews",
 travelcharges:"/user/getTcharge",
 initatedServiceOrder:"/user/orderInitated",
 
+
+// Rental
+AllRental:'/user/allrental',
+rentalDetails:'/user/RentalDetails',
+getRentalBanner:'/user/getRentalBanner',
+getRentalGallery:'/user/rentalgallery',
+initatedRentalOrder:'/user/initatedRentalOrder',
+getRentalOrder:'/user/getuserRentalorder',
+
+
+// jobs
+getjobs:'/user/getjobs',
+jobdetails:'/user/getjobdetails',
 
 // admin...........
 AdLogin:"/super/login",

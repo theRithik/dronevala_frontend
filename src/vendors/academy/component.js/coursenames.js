@@ -20,7 +20,7 @@ const CourseNames =(props)=>{
     
      
     const renderCourse=(data)=>{
-        console.log(data)
+        // console.log(data)
         if(coursedata){
             return data.data.map((item)=>{
                 return(

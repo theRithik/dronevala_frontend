@@ -21,7 +21,7 @@ const AcdBooking=()=>{
     const [advance,setAdvance]=useState('')
     const [click,setClick] =useState(false)
     useEffect(()=>{
-        console.log(location)
+        // console.log(location)
         document.querySelector('footer').style.marginTop="0px"
         const fe = location.state.advance
         setAdvance(fe)
@@ -40,7 +40,7 @@ const AcdBooking=()=>{
         else{
             e.target.previousSibling.style.display="none"
         }
-        console.log(e.target.name,e.target.value)
+        // console.log(e.target.name,e.target.value)
         setForm(prev =>({
             ...prev,
             [e.target.name]:vl
@@ -49,7 +49,7 @@ const AcdBooking=()=>{
 
 const detailClick=()=>{
     if(form.name!=='' && form.email!=='' && form.phone!==''){
-        console.log(form.name)
+        // console.log(form.name)
     setDetails(false)
     setBill(true)
 }else{
@@ -118,7 +118,7 @@ if(result){
         message.info('Please select the checkbox')
     }  
 }catch(err){
-    console.log(err)
+    // console.log(err)
 }finally{
     setClick(false)
     document.getElementById('loader').innerHTML='<span id="loader"></span>'

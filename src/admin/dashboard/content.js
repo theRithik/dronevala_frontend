@@ -85,7 +85,7 @@ const mutation2 = useMutation({
         message.info('Please Fill the Details')
       }
       }catch(err){
-        console.log(err)
+        // console.log(err)
       }finally{
         setValue(false)
       }
@@ -135,7 +135,7 @@ else{
     message.info('please enter the Charges')
 }
   }catch(err){
-    console.log(err)
+    // console.log(err)
   }finally{
     setValue(false)
   }
@@ -173,7 +173,7 @@ if(data){
     message.info('Fill all the details')
   }
 }catch(err){
-  console.log(err)
+  // console.log(err)
 }finally{
   setValue(false)
 }

@@ -157,7 +157,7 @@ history('/vendor/main',{state:{data:'new'}})
     message.error('please select the services types your are offering')
 }
     }catch(err){
-        console.log(err)
+        // console.log(err)
     }finally{
          document.getElementById('RegBtn').innerHTML='<span id="RegBtn">Submit</span>'
     }

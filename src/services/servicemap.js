@@ -9,7 +9,7 @@ const MapComponent = (props) => {
     const [markerPosition, setMarkerPosition] = useState(null);
     const [searchBox, setSearchBox] = useState(null);
     const searchBoxRef = useRef(null);
-    console.log('loading Map')
+    // console.log('loading Map')
   
     const onLoad = useCallback((mapInstance) => {
       setMap(mapInstance);
@@ -46,9 +46,9 @@ const MapComponent = (props) => {
 };
 
 service.getDistanceMatrix(request).then((response) => {
-  //console.log()(response.rows[0].elements[0].distance.text,'first')
+  //// console.log()(response.rows[0].elements[0].distance.text,'first')
   const dt = response.rows[0].elements[0].distance.text
-  //console.log()(dt.split('k')[0])
+  //// console.log()(dt.split('k')[0])
       const cent = {
         lat:lat,
         lng:lng,
@@ -57,12 +57,12 @@ service.getDistanceMatrix(request).then((response) => {
       props.latlng(cent)
     })
     .catch((err)=>{
-      //console.log()(err)
+      //// console.log()(err)
     })
     };
 
     const handleClick = (e) => {
-        //console.log()(this.state.ms)
+        //// console.log()(this.state.ms)
         const lat= e.latLng.lat()
         const lng = e.latLng.lng()
   
@@ -83,9 +83,9 @@ service.getDistanceMatrix(request).then((response) => {
       };
       
       service.getDistanceMatrix(request).then((response) => {
-        //console.log()(response.rows[0].elements[0].distance.text,'first')
+        //// console.log()(response.rows[0].elements[0].distance.text,'first')
         const dt = response.rows[0].elements[0].distance.text
-        //console.log()(dt.split('k')[0])
+        //// console.log()(dt.split('k')[0])
             const cent = {
               lat:lat,
               lng:lng,
@@ -94,7 +94,7 @@ service.getDistanceMatrix(request).then((response) => {
             props.latlng(cent)
           })
           .catch((err)=>{
-            console.log(err)
+            // console.log(err)
           })
       };
 

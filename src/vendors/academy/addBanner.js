@@ -19,20 +19,20 @@ const BannerClick= async()=>{
         message.error('please select a course first')
     }
     else{
-    const data2 = document.getElementById('banner').files[0]
+    const data2 = document.getElementById('PhotoS').files[0]
     if(data2){
     document.getElementById('loader2').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
     
     
     if(data2.size<2100000){
-      message.loading('Processing',[10])
+      message.loading('Processing')
         const dt  ={
           fileInput:data2,
           folder:"academy",
           endpoint:endpoints.aws
         }
         const result = await PostImage(dt)
-    console.log(result)
+    // console.log(result)
     if(result){
       const dt ={
         id:courseId,
@@ -40,8 +40,9 @@ const BannerClick= async()=>{
         endpoint:endpoints.addBanner
       }
       const result2 = await VPostData(dt)
-      message.destroy()
+    
       if(result2){
+        message.destroy()
         message.success('Successfully Added')
         setAddBanner('Successfully Added')
       }
@@ -59,10 +60,8 @@ const BannerClick= async()=>{
 }
     }
   }catch(err){
-    console.log(err)
-    message.destroy()
+    // console.log(err)
 }finally {
-    console.log('finished')
     document.getElementById('loader2').innerHTML='<span id="loader2"></span>'
   }
 }
@@ -70,7 +69,7 @@ const BannerClick= async()=>{
 
 const [imgurl2,setImgurl2]=useState('')
 const imageAdd=()=>{
-  const img = document.getElementById('banner').files[0]
+  const img = document.getElementById('PhotoS').files[0]
   const reader = new FileReader();
   reader.onloadend=()=>{
 setImgurl2(reader.result)
@@ -110,7 +109,7 @@ setCourseId(data)
 <label  className="drop-container2 col-md-6" id="dropcontainer2" style={{marginBottom:20}}>
   <span className="drop-title2" id="PPhoto" style={{position:'absolute',zIndex:'1',top:'5px'}}>Add course Banner </span>
   <i class="bi bi-file-earmark-image"></i>
-  <input type="file" accept=".jpg, .png"  name="foo" id="banner" style={{paddingLeft:'5px',borderRadius:'5px'}} onChange={imageAdd}  required/>
+  <input type="file" accept=".jpg, .png"  name="foo" id="PhotoS" style={{paddingLeft:'5px',borderRadius:'5px'}} onChange={imageAdd}  required/>
   <img src={imgurl2} id="prev" style={{position:'absolute',display:'none',zIndex:'2',width:'102%',height:'103%',borderRadius:'10px'}} alt="preview"/>
 
   <p style={{margin:0,fontSize:10,fontWeight:500}}>Image size must be less than 2Mb</p>

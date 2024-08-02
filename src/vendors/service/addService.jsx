@@ -233,7 +233,7 @@ return(
     }
   }
     setPdata(pr)
-    //console.log()(pr)
+    //// console.log()(pr)
 }
 
 const priceRender=()=>{
@@ -258,7 +258,7 @@ const priceRender=()=>{
    
 SetStype(data)
     
-    //console.log()(data)
+    //// console.log()(data)
 
     }
 
@@ -275,7 +275,7 @@ SetStype(data)
     const phone = document.getElementById('phone').value
     const Cname = document.getElementById('Cname').value
    
-    //console.log()(fname,lname,Clocation,slocation,Sdata,phone,Cname,mp1,service)
+    //// console.log()(fname,lname,Clocation,slocation,Sdata,phone,Cname,mp1,service)
       const pt = document.querySelectorAll('.price') 
       const add = document.getElementById('address').value
       const imgData = document.getElementById('PhotoS').files[0]
@@ -309,7 +309,7 @@ const ptype =[]
      
    
      const result = await PostImage(im)
-     console.log(result)
+     // console.log(result)
      if(result){
       const img =  result.path
       const dt ={
@@ -355,7 +355,7 @@ else{
   message.error('fill all the details correctly as mentioned')
 }
       }catch(err){
-        console.log(err)
+        // console.log(err)
       }finally{
           document.getElementById('loader').innerHTML='<span id="loader"></span>'
       }
@@ -364,8 +364,8 @@ else{
 const [selectedDates, setSelectedDates] = useState([]);
 
     const handleDateChange=(dates,dateStrings)=>{
-        // console.log('From: ', dates[0], ', to: ', dates[1]);
-        // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+        // // console.log('From: ', dates[0], ', to: ', dates[1]);
+        // // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
         let value
         if(dates){
           if(dateStrings[0] === dateStrings[1]){

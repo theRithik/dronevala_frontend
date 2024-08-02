@@ -17,7 +17,7 @@ const HomeServicecard =()=>{
    
 
 const renderCourses =(data)=>{
-    console.log("2")
+    // console.log("2")
     if(data){
         if(data.length>0){
             return data.map((item)=>{
@@ -27,7 +27,14 @@ const renderCourses =(data)=>{
                 return(
                     <Link to={`/services/${item.service}/${cu}/${nm}/${item.serviceID}`} key={item.id} >
                     <div className="acdcard">
-    <img src="/images/slide1.webp" className="card5img" alt="academy"/>
+                    {item.serviceImage ?(
+ <img src={`${endpoints.imageprefix}${item.serviceImage}`} className="card5img" alt="academy"/>
+                        ):(
+                            <div style={{position:'relative'}}>
+                            <img src="/images/wallpaper2.webp" className="card5img" alt="academy"/>
+                        <p style={{position:'absolute',top:15,right:15,color:'orange',fontSize:10,fontWeight:700}}>No Image Provided</p>
+                        </div>
+                        )}
     <div className="cardbody">
 <h3>{item.companyName}</h3>
 <div>

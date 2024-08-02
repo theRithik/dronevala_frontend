@@ -4,11 +4,17 @@ import ErrorBoundary from "antd/es/alert/ErrorBoundary";
 import SuspenseLoad from "../suspense/suspence";
 
 import Header from "../home/HF/header";
-import NotFound from "../errors/404";
-import Adminlogin from "../admin/login/login";
-import Rentalcoming from "../rental/coming";
-import Storecoming from "../store/storecoming";
-import Contactus from "../home/contactus/contactus";
+const NotFound = lazy(()=>import ("../errors/404"))
+const RentalBooking =lazy(()=> import ("../rental/rentalbooking"))
+const CareersPage =lazy(()=> import ("../careers/careerspage"))
+const  JobDetails = lazy(()=> import ("../careers/jobDetails"))
+
+const RentalDetails =lazy(()=>import ("../rental/rentalDetails"))
+const  Adminlogin =lazy(()=>import ("../admin/login/login"))
+const Storecoming =lazy(()=>import  ("../store/storecoming"))
+const Contactus = lazy(()=>import ("../home/contactus/contactus"))
+
+const Rental = lazy(()=> import ("../rental/rental"))
 const VerifyUserEmail = lazy(()=>import ("../user/Ulogin/verifyEmail"))
 
 const VEmailVerify =lazy(()=> import ("../vendors/loginRegister/emailVerify"))
@@ -36,7 +42,7 @@ const About =lazy(()=>import("../home/about/aboutus"))
 const Service=lazy(()=>import("../services/services"))
 
 const CommonRoutes =()=>{
-    console.log('comm')
+    // console.log('comm')
     return(
         <>
         <ErrorBoundary>
@@ -45,7 +51,7 @@ const CommonRoutes =()=>{
             <Route element={<Header/>}>
             <Route index path="/" element={<Home/>}/>
             <Route path="/login" element={<UserLogin/>}/>
-            <Route path="/user/verify/:token" element={<VerifyUserEmail/>}/>
+            <Route path="/users/verify/:token" element={<VerifyUserEmail/>}/>
             <Route path="/register" element={<UserRegister/>}/>
             <Route path="/academy" element={<Academy/>}/>
             <Route path="/academy/:institute/:course/:id" element={<AcadDetails/>}/>
@@ -53,8 +59,17 @@ const CommonRoutes =()=>{
             <Route path="/services" element={<Service/>}/>
             <Route path="/services/:serivcestype/:company/:person/:id" element={<ServiceDetails/>}/>
             <Route path="/services/booking/:servicetype/:mainservice/:company" element={<ServiceBooking/>}/>
+            
+
+            <Route path="/rental" element={<Rental/>}/>
+            <Route path="/rental/:brand/:productName/:id" element={<RentalDetails/>}/>
+            <Route path="/rental/booking" element={<RentalBooking/>}/>
+
+            
             <Route path="/aboutus" element={<About/>}/>
             <Route path="/contactus" element={<Contactus/>}/>
+            <Route path="/careers" element={<CareersPage/>}/>
+            <Route path="/careers/job/:id" element={<JobDetails/>}/>
             <Route path="/termsandconditions" element={<Terms/>}/>
 <Route path="/privacyandpolicy" element={<PrivcyandPolicy/>}/>
 {/* <Route path="/disclaimer" element={<Disclaimer/>}/> */}
@@ -68,7 +83,7 @@ const CommonRoutes =()=>{
 <Route path="/vendors/servicedetailsform" element={<VdetailsForm2/>}/>
 <Route path="/dronevala/admin/login" element={<Adminlogin/>}/>
             </Route>
-            <Route path="/rental" element={<Rentalcoming/>}/>
+           
             <Route path="/store" element={<Storecoming/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>

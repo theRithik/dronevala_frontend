@@ -13,7 +13,7 @@ const dn ={
     })
     const bannerRender=(data)=>{
         if(data){
-          console.log(data,'banner')
+          // console.log(data,'banner')
           if(data.length>0){
             return data.map((item,i)=>{
                 return  <img key={i} src={`${endpoints.imageprefix}${item.banner?item.banner:'service/1719061365_back3.1.png'}`} alt="academy" className="serbanner"/>
@@ -38,7 +38,7 @@ return  (
         <div className="sermain1">
                 <h1 >{props.details.companyName}</h1>
                 <h2>{props.details.firstName} {props.details.middleName} {props.details.lastName}</h2>
-                <p className="mainP">we offer comprehensive course designed to equip you with the skills and knowledge required to excel in the field of drone technology. Our curriculum is tailored to meet industry standards and covers a wide range of topics</p>
+                <p className="mainP">Our drone services deliver exceptional results with cutting-edge technology and expert operators. We ensure unmatched efficiency, reliability, and quality for all your aerial needs. Experience the best in the industry with our professional drone services.</p>
             <div className="ser1Div">
 <div className="sernumeff">
   <h3>01</h3>
@@ -63,7 +63,7 @@ return  (
 </div>
 
             </div>
-            <button className="button">Book Service</button>
+            <button className="button" onClick={()=>{window.scrollTo(0,600)}}>Book Service</button>
             </div>
 }
         </>

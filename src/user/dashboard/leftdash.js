@@ -2,9 +2,6 @@ import React,{useEffect} from "react";
 import './dash.css'
 import { Link,useNavigate} from "react-router-dom";
 
-
-
-
 const UserLeftdash =()=>{
 const history = useNavigate()
 
@@ -27,9 +24,7 @@ if(lc === 'dark'){
     document.querySelector('.lightModeL').style.display="none"
     document.querySelector('.darkModeL').style.display="block"
 }
-
         }
-
      
     },[])
 

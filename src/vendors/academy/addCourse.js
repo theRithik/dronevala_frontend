@@ -273,7 +273,9 @@ setLng(data.lng)
         <button className="button" onClick={()=>{setShowMap(true)}}>Open Map</button>
         </div>
         { showMap &&
+        <div style={{position:'relative'}}>
         <MyComponent mapLocation={(data)=>LatLng(data)}/>
+          </div>
 }
 <div style={{display:'flex',justifyContent:'center',marginTop:20}}>
         <button type="submit" style={{marginBottom:'20px',marginTop:'10px',}} onClick={handleClick} className="bluebutton"><span id="loader"></span>Submit</button>

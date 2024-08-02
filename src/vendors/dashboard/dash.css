@@ -190,6 +190,7 @@ hr{
     padding: 20px;
     padding-top: 50px;
     overflow-y: scroll;
+    padding-bottom: 60px;
 }
 
 .leftsideBar::-webkit-scrollbar{

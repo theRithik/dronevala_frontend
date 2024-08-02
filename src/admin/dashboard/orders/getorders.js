@@ -32,7 +32,7 @@ const TotalOrders=()=>{
                setLength(tData.length)
 
                 for(let i=0;i<tData.length;i++){
-                    //console.log()(cota[i])
+                    //// console.log()(cota[i])
                    if(tData[i].paid>0){
                      tp += Number(tData[i].paid)
                    }

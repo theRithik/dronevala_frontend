@@ -19,7 +19,7 @@ const CourseOrdersDetails =()=>{
     })
     useEffect(()=>{
         if(data){
-            console.log(data)
+            // console.log(data)
             setOrder(data.data[0])
         }
     },[data])

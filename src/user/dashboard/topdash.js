@@ -24,7 +24,7 @@ const dt={
 
 useEffect(()=>{
 const theme = localStorage.getItem('theme')
-console.log('running')
+// console.log('running')
 if(theme){
   if(theme === 'dark'){
     document.querySelector('#root').classList.add('dark')
@@ -41,7 +41,7 @@ if(theme){
   }
 }
 if(data){
-setImage(data.data[0].profilePhoto)
+setImage(data.data[0]?.profilePhoto)
 }
 
 },[data])
@@ -121,7 +121,7 @@ document.querySelector('.overlay').classList.toggle('showol2')
 }
 
 const inputChange=(e)=>{
-  console.log(e.target.value)
+  // console.log(e.target.value)
   const vl = e.target.value
   if(vl.length>1){
 const result = menu.filter((item)=>{

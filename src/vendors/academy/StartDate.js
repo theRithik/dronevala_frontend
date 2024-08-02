@@ -44,10 +44,10 @@ const StartDate=()=>{
           }
         }
     }catch(err){
-        console.log(err)
+        // console.log(err)
         message.destroy()
      } finally {
-         console.log('finished')
+         // console.log('finished')
          document.getElementById('loader').innerHTML='<span id="loader"></span>'
        } 
         }

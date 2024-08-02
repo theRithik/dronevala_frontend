@@ -13,7 +13,7 @@ const AddTrainer=()=>{
     const trainerClick=async()=>{
         try{
        count++;
-       //console.log()(count)
+       //// console.log()(count)
        if(!courseId&& courseId===''){
         message.error('please select a course first') 
        }
@@ -23,7 +23,7 @@ const AddTrainer=()=>{
        const tExp = document.getElementById('tExp').value
        const topt = document.getElementById('toption').value
        const desc = document.getElementById('desc').value
-       //console.log()(tname,tExp,topt)
+       //// console.log()(tname,tExp,topt)
        if(tname !=='' && tExp !=='' && topt !=='' && desc !==''){
       message.loading('Processing',[10])
          const train = {
@@ -37,7 +37,7 @@ const AddTrainer=()=>{
            }
        const result = await VPostData(train)
        if(result){
-       console.log(result)
+       // console.log(result)
        message.destroy()
   document.getElementById("trainerColor").style.color='green'
    setTrainerUpdate('Trainer Added Successfully')
@@ -51,10 +51,10 @@ const AddTrainer=()=>{
   }
 }
 catch(err){
-   console.log(err)
+   // console.log(err)
    message.destroy()
 } finally {
-    console.log('finished')
+    // console.log('finished')
     document.getElementById('loader2').innerHTML='<span id="loader2"></span>'
   }
    }

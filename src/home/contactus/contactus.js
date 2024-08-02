@@ -3,6 +3,7 @@ import './contactus.css'
 import { message } from "antd";
 import { PostData } from "../../config/vendor/Apiconfig";
 import endpoints from "../../config/config";
+import { Helmet } from "react-helmet-async";
 const Contactus=()=>{
 
     const inputchange=(e)=>{
@@ -40,12 +41,25 @@ if(result){
     message.info('Please fill all the details')
 }
 }catch(err){
-    console.log(err)
+    // console.log(err)
 }
 }
     return(
         <>
         <div className="">
+
+        <Helmet>
+        <title>{`Contactus - Dronevala`}</title>
+        <link rel="Dronevala" href="https://dronevala.com/rental/"/>
+        <meta name="description" content="Get in touch with us for all your drone service needs. Our team is ready to assist with any inquiries about our professional aerial solutions. Whether you have questions, need support, or want to discuss a project, were here to help. Fill out the form below, and we'll respond promptly. Contact us today to experience top-notch drone services and exceptional customer support."/>
+        <link rel="canonical" href={`https://dronevala.com/contactus`} />
+        <meta name="keywords" content="drone course, Drone training academy,UAV pilot school,Drone certification courses, Learn to fly drones,Best drone academy,Drone flight training,Professional UAV training,Remote pilot license,Drone education programs,Drone school near me"/>
+        <meta property="og:title" content="Dronevala -Academy" />
+        <meta property="og:url" content={`https://dronevala.com/contactus`} />
+        <meta property="og:image" content="https://dronevala.com/images/logo.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Get in touch with us for all your drone service needs. Our team is ready to assist with any inquiries about our professional aerial solutions. Whether you have questions, need support, or want to discuss a project, we're here to help. Fill out the form below, and we'll respond promptly. Contact us today to experience top-notch drone services and exceptional customer support."/>
+    </Helmet>
             <div className="row">
                 <div className="col-md-6" style={{padding:'10%',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
                

@@ -21,7 +21,7 @@ const viedoClick=()=>{
       const data2 = document.getElementById('uploads').files[0]
       if(data2){
         document.getElementById('loader2').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
-    console.log(data2.size)
+    // console.log(data2.size)
   if(data2.size<5000000){
     
     const result = PostImage(data2)
@@ -43,7 +43,7 @@ const viedoClick=()=>{
   catch(err){
     throw err
  } finally {
-     console.log('finished')
+     // console.log('finished')
      document.getElementById('loader2').innerHTML='<span id="loader2">Submit</span>'
    }
 }

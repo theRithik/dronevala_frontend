@@ -65,7 +65,7 @@ window.scrollTo(0,0)
  
   // const bannerFunction=(data)=>{
   //   setBanner(data)
-  //   console.log(data)
+  //   // console.log(data)
   // }
 
   const handleClick=()=>{
@@ -228,7 +228,7 @@ window.scrollTo(0,0)
                        <div className="acdetailcard">
                        <i class="bi bi-arrow-up-right-circle-fill arrup"></i> 
                         <h6 className="acdheading" style={{fontSize:18,marginBottom:10}}>Course Fee</h6>
-                        <span className="acdpricetext">₹ <span>40000</span> /-</span>
+                        <span className="acdpricetext">₹ <span>{details.fees}</span> /-</span>
 
                         <p className="acdpricetext1">Book this course with an Advance Payment</p>
                         <span className="price">₹<span>{adv} </span>/-</span>
