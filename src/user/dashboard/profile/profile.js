@@ -31,7 +31,7 @@ const dt={
     endpoint:endpoints.userDetails
 }
     const {data}= useQuery({
-        queryKey:['userprofileDetails'],
+        queryKey:['userprofileDetails',localStorage.getItem('_id')],
         queryFn:()=>GetData(dt)
     })
 useEffect(()=>{

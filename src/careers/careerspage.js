@@ -9,20 +9,21 @@ import { useQuery } from "@tanstack/react-query";
 import { GetData } from "../config/vendor/Apiconfig";
 
 const CareersPage=()=>{
-    const[rd,setRd]=useState('')
-    const [finance,setFinance]=useState('')
-    const [mark,setMark]=useState('')
-    const [cus,setCus]=useState('')
-    const [eng,setEng]=useState('')
+    // const[rd,setRd]=useState('')
+    // const [finance,setFinance]=useState('')
+    // const [mark,setMark]=useState('')
+    // const [cus,setCus]=useState('')
+    // const [eng,setEng]=useState('')
     const [oper,setOper]=useState('')
-    const [hr,setHr]=useState('')
-    const [it,setIt]=useState('')
-    const [sp,setSp]=useState('')
-    const [bp,setBp]=useState('')
-    const [ad,setAd]=useState('')
-    const [td,setTd]=useState('')
-    const [noData,setNoData]=useState(false)
-    const [sales,setSales]=useState('')
+    const [oper2,setOper2]=useState('')
+    // const [hr,setHr]=useState('')
+    // const [it,setIt]=useState('')
+    // const [sp,setSp]=useState('')
+    // const [bp,setBp]=useState('')
+    // const [ad,setAd]=useState('')
+    // const [td,setTd]=useState('')
+    // const [noData,setNoData]=useState(false)
+    // const [sales,setSales]=useState('')
 
     const dt = {
         endpoint:endpoints.getjobs
@@ -33,92 +34,137 @@ const CareersPage=()=>{
     })
     useEffect(()=>{
 window.scrollTo(0,0)
+console.log('run')
 if(data){
-    if(data.length>0){
-    const hr = data.filter((item)=>{
-        return item.department === 'Research and Development'
-    })
-    setRd(hr)
+        setOper(data)
+        setOper2(data)
+    // const hr = data.filter((item)=>{
+    //     return item.department === 'Research and Development'
+    // })
+    // setRd(hr)
 
-    const acc = data.filter((item)=>{
-        return item.department === 'Finance'
-    })
-    setFinance(acc)
-    const ma = data.filter((item)=>{
-        return item.department === 'Marketing'
-    })
-    setMark(ma)
+    // const acc = data.filter((item)=>{
+    //     return item.department === 'Finance'
+    // })
+    // setFinance(acc)
+    // const ma = data.filter((item)=>{
+    //     return item.department === 'Marketing'
+    // })
+    // setMark(ma)
 
-    const cs = data.filter((item)=>{
-        return item.department === 'Customer Service'
-    })
-    setCus(cs)
+    // const cs = data.filter((item)=>{
+    //     return item.department === 'Customer Service'
+    // })
+    // setCus(cs)
 
-    const ee = data.filter((item)=>{
-        return item.department === 'Engineering'
-    })
-    setEng(ee)
-    const op = data.filter((item)=>{
-        return item.department === 'Operations'
-    })
-    setOper(op)
+    // const ee = data.filter((item)=>{
+    //     return item.department === 'Engineering'
+    // })
+    // setEng(ee)
+    // const op = data.filter((item)=>{
+    //     return item.department === 'Operations'
+    // })
+    // setOper(op)
 
-    const hrr = data.filter((item)=>{
-        return item.department === 'Human Resources'
-    })
-    setHr(hrr)
+    // const hrr = data.filter((item)=>{
+    //     return item.department === 'Human Resources'
+    // })
+    // setHr(hrr)
 
-    const it2 = data.filter((item)=>{
-        return item.department === 'Information Technology'
-    })
-    setIt(it2)
+    // const it2 = data.filter((item)=>{
+    //     return item.department === 'Information Technology'
+    // })
+    // setIt(it2)
 
-    const sp2 = data.filter((item)=>{
-        return item.department === 'Supply Chain/Logistics'
-    })
-    setSp(sp2)
+    // const sp2 = data.filter((item)=>{
+    //     return item.department === 'Supply Chain/Logistics'
+    // })
+    // setSp(sp2)
 
-    const bp2 = data.filter((item)=>{
-        return item.department === 'Business Development'
-    })
-    setBp(bp2)
+    // const bp2 = data.filter((item)=>{
+    //     return item.department === 'Business Development'
+    // })
+    // setBp(bp2)
 
     
-    const ad2 = data.filter((item)=>{
-        return item.department === 'Administration'
-    })
-    setAd(ad2)
+    // const ad2 = data.filter((item)=>{
+    //     return item.department === 'Administration'
+    // })
+    // setAd(ad2)
 
-    const td2 = data.filter((item)=>{
-        return item.department === 'Training and Development'
-    })
-    setTd(td2)
+    // const td2 = data.filter((item)=>{
+    //     return item.department === 'Training and Development'
+    // })
+    // setTd(td2)
 
-    const sl = data.filter((item)=>{
-        return item.department === 'Sales'
-    })
-    setSales(sl)
-}else{
-    setNoData(true)
-}
+    // const sl = data.filter((item)=>{
+    //     return item.department === 'Sales'
+    // })
+    // setSales(sl)
+
 }
     },[data])
 
     const marketing=(data)=>{
 if(data){
+    if(data.length>0){
+        console.log(data)
     return  data.map((item)=>{
         return(
             <div className="jobcard" key={item.id}>
             <Link to={`/careers/job/${item.id}`}>
             <i class="bi bi-box-arrow-in-up-right joblkic"></i>
             <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
+            <p className="stylep" style={{color:'grey',fontSize:10,marginBottom:0,marginTop:10}}>Company : <span style={{color:'black',fontWeight:600}}>{item.companyname}</span></p>
+            <p className="stylep" style={{fontSize:10,color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
             </Link>
             </div>
         )
     }) 
+}else{
+return(
+    <>
+    <Empty
+            image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+            imageStyle={{ height: 120 }}
+            description={
+              <h6 style={{fontSize:12,fontWeight:700}}>There are no openings right now</h6>
+            }
+            style={{margin:'auto',marginTop:'15%'}}
+          >
+          </Empty>
+    </>
+)
+}
+}else{
+return(
+    <>
+    <img src="/images/loading2.gif" style={{width:40}} alt="loading"/>
+    </>
+)
 }
     }
+
+        
+    const inputchange=(e)=>{
+        const vl = e.target.value
+        if(vl.length>0){
+            e.target.previousSibling.style.display="block"
+        }
+        else{
+            e.target.previousSibling.style.display="none"
+        }
+        if(vl.length>2){
+        const filt =  oper2.filter((item)=>{
+                return item.jobtitle.toLowerCase().indexOf(vl.toLowerCase())>-1 || item.companyname.toLowerCase().indexOf(vl.toLowerCase())>-1
+            })
+            setOper(filt)
+            console.log(filt)
+        }else{
+            setOper(oper2)
+        }
+    }
+
     return(
         <>
          <Helmet>
@@ -141,7 +187,7 @@ if(data){
                 </div>
             </div>
            <div style={{padding:'6.7%'}}>
-            <h3 style={{fontSize:'2.25rem',fontWeight:800,color:'#0c1765'}}>Why join Dronevala ?</h3>
+            <h3 style={{fontSize:'2.25rem',fontWeight:800,color:'#0c1765'}}>Why Choose Dronevala ?</h3>
             <p style={{color:'grey',fontSize:13,marginTop:20}}>Learn, earn and create impact as part of our growing team</p>
             <div className="row">
                 <div className="col-md-4">
@@ -169,273 +215,24 @@ if(data){
             </div>
 </div>
 <div style={{margin:'6.7%'}} id="jobopenings">
+    <div>
 <h3 style={{fontSize:'2.25rem',fontWeight:800,color:'#0c1765'}}>Job openings</h3>
+<div className="inputdiv" style={{position:'relative',width:'100%'}}>
+<i class="bi bi-search lgicon" style={{left:'2%',fontSize:14}}></i>
+    <label className="reglabeleff2">Search</label>
+    <input type="text" onChange={inputchange} id="search2" style={{fontSize:13,fontWeight:500}} name="search" placeholder="Search by job title or company name" className="form-control reginput"/>
+    </div>
+</div>
 
-{oper.length>0 &&
 <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{oper[0]?.department}</h5>
+
 <div className="jobcontainer">
-{
-    oper.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-{hr.length>0 &&
-<div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{hr[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    hr.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-
-{mark.length>0 &&
-<div style={{marginTop:'5%'}} >
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{mark[0]?.department}</h5>
-<div  className="jobcarddiv">
-{marketing(mark)}
-</div>
-</div>
-}
-
-{finance.length>0 &&
-<div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{finance[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    finance.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
+{marketing(oper)}
 </div>
 </div>
 
-}
 
-{sales.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{sales[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    sales.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-{cus.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{cus[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    cus.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-{rd.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{rd[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    rd.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-
-{eng.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{eng[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    eng.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-{it.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{it[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    it.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-
-{sp.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{sp[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    sp.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-{bp.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{bp[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    bp.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-{ad.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{ad[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    ad.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-
-{td.length>0 && 
-    <div style={{marginTop:'5%'}}>
-<h5 style={{fontSize:'1.5rem',fontWeight:600,color:'#0c1765',marginBottom:30}}>{td[0]?.department}</h5>
-<div className="jobcontainer">
-{
-    td.map((item)=>{
-        return(
-            <div className="jobcard" key={item.id}>
-            <Link to={`/careers/job/${item.id}`}>
-            <i class="bi bi-box-arrow-in-up-right joblkic"></i>
-            <h6 style={{fontSize:'1.25rem',fontWeight:800,color:'orange'}}>{item.jobtitle}</h6>
-            <p className="stylep" style={{marginTop:'30px',color:'grey',marginBottom:0}}>{item.jobtype} - {item.location}</p>
-            </Link>
-            </div>
-        )
-    })
-}
-</div>
-</div>
-}
-{noData &&
+{/* {noData &&
 <Empty
             image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
             imageStyle={{ height: 120 }}
@@ -445,7 +242,7 @@ if(data){
             style={{margin:'auto',marginTop:'15%'}}
           >
           </Empty>
-}
+} */}
 
 </div>
 

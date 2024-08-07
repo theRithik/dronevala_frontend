@@ -22,7 +22,6 @@ const [disable,setDisable]=useState(false)
         const cname =document.getElementById('cname').value
         const location =document.getElementById('location').value
         const jtype =document.getElementById('jtype').value
-        const dtype =document.getElementById('dtype').value
         const salary =document.getElementById('salary').value
         const description =document.getElementById('description').value
         const rqualification =document.getElementById('rqualification').value
@@ -34,7 +33,7 @@ const [disable,setDisable]=useState(false)
         const email =document.getElementById('email').value
         const phone = document.getElementById('phone').value
 
-        if(title!==''&&cname !==''&&location!==''&&jtype!==''&&dtype!==''&&salary!==''&&description!==''&&rqualification!==''&&pqualification!==''&&responsibilities!==''&&benefits!==''&&ldate!==''&& cdescription!==''&&email!==''&&phone!==''){
+        if(title!==''&&cname !==''&&location!==''&&jtype!==''&&description!==''&&rqualification!==''&&pqualification!==''&&responsibilities!==''&&benefits!==''&&ldate!==''&& cdescription!==''&&email!==''&&phone!==''){
             message.loading('Processing')
             document.getElementById('loader').innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
            setDisable(true)
@@ -43,7 +42,6 @@ const [disable,setDisable]=useState(false)
                 cname:cname,
                 location:location,
                 jtype:jtype,
-                dtype:dtype,
                 salary:salary,
                 description:description,
                 pqualification:pqualification,
@@ -94,6 +92,16 @@ const [disable,setDisable]=useState(false)
     <input type="text"  onChange={inputchange}   className="form-control profileinput" placeholder="Company Name" name="cname" id="cname" />
     <i class="bi bi-buildings Instprofileinputicon"></i>
         </div>
+        <div style={{position:'relative'}}>
+        <label className="profilelabeleff">Email</label>
+    <input type="email"  onChange={inputchange} className="form-control profileinput" placeholder="Email" name="salary" id="email" />
+    <i class="bi bi-envelope-at Instprofileinputicon"></i>
+        </div>
+        <div style={{position:'relative'}}>
+        <label className="profilelabeleff">Phone Number</label>
+    <input type="number"  onChange={inputchange} className="form-control profileinput" placeholder="Phone Number" name="phone" id="phone" />
+    <i class="bi bi-telephone Instprofileinputicon"></i>
+        </div>
 
         <div style={{position:'relative'}}>
 <select className="form-select profileinput" aria-label="Default select example" id="jtype">
@@ -111,7 +119,7 @@ const [disable,setDisable]=useState(false)
     <input type="text"  onChange={inputchange}   className="form-control profileinput" placeholder="Location" name="location" id="location" />
     <i class="bi bi-geo-alt-fill Instprofileinputicon"></i>
         </div>
-        <div style={{position:'relative'}}>
+        {/* <div style={{position:'relative'}}>
 <select className="form-select profileinput" aria-label="Default select example" id="dtype">
   <option defaultValue value=''>Select the Job Department</option>
   <option value="Human Resources">Human Resources </option>
@@ -130,7 +138,7 @@ const [disable,setDisable]=useState(false)
   <option value="Training and Development">Training and Development</option>
 </select>
 <i class="bi bi-caret-down-fill Instprofileinputicon" ></i>
-</div>
+</div> */}
 
 <div style={{position:'relative'}}>
         <label className="profilelabeleff">Salary Range</label>
@@ -183,16 +191,7 @@ const [disable,setDisable]=useState(false)
     <i class="bi bi-journal-text Instprofileinputicon"></i>
         </div>
 
-        <div style={{position:'relative'}}>
-        <label className="profilelabeleff">Email</label>
-    <input type="email"  onChange={inputchange} className="form-control profileinput" placeholder="Email" name="salary" id="email" />
-    <i class="bi bi-envelope-at Instprofileinputicon"></i>
-        </div>
-        <div style={{position:'relative'}}>
-        <label className="profilelabeleff">Phone Number</label>
-    <input type="number"  onChange={inputchange} className="form-control profileinput" placeholder="Phone Number" name="phone" id="phone" />
-    <i class="bi bi-telephone Instprofileinputicon"></i>
-        </div>
+      
         
         </div>
         <div style={{textAlign:'center'}}>

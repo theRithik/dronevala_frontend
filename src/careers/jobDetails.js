@@ -161,7 +161,7 @@ if(data.length>0){
         <div>
             <div style={{padding:'6.7%'}}>
             <h3 className="headingtag">{job[0]?.jobtitle}</h3>
-            <h6 style={{marginTop:20}}>{job[0]?.department}</h6>
+            <h6 style={{marginTop:20}}>{job[0]?.companyname}</h6>
             <a href="#ApplyToJob">
                 <button className="btn btn-primary" style={{background:'rgb(13 42 218)',borderRadius:20,width:100,marginTop:30}}>Apply</button>
             </a>
@@ -241,7 +241,7 @@ Benefits:
 <i class="bi bi-person-fill lgicon" style={{left:'4%'}}></i>
     <label className="reglabeleff2">Name</label>
 
-    <input type="name" onChange={inputchange} id="name" name="name" placeholder="Name" className="form-control reginput"/>
+    <input type="text" onChange={inputchange} id="name" name="name" placeholder="Name" className="form-control reginput"/>
     <p className="regreq2">Required Filed</p>
     </div>
     <div className="inputdiv" style={{position:'relative',width:'100%'}}>
@@ -268,7 +268,7 @@ Benefits:
                 </div>
                 </div>
                 <div style={{marginTop:'10%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <button className="btn btn-dark stylebutton" disabled={disable} onClick={handleSubmit}><span id="loader"></span>Submit</button>
+                    <button className="button" disabled={disable} onClick={handleSubmit}><span id="loader"></span>Submit</button>
                 </div>
             </div>
             </div>

@@ -124,7 +124,7 @@ window.scrollTo(0,0)
 
         <p>Drone rental services provide affordable and flexible access to high-quality drones for short-term use, allowing businesses and individuals to leverage advanced aerial technology without the commitment of ownership.</p>
 
-        <button onClick={()=>history('/rental')}>COMING SOON</button>
+        <button onClick={()=>history('/rental')}>DISCOVER MORE</button>
       </div>
     </div>
     <div class="carousel-item">
